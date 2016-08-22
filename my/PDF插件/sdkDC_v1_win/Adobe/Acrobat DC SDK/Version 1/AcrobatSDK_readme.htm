@@ -1,0 +1,764 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>Readme File - Adobe Acrobat SDK Version 8.1</title>
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Myriad Pro";
+	panose-1:2 11 5 3 3 4 3 2 2 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Courier Std";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	color:red;
+	font-weight:bold;}
+p.MsoListBullet, li.MsoListBullet, div.MsoListBullet
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-18.0pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBulletCxSpFirst, li.MsoListBulletCxSpFirst, div.MsoListBulletCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-18.0pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBulletCxSpMiddle, li.MsoListBulletCxSpMiddle, div.MsoListBulletCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-18.0pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBulletCxSpLast, li.MsoListBulletCxSpLast, div.MsoListBulletCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-18.0pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber, li.MsoListNumber, div.MsoListNumber
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-18.0pt;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;}
+p.MsoListNumberCxSpFirst, li.MsoListNumberCxSpFirst, div.MsoListNumberCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-18.0pt;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;}
+p.MsoListNumberCxSpMiddle, li.MsoListNumberCxSpMiddle, div.MsoListNumberCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-18.0pt;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;}
+p.MsoListNumberCxSpLast, li.MsoListNumberCxSpLast, div.MsoListNumberCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-18.0pt;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{mso-style-link:"Normal \(Web\) Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;}
+pre
+	{mso-style-link:"HTML Preformatted Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-link:"HTML Preformatted";
+	font-family:Consolas;}
+p.style2, li.style2, div.style2
+	{mso-style-name:style2;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:#CC0000;}
+p.style3, li.style3, div.style3
+	{mso-style-name:style3;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+p.style4, li.style4, div.style4
+	{mso-style-name:style4;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;
+	color:#009900;
+	font-weight:bold;}
+p.style5, li.style5, div.style5
+	{mso-style-name:style5;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:#009900;}
+p.style6, li.style6, div.style6
+	{mso-style-name:style6;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:7.0pt;
+	font-family:"Arial",sans-serif;}
+p.SP6188417, li.SP6188417, div.SP6188417
+	{mso-style-name:"SP\.6\.188417";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Myriad Pro",sans-serif;}
+p.SP6188550, li.SP6188550, div.SP6188550
+	{mso-style-name:"SP\.6\.188550";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Myriad Pro",sans-serif;}
+p.SP6188551, li.SP6188551, div.SP6188551
+	{mso-style-name:"SP\.6\.188551";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Myriad Pro",sans-serif;}
+p.SP6188486, li.SP6188486, div.SP6188486
+	{mso-style-name:"SP\.6\.188486";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Myriad Pro",sans-serif;}
+span.SC6266251
+	{mso-style-name:"SC\.6\.266251";
+	font-family:"Myriad Pro",sans-serif;
+	color:black;}
+p.Heading1, li.Heading1, div.Heading1
+	{mso-style-name:Heading1;
+	mso-style-link:"Heading1 Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;
+	color:red;
+	font-weight:bold;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Arial",sans-serif;
+	color:red;
+	font-weight:bold;}
+span.NormalWebChar
+	{mso-style-name:"Normal \(Web\) Char";
+	mso-style-link:"Normal \(Web\)";
+	font-family:"Arial",sans-serif;}
+span.Heading1Char0
+	{mso-style-name:"Heading1 Char";
+	mso-style-link:Heading1;
+	font-family:"Arial",sans-serif;}
+p.DocumentTitle, li.DocumentTitle, div.DocumentTitle
+	{mso-style-name:DocumentTitle;
+	mso-style-link:"DocumentTitle Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:24.0pt;
+	font-family:"Arial",sans-serif;}
+p.Version, li.Version, div.Version
+	{mso-style-name:Version;
+	mso-style-link:"Version Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+span.DocumentTitleChar
+	{mso-style-name:"DocumentTitle Char";
+	mso-style-link:DocumentTitle;
+	font-family:"Arial",sans-serif;}
+p.Contents, li.Contents, div.Contents
+	{mso-style-name:Contents;
+	mso-style-link:"Contents Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	font-size:13.5pt;
+	font-family:"Arial",sans-serif;
+	color:red;}
+span.VersionChar
+	{mso-style-name:"Version Char";
+	mso-style-link:Version;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.SectionHeading, li.SectionHeading, div.SectionHeading
+	{mso-style-name:SectionHeading;
+	mso-style-link:"SectionHeading Char";
+	margin-top:14.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:10.5pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+span.ContentsChar
+	{mso-style-name:"Contents Char";
+	mso-style-link:Contents;
+	font-family:"Arial",sans-serif;
+	color:red;}
+span.SectionHeadingChar
+	{mso-style-name:"SectionHeading Char";
+	mso-style-link:SectionHeading;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.Code, li.Code, div.Code
+	{mso-style-name:Code;
+	mso-style-link:"Code Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:36.0pt;
+	font-size:10.0pt;
+	font-family:Courier;}
+p.Readme, li.Readme, div.Readme
+	{mso-style-name:Readme;
+	mso-style-link:"Readme Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	font-size:14.0pt;
+	font-family:"Arial",sans-serif;
+	color:red;}
+span.CodeChar
+	{mso-style-name:"Code Char";
+	mso-style-link:Code;
+	font-family:Courier;}
+span.ReadmeChar
+	{mso-style-name:"Readme Char";
+	mso-style-link:Readme;
+	font-family:"Arial",sans-serif;
+	color:red;}
+p.HeadingRunIn, li.HeadingRunIn, div.HeadingRunIn
+	{mso-style-name:HeadingRunIn;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:14.0pt;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;
+	font-weight:bold;}
+p.Body, li.Body, div.Body
+	{mso-style-name:Body;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	line-height:14.0pt;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+.MsoChpDefault
+	{font-size:10.0pt;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 54.0pt 72.0pt 54.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=blue>
+
+<div class=WordSection1>
+
+<p class=DocumentTitle style='margin-bottom:12.0pt'>Adobe Acrobat DC SDK </p>
+
+<p class=Readme style='margin-top:17.0pt'>Readme File</p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=672
+ style='width:504.0pt'>
+ <tr>
+  <td width=346 valign=bottom style='width:259.6pt;padding:0cm 0cm 0cm 0cm'>
+  <p><b><span style='font-size:11.0pt;color:#339966'>Edition 1.0 </span></b></p>
+  </td>
+  <td width=326 valign=bottom style='width:244.4pt;padding:0cm 0cm 0cm 0cm'>
+  <p style='margin-left:167.9pt'><b><span style='font-size:11.0pt'>May 2015</span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p>Copyright 2015 Adobe Systems Incorporated. All rights reserved.</p>
+
+<p>This file contains important information. Review this information before
+using this version of the Adobe Acrobat DC SDK.</p>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" noshade style='color:black' align=center>
+
+</div>
+
+<p class=Contents style='margin-top:21.0pt'><a name=Contents></a><b>Contents</b></p>
+
+<p class=MsoListBullet style='margin-bottom:6.0pt'><span style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><a href="#_About_this_Release"><span style='font-size:10.0pt;
+font-family:"Arial",sans-serif'>About this Release</span></a></p>
+
+<p class=MsoListBullet style='margin-bottom:6.0pt'><span class=MsoHyperlink><span
+style='font-size:10.0pt;font-family:Symbol;color:windowtext;text-decoration:
+none'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><a href="#What's_New"><span style='font-size:10.0pt;
+font-family:"Arial",sans-serif'>What's New</span></a></p>
+
+<p class=MsoListBullet style='margin-bottom:6.0pt'><span style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><a href="#_Known_Issues"><span style='font-size:10.0pt;
+font-family:"Arial",sans-serif'>Changes for Existing Plug-ins</span></a></p>
+
+<p class=MsoListBullet style='margin-bottom:6.0pt'><span style='font-size:10.0pt;
+font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:"Arial",sans-serif'><a
+href="#_Known_issues_1">Known Issues</a></span></p>
+
+<p class=MsoListBulletCxSpLast><span style='font-size:10.0pt;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><a href="#_Documentation"><span style='font-size:10.0pt;
+font-family:"Arial",sans-serif'>Documentation</span></a></p>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" noshade style='color:black' align=center>
+
+</div>
+
+<p class=Contents style='margin-top:21.0pt'><a name="What's_New"></a><a
+name="_What's_New"></a><a name="_About_this_Release"></a><b>About this Release</b></p>
+
+<p>This is Acrobat DC SDK Release for Microsoft Windows and Apple Mac OS X.</p>
+
+<p><a href="#Contents"><span style='font-size:7.5pt'>Back to Contents</span></a></p>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" noshade style='color:black' align=center>
+
+</div>
+
+<p class=Contents style='margin-top:21.0pt'><b>What’s New</b></p>
+
+<p>The <em><b><span style='font-family:"Arial",sans-serif;font-style:normal'>What's
+New</span></b></em><b><i> </i></b>topic in the of the <a
+href="http://www.adobe.com/devnet/acrobat.html">Acrobat&nbsp;DC SDK Help</a>
+contains details of the new and changed features. </p>
+
+<p><a href="#Contents"><span style='font-size:7.5pt'>Back to Contents</span></a></p>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" noshade style='color:black' align=center>
+
+</div>
+
+<p><a name="Known_Issues"></a><a name="_Known_Issues"></a><b><span
+style='font-size:13.5pt;color:red'>Changes for Existing Plug-ins </span></b></p>
+
+<p class=HeadingRunIn style='margin-top:5.0pt;margin-right:0cm;margin-bottom:
+5.0pt;margin-left:36.0pt;text-indent:-18.0pt;line-height:12.0pt;page-break-after:
+auto'><span style='font-size:10.5pt;font-family:Symbol;font-weight:normal'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif'>(Mac
+OS X only)</span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'> In earlier releases, Acrobat was a 32-bit only software.
+Now, Acrobat DC is a 64-bit only software. After installing Acrobat DC on Mac
+OS X, all existing plug-ins will stop working. To make your plug-ins work on
+Mac OS X, recompile and rebuild your plug-ins for Acrobat DC.</span></p>
+
+<p class=HeadingRunIn style='margin-top:5.0pt;margin-right:0cm;margin-bottom:
+5.0pt;margin-left:36.0pt;text-indent:-18.0pt;line-height:12.0pt;page-break-after:
+auto'><span style='font-size:10.5pt;font-family:Symbol;font-weight:normal'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif'>(Microsoft
+Windows only)</span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'> All the samples are ported from Microsoft Visual Studio
+2010 to Microsoft Visual Studio 2013. Now, you require Microsoft Visual Studio
+2013 to build the samples.</span></p>
+
+<p class=HeadingRunIn style='margin-top:5.0pt;margin-right:0cm;margin-bottom:
+5.0pt;margin-left:36.0pt;text-indent:-18.0pt;line-height:12.0pt;page-break-after:
+auto'><span style='font-size:10.5pt;font-family:Symbol;font-weight:normal'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif'>(Mac
+OS X only) </span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>All the samples are ported to </span><span
+style='font-size:11.0pt;font-family:"Calibri",sans-serif;font-weight:normal'>Xcode
+5.1.1</span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>. Now, you require Xcode 5.1.1 to run the samples.</span></p>
+
+<p class=SectionHeading><a name=RTF32303130363a203248656164>Document Cloud
+Product Tracks</a></p>
+
+<p class=Body style='margin-top:10.0pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:18.0pt;margin-bottom:.0001pt;line-height:12.0pt'><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif'>The Acrobat DC
+product family introduces two tracks for both Acrobat and Reader, which are
+essentially different products:</span></p>
+
+<p class=HeadingRunIn style='margin-top:5.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:
+12.0pt;page-break-after:auto'><span style='font-size:10.5pt;font-family:Symbol;
+font-weight:normal'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>The Continuous track provides service-based tools as well
+as new features, security and platform enhancements, and bug fixes as part of
+frequent (and most often) silent updates. Over time, the Continuous track’s
+update cadence will be more frequent than the Classic track. Classic license
+program customers do not have access to this track for Acrobat.</span></p>
+
+<p class=HeadingRunIn style='margin-top:5.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:
+12.0pt;page-break-after:auto'><span style='font-size:10.5pt;font-family:Symbol;
+font-weight:normal'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>The Classic track is similar to the 10.x-11.x model and
+does not provide new features in updates. Free services are available, but
+optional. Like previous releases, a quarterly update cadence delivers security
+and platform enhancements as well as bug fixes.</span></p>
+
+<p class=Body style='margin-top:10.0pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:18.0pt;margin-bottom:.0001pt'><span style='font-size:10.5pt;
+font-family:"Myriad Pro",sans-serif'>The default path of Acrobat depends on the
+selected track. After you build a plug-in, place the plug-in into the following
+directory and restart the Acrobat: </span></p>
+
+<p class=HeadingRunIn style='margin-top:5.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;page-break-after:
+auto'><span style='font-size:10.5pt;font-family:Symbol;font-weight:normal'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif'>(Windows)</span><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;font-weight:normal'>
+</span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>\Program Files\Adobe\&lt;TRACK NAME&gt;\Acrobat\plug_ins </span></p>
+
+<p class=HeadingRunIn style='margin-top:5.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;page-break-after:
+auto'><span style='font-size:10.5pt;font-family:Symbol;font-weight:normal'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif'>(Mac OS X)</span><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;font-weight:normal'>
+</span></p>
+
+<p class=HeadingRunIn style='margin-top:5.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:54.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;page-break-after:
+auto'><span style='font-size:10.5pt;font-family:Symbol;font-weight:normal'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;font-weight:normal'>(</span><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif'>Plug-in installed
+for a single user</span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>) </span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>~/Library/Application Support/Adobe/Acrobat/&lt;TRACK
+NAME&gt;/Plug-ins</span></p>
+
+<p class=HeadingRunIn style='margin-top:5.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:54.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;page-break-after:
+auto'><span style='font-size:10.5pt;font-family:Symbol;font-weight:normal'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;font-weight:normal'>(</span><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif'>Plug-in installed
+for all the user)</span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'> </span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>/Library/Application Support/Adobe/Acrobat/&lt;TRACK
+NAME&gt;/Plug-ins</span></p>
+
+<p class=HeadingRunIn style='margin-top:5.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:54.0pt;margin-bottom:.0001pt;page-break-after:auto'><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif'>Note: </span><i><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;font-weight:normal'>Acrobat
+must be restarted for the plug-in to be recognized.</span></i></p>
+
+<p class=Body><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif'>&nbsp;</span></p>
+
+<p class=Body style='text-indent:36.0pt'><span style='font-size:10.5pt;
+font-family:"Myriad Pro",sans-serif'>For detailed information about the tracks
+and corresponding installation paths see, </span><u><span style='font-size:
+10.5pt;font-family:"Myriad Pro",sans-serif;color:blue'>D</span></u><a
+href="http://www.adobe.com/devnet-docs/acrobatetk/tools/AdminGuide/whatsnewdc.html"><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif'>ocument Cloud </span></a><u><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;color:blue'>Product
+Tracks</span></u><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif'>
+document. </span></p>
+
+<p class=SectionHeading>End of support for Carbon-based APIs</p>
+
+<p class=Body style='margin-top:10.0pt;line-height:12.0pt'><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif'>Adobe&nbsp;Acrobat&nbsp;DC&nbsp;SDK
+no longer supports Carbon-based APIs for Apple Mac OS. Plug-ins using the
+Carbon-based APIs no longer function correctly. If you have existing plug-ins
+using Carbon-based APIs, rebuild the plug-ins using the latest Acrobat DC
+public headers and Cocoa-based APIs</span></p>
+
+<p class=SectionHeading>Enable plug-ins for Adobe Reader running on Microsoft
+Windows </p>
+
+<p class=Body style='margin-top:10.0pt;line-height:12.0pt'><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif'>On Microsoft
+Windows, to enable your plug-in for Adobe Reader, remove the acrocolorHFT
+define and add the READER_PLUGIN define to the AcroDspOptions.rsp file. Perform
+the following steps to define the READER_PLUGIN symbol in a Win32 project in
+Visual Studio C++:</span></p>
+
+<p class=HeadingRunIn style='margin-top:10.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:
+12.0pt;page-break-after:auto'><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>Locate the </span><span style='font-size:10.0pt;font-family:
+"Courier Std";font-weight:normal'>AcroDspOptions.rsp</span><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;font-weight:normal'>
+file in the SDK's </span><span style='font-size:10.0pt;font-family:"Courier Std";
+font-weight:normal'>/PluginSupport/Samples</span><span style='font-size:10.5pt;
+font-family:"Myriad Pro",sans-serif;font-weight:normal'> directory. </span></p>
+
+<p class=HeadingRunIn style='margin-top:10.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:
+12.0pt;page-break-after:auto'><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>Open </span><span style='font-size:10.0pt;font-family:"Courier Std";
+font-weight:normal'>AcroDspOptions.rsp</span><span style='font-size:10.5pt;
+font-family:"Myriad Pro",sans-serif;font-weight:normal'> in a text editor. </span></p>
+
+<p class=HeadingRunIn style='margin-top:10.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:
+12.0pt;page-break-after:auto'><span style='font-size:10.0pt;font-family:"Courier Std";
+font-weight:normal'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>Remove the </span><span style='font-size:10.0pt;font-family:
+"Courier Std";font-weight:normal'>AcroColorHFT </span><span style='font-size:
+10.5pt;font-family:"Myriad Pro",sans-serif;font-weight:normal'>define by
+removing the following line from the file: </span><span style='font-size:10.0pt;
+font-family:"Courier Std";font-weight:normal'>/D
+PI_ACROCOLOR_VERSION=0x00060000.</span></p>
+
+<p class=HeadingRunIn style='margin-top:10.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:65.0pt;margin-bottom:.0001pt;text-indent:-29.0pt;line-height:
+12.0pt;page-break-after:auto'><span style='font-size:10.0pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>Note: <span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><i><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;font-weight:normal'>This
+HFT is not available in Acrobat Reader install but is available in the Acrobat
+install. You must revert the HFT for the Acrobat plugins.</span></i></p>
+
+<p class=HeadingRunIn style='margin-top:10.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:
+12.0pt;page-break-after:auto'><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>Add the </span><span style='font-size:10.0pt;font-family:
+"Courier Std";font-weight:normal'>READER_PLUGIN </span><span style='font-size:
+10.5pt;font-family:"Myriad Pro",sans-serif;font-weight:normal'>define by adding
+the following to the file: /</span><span style='font-size:10.0pt;font-family:
+"Courier Std";font-weight:normal'>D READER_PLUGIN</span><span style='font-size:
+10.5pt;font-family:"Myriad Pro",sans-serif;font-weight:normal'>. </span></p>
+
+<p class=HeadingRunIn style='margin-top:10.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:
+12.0pt;page-break-after:auto'><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>Save and close the</span><span style='font-size:10.0pt;
+font-family:"Courier Std";font-weight:normal'> AcroDspOptions.rsp</span><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;font-weight:normal'>
+file. </span></p>
+
+<p class=HeadingRunIn style='margin-top:10.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:
+12.0pt;page-break-after:auto'><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>Open and rebuild your Visual C++ plug-in project. </span></p>
+
+<p class=HeadingRunIn style='margin-top:10.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:64.0pt;margin-bottom:.0001pt;text-indent:-28.0pt;line-height:
+12.0pt;page-break-after:auto'><span style='font-size:10.0pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>Note: <span style='font:7.0pt "Times New Roman"'> </span></span><i><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;font-weight:normal'>The
+change affects all SDK plug-ins built after the change is made.</span></i></p>
+
+<p class=SectionHeading>Enable plug-ins for Adobe Reader running on Apple Mac
+OS X</p>
+
+<p class=Body style='margin-top:10.0pt;line-height:12.0pt'><span
+style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif'>Perform the
+following steps to enable plug-ins for Adobe Reader running on Apple Mac OS X:</span></p>
+
+<p class=HeadingRunIn style='margin-top:10.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:
+12.0pt;page-break-after:auto'><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>Add the READER_PLUGIN symbol to the Xcode project-level
+build settings. To add the READER_PLUGIN symbol, in the Project Navigator,
+select the plug-in, open the Build tab, in the GCC Preprocessing settings, add
+READER_PLUGIN=1 to the Preprocessor Macros settings.</span></p>
+
+<p class=HeadingRunIn style='margin-top:10.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:
+12.0pt;page-break-after:auto'><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>Build the project and certify it using SignPlugin.</span></p>
+
+<p class=HeadingRunIn style='margin-top:10.0pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;line-height:
+12.0pt;page-break-after:auto'><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.5pt;font-family:"Myriad Pro",sans-serif;
+font-weight:normal'>Copy the plug-in to the </span><span style='font-size:10.0pt;
+font-family:"Courier Std";font-weight:normal'>/Library/Application
+Support/Adobe/Reader/&lt;TRACK NAME&gt;/Plug-ins</span><span style='font-size:
+10.5pt;font-family:"Myriad Pro",sans-serif;font-weight:normal'> directory.</span></p>
+
+<p><a href="#Contents"><span style='font-size:7.5pt'>Back to Contents</span></a></p>
+
+<div align=center style='text-align:center'>
+
+<hr size=2 width="100%" noshade style='color:black' align=center>
+
+</div>
+
+<h1><a name="_Known_issues_1"></a>Known issues</h1>
+
+<p>For a list of known issues, see <a
+href="http://www.adobe.com/devnet/acrobat.html">Release notes</a>. </p>
+
+<p><a href="#Contents"><span style='font-size:7.5pt'>Back to Contents</span></a></p>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" noshade style='color:black' align=center>
+
+</div>
+
+<h1><a name=Documentation></a><a name="_Documentation"></a>Documentation</h1>
+
+<p>The Acrobat DC SDK help is at <a
+href="http://www.adobe.com/devnet/acrobat/documentation.html">http://www.adobe.com/devnet/acrobat/documentation.html</a>.
+To view the documentation, you must have an Internet browser and Adobe Reader®
+installed on your computer. </p>
+
+<p><a href="#Contents"><span style='font-size:7.5pt'>Back to Contents</span></a></p>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" noshade style='color:black' align=center>
+
+</div>
+
+<p class=style6>Adobe, Acrobat, Distiller, Flash, PostScript and Reader are
+either registered trademarks or trademarks of Adobe Systems Incorporated in the
+United States and/or other countries. JavaScript is a trademark or registered
+trademark of Sun Microsystems, Inc. in the United States and other countries.<br>
+Mac OS is a trademark of Apple Inc., registered in the United States and other
+countries. Microsoft and Windows are either registered trademarks or trademarks
+of Microsoft Corporation in the United States and/or other countries. UNIX is a
+registered trademark of The Open Group in the US and other countries. All other
+trademarks are the property of their respective owners.</p>
+
+</div>
+
+</body>
+
+</html>

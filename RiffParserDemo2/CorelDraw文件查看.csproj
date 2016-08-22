@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>7.10.3077</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F1373C58-452B-498F-A618-A76759FABA95}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName />
+    <AssemblyName>CorelDraw文件查看</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>tisn</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>WindowsApplication1.Program</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AviRiffData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ByteBuffer.cs" />
+    <Compile Include="cdr\CDRbbox.cs" />
+    <Compile Include="cdr\CDRbmkt.cs" />
+    <Compile Include="cdr\CDRbmpt.cs" />
+    <Compile Include="cdr\CDRbmp_.cs" />
+    <Compile Include="cdr\CDRbmrk.cs" />
+    <Compile Include="cdr\CDRcolo.cs" />
+    <Compile Include="cdr\CDRDISP.cs" />
+    <Compile Include="cdr\CDRdoc_.cs" />
+    <Compile Include="cdr\CDRfilc.cs" />
+    <Compile Include="cdr\CDRfild.cs" />
+    <Compile Include="cdr\CDRFile.cs" />
+    <Compile Include="cdr\CDRfilt.cs" />
+    <Compile Include="cdr\CDRflgs.cs" />
+    <Compile Include="cdr\CDRfntt.cs" />
+    <Compile Include="cdr\CDRfont.cs" />
+    <Compile Include="cdr\CDRfver.cs" />
+    <Compile Include="cdr\CDRgobj.cs" />
+    <Compile Include="cdr\CDRgrp_.cs" />
+    <Compile Include="cdr\CDRiccd.cs" />
+    <Compile Include="cdr\CDRiccp.cs" />
+    <Compile Include="cdr\CDRICMT.cs" />
+    <Compile Include="cdr\CDRIKEY.cs" />
+    <Compile Include="cdr\CDRINFO.cs" />
+    <Compile Include="cdr\CDRlayr.cs" />
+    <Compile Include="cdr\CDRlgob.cs" />
+    <Compile Include="cdr\CDRloda.cs" />
+    <Compile Include="cdr\CDRmcfg.cs" />
+    <Compile Include="cdr\CDRobj_.cs" />
+    <Compile Include="cdr\CDRotlt.cs" />
+    <Compile Include="cdr\CDRoutl.cs" />
+    <Compile Include="cdr\CDRpage.cs" />
+    <Compile Include="cdr\CDRpref.cs" />
+    <Compile Include="cdr\CDRptrt.cs" />
+    <Compile Include="cdr\CDRReader.cs" />
+    <Compile Include="cdr\CDRstlt.cs" />
+    <Compile Include="cdr\CDRsumi.cs" />
+    <Compile Include="cdr\CDRsyst.cs" />
+    <Compile Include="cdr\CDRtrfl.cs" />
+    <Compile Include="cdr\CDRuil_.cs" />
+    <Compile Include="cdr\CDRvrsn.cs" />
+    <Compile Include="cdr\CDRWriter.cs" />
+    <Compile Include="cdr\CDRcmpr.cs" />
+    <Compile Include="cdr\RiffChunk.cs" />
+    <Compile Include="cdr\RiffConn.cs" />
+    <Compile Include="cdr\RIFFBase.cs" />
+    <Compile Include="cdr\RiffList.cs" />
+    <Compile Include="cdr\RiffType.cs" />
+    <Compile Include="zipLib\Checksums\Adler32.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Checksums\CRC32.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Checksums\IChecksum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Checksums\StrangeCRC.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\FileSystemScanner.cs" />
+    <Compile Include="Core\INameTransform.cs" />
+    <Compile Include="Core\IScanFilter.cs" />
+    <Compile Include="Core\NameFilter.cs" />
+    <Compile Include="Core\PathFilter.cs" />
+    <Compile Include="Core\StreamUtils.cs" />
+    <Compile Include="Core\WindowsPathUtils.cs" />
+    <Compile Include="DecodeHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="cdr\RiffParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Encryption\PkzipClassic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Encryption\ZipAESStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Encryption\ZipAESTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="zipLib\GZip\GZIPConstants.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\GZip\GZipException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\GZip\GzipInputStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\GZip\GzipOutputStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="RiffParserDemo2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="zipLib\SharpZipBaseException.cs" />
+    <Compile Include="zipLib\Tar\InvalidHeaderException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Tar\TarArchive.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Tar\TarBuffer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Tar\TarEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Tar\TarException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Tar\TarHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Tar\TarInputStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Tar\TarOutputStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\Compression\Deflater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\Compression\DeflaterConstants.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\Compression\DeflaterEngine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\Compression\DeflaterHuffman.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\Compression\DeflaterPending.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\Compression\Inflater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\Compression\InflaterDynHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\Compression\InflaterHuffmanTree.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\Compression\PendingBuffer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\Compression\Streams\DeflaterOutputStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\Compression\Streams\InflaterInputStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\Compression\Streams\OutputWindow.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\Compression\Streams\StreamManipulator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\FastZip.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\IEntryFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\WindowsNameTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\ZipConstants.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\ZipEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\ZipEntryFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\ZipException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\ZipExtraData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\ZipFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\ZipHelperStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\ZipInputStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\ZipNameTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zipLib\Zip\ZipOutputStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zlibnet\Helpers.cs" />
+    <Compile Include="zlibnet\Minizip\Minizip.cs" />
+    <Compile Include="zlibnet\Minizip\ZipEntry.cs" />
+    <Compile Include="zlibnet\Minizip\ZipReader.cs" />
+    <Compile Include="zlibnet\Minizip\ZipWriter.cs" />
+    <Compile Include="zlibnet\StringHelper.cs" />
+    <Compile Include="zlibnet\Zipper\FileSpecMatcher.cs" />
+    <Compile Include="zlibnet\Zipper\UnZipper.cs" />
+    <Compile Include="zlibnet\Zipper\Zipper.cs" />
+    <Compile Include="zlibnet\zlib\CrcStream.cs" />
+    <Compile Include="zlibnet\zlib\ZLib.cs" />
+    <Compile Include="zlibnet\zlib\ZLibCompressors.cs" />
+    <Compile Include="zlibnet\zlib\ZLibStreams.cs" />
+    <Content Include="App.ico" />
+    <EmbeddedResource Include="zlibnet\zlib32.dll" />
+    <EmbeddedResource Include="zlibnet\zlib64.dll" />
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiffParserDemo2.resx">
+      <DependentUpon>RiffParserDemo2.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ModelSupport\AviReader\AviReader.txvpck" />
+    <None Include="ModelSupport\default.txvpck" />
+    <None Include="ModelSupport\RiffParserDemo2\RiffParserDemo2.txvpck" />
+    <None Include="ModelSupport\RiffParserDemo\RiffParserDemo.txvpck" />
+    <None Include="ModelSupport\WindowsApplication1\WindowsApplication1.txvpck" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

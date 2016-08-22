@@ -1,0 +1,90 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DdeServer", "..\DdeServer\win32\DdeServer.vcxproj", "{541D90B8-7DA8-4FD4-BDA6-47557DA82D85}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DocSign", "..\DocSign\win32\DocSign.vcxproj", "{8DC2CFA8-DD6B-4461-AA52-9A4A072A0A13}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExternalWindow", "..\ExternalWindow\win32\ExternalWindow.vcxproj", "{2582A9E1-5B91-4A03-975F-C3B805ED3A61}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PDFBinder", "..\PDFBinder\win32\PDFBinder.vcxproj", "{B3BD7920-3320-4CB0-BABB-EFD08D733B99}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SelectionServer", "..\SelectionServer\win32\SelectionServer.vcxproj", "{54705FBC-276B-4F7B-A43E-C0E075D854FE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stamper", "..\Stamper\win32\Stamper.vcxproj", "{92275426-815E-464B-B804-F07CB4863038}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Starter", "..\Starter\win32\Starter.vcxproj", "{7FF1552A-9D0B-4CAF-B736-669AD950BA51}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UncompressPDF", "..\UncompressPDF\win32\UncompressPDF.vcxproj", "{8EA7CBDA-EDB5-4A60-8989-2CEF56C2C136}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WeblinkDemo", "..\WeblinkDemo\win32\WeblinkDemo.vcxproj", "{A1948C7C-1D10-4645-B9AA-1040B43409DB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BasicPlugin", "..\BasicPlugin\win32\BasicPlugin.vcxproj", "{B88D574E-35D4-4A27-8AF0-E2AD6BB9665B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SnippetRunner", "..\SnippetRunner\win32\SnippetRunner.vcxproj", "{3A716345-BF56-4330-B8F0-AD7592CFE289}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Embed3dData", "..\Embed3dData\win32\Embed3dData.vcxproj", "{754CA55A-B02A-4C6E-9709-3BE8880C5B09}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SampleCsp", "..\CAPISamples\SampleCsp\win32\SampleCsp.vcxproj", "{88A8B686-458A-430F-ABF2-C8A385F0FC64}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SampleRegistrar", "..\CAPISamples\SampleRegistrar\win32\SampleRegistrar.vcxproj", "{7F75FBD7-3486-472B-8315-74ABFE8C9E59}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RplcFileSystem", "..\RplcFileSystem\win32\RplcFileSystem.vcxproj", "{46569182-5FB5-46A3-87A8-C719E0AAB936}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClientApp", "..\DdeServer\win32\ClientApp\ClientApp.vcxproj", "{1F2BA0EB-7D25-4FB3-BF5E-4A1EFFE874D1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DMSIntegration", "..\DMSIntegration\win32\DMSIntegration.vcxproj", "{2365CCED-8283-41FB-9FC5-F9F3FCEF6F33}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BatesNumbering", "..\BatesNumbering\win32\BatesNumbering.vcxproj", "{E6B957E5-3D50-49F6-AE2D-05F95308C8D0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShowPermissions", "..\ShowPermissions\win32\ShowPermissions.vcxproj", "{3C049DBE-62EC-46E3-8461-F92C43DC099B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{541D90B8-7DA8-4FD4-BDA6-47557DA82D85}.Debug|Win32.ActiveCfg = Debug|Win32
+		{541D90B8-7DA8-4FD4-BDA6-47557DA82D85}.Debug|Win32.Build.0 = Debug|Win32
+		{8DC2CFA8-DD6B-4461-AA52-9A4A072A0A13}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8DC2CFA8-DD6B-4461-AA52-9A4A072A0A13}.Debug|Win32.Build.0 = Debug|Win32
+		{2582A9E1-5B91-4A03-975F-C3B805ED3A61}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2582A9E1-5B91-4A03-975F-C3B805ED3A61}.Debug|Win32.Build.0 = Debug|Win32
+		{B3BD7920-3320-4CB0-BABB-EFD08D733B99}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B3BD7920-3320-4CB0-BABB-EFD08D733B99}.Debug|Win32.Build.0 = Debug|Win32
+		{54705FBC-276B-4F7B-A43E-C0E075D854FE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{54705FBC-276B-4F7B-A43E-C0E075D854FE}.Debug|Win32.Build.0 = Debug|Win32
+		{92275426-815E-464B-B804-F07CB4863038}.Debug|Win32.ActiveCfg = Debug|Win32
+		{92275426-815E-464B-B804-F07CB4863038}.Debug|Win32.Build.0 = Debug|Win32
+		{7FF1552A-9D0B-4CAF-B736-669AD950BA51}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7FF1552A-9D0B-4CAF-B736-669AD950BA51}.Debug|Win32.Build.0 = Debug|Win32
+		{8EA7CBDA-EDB5-4A60-8989-2CEF56C2C136}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8EA7CBDA-EDB5-4A60-8989-2CEF56C2C136}.Debug|Win32.Build.0 = Debug|Win32
+		{A1948C7C-1D10-4645-B9AA-1040B43409DB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A1948C7C-1D10-4645-B9AA-1040B43409DB}.Debug|Win32.Build.0 = Debug|Win32
+		{B88D574E-35D4-4A27-8AF0-E2AD6BB9665B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B88D574E-35D4-4A27-8AF0-E2AD6BB9665B}.Debug|Win32.Build.0 = Debug|Win32
+		{3A716345-BF56-4330-B8F0-AD7592CFE289}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3A716345-BF56-4330-B8F0-AD7592CFE289}.Debug|Win32.Build.0 = Debug|Win32
+		{754CA55A-B02A-4C6E-9709-3BE8880C5B09}.Debug|Win32.ActiveCfg = Debug|Win32
+		{754CA55A-B02A-4C6E-9709-3BE8880C5B09}.Debug|Win32.Build.0 = Debug|Win32
+		{88A8B686-458A-430F-ABF2-C8A385F0FC64}.Debug|Win32.ActiveCfg = Debug|Win32
+		{88A8B686-458A-430F-ABF2-C8A385F0FC64}.Debug|Win32.Build.0 = Debug|Win32
+		{7F75FBD7-3486-472B-8315-74ABFE8C9E59}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7F75FBD7-3486-472B-8315-74ABFE8C9E59}.Debug|Win32.Build.0 = Debug|Win32
+		{46569182-5FB5-46A3-87A8-C719E0AAB936}.Debug|Win32.ActiveCfg = Debug|Win32
+		{46569182-5FB5-46A3-87A8-C719E0AAB936}.Debug|Win32.Build.0 = Debug|Win32
+		{1F2BA0EB-7D25-4FB3-BF5E-4A1EFFE874D1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1F2BA0EB-7D25-4FB3-BF5E-4A1EFFE874D1}.Debug|Win32.Build.0 = Debug|Win32
+		{2365CCED-8283-41FB-9FC5-F9F3FCEF6F33}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2365CCED-8283-41FB-9FC5-F9F3FCEF6F33}.Debug|Win32.Build.0 = Debug|Win32
+		{E6B957E5-3D50-49F6-AE2D-05F95308C8D0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E6B957E5-3D50-49F6-AE2D-05F95308C8D0}.Debug|Win32.Build.0 = Debug|Win32
+		{3C049DBE-62EC-46E3-8461-F92C43DC099B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3C049DBE-62EC-46E3-8461-F92C43DC099B}.Debug|Win32.Build.0 = Debug|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

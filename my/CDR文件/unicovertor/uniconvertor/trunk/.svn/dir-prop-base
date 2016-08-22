@@ -1,0 +1,9 @@
+K 10
+svn:ignore
+V 40
+include
+libs-win32
+setup_win32.py
+build
+
+END

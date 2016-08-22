@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+	<mime-type type="application/vnd.sk1project.pdxf-graphics">
+		<comment xml:lang="ara">تصميم PDXF</comment>
+		<comment xml:lang="be">Rysunak PDXF</comment>
+		<comment xml:lang="be@latin">Rysunak PDXF</comment>
+		<comment xml:lang="bg">Чертеж — PDXF</comment>
+		<comment xml:lang="ca">dibuix PDXF</comment>
+		<comment xml:lang="cs">Kresba PDXF</comment>
+		<comment xml:lang="da">PDXF-tegning</comment>
+		<comment xml:lang="de">PDXF-Zeichnung</comment>
+		<comment xml:lang="en_GB">PDXF drawing</comment>
+		<comment xml:lang="es">Dibujo PDXF</comment>
+		<comment xml:lang="eu">PDXF marrazkia</comment>
+		<comment xml:lang="fi">PDXF-piirros</comment>
+		<comment xml:lang="fr">dessin PDXF</comment>
+		<comment xml:lang="ga">líníocht PDXF</comment>
+		<comment xml:lang="hu">PDXF-rajz</comment>
+		<comment xml:lang="id">Gambar PDXF</comment>
+		<comment xml:lang="it">Disegno PDXF</comment>
+		<comment xml:lang="ja">PDXF ドロー</comment>
+		<comment xml:lang="kk">PDXF суреті</comment>
+		<comment xml:lang="ko">PDXF 드로잉</comment>
+		<comment xml:lang="lt">PDXF piešinys</comment>
+		<comment xml:lang="lv">PDXF zīmējums</comment>
+		<comment xml:lang="nb">PDXF-tegning</comment>
+		<comment xml:lang="nl">PDXF-tekening</comment>
+		<comment xml:lang="nn">PDXF-teikning</comment>
+		<comment xml:lang="oc">dessenh PDXF</comment>
+		<comment xml:lang="pl">Rysunek PDXF</comment>
+		<comment xml:lang="pt">Desenho PDXF</comment>
+		<comment xml:lang="pt_BR">Desenho PDXF</comment>
+		<comment xml:lang="ro">Desen PDXF</comment>
+		<comment xml:lang="ru">изображение PDXF</comment>
+		<comment xml:lang="sk">Kresba PDXF</comment>
+		<comment xml:lang="sq">Vizatim PDXF</comment>
+		<comment xml:lang="sv">PDXF-teckning</comment>
+		<comment xml:lang="tr">PDXF çizimi</comment>
+		<comment xml:lang="uk">малюнок PDXF</comment>
+		<comment xml:lang="vi">Bản vẽ PDXF</comment>
+		<comment xml:lang="zh_CN">PDXF 绘图</comment>
+		<acronym>PDXF</acronym>
+		<expanded-acronym>PrintDesign graphics</expanded-acronym>
+		<sub-class-of type="application/vnd.oasis.opendocument.graphics"/>
+		<icon name="application-vnd.oasis.opendocument.graphics"/>
+		<glob pattern="*.pdxf"/>
+	</mime-type>
+</mime-info>

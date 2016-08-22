@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'tisn'
+            keyPassword '5317520'
+            storeFile file('D:/360data/重要数据/我的文档/百度云同步盘/vspro/android/UC缓存小说转换/tisn.jks')
+            storePassword '5317520'
+        }
+    }
+    compileSdkVersion 19
+    buildToolsVersion '19.1.0'
+    defaultConfig {
+        applicationId "org.tisn.UCBookC"
+        minSdkVersion 19
+        targetSdkVersion 19
+        signingConfig signingConfigs.config
+        versionCode 1
+        versionName '1'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    dexOptions {
+        incremental true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile files('libs/thinkandroid-1.1-bin.jar')
+}

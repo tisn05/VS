@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Root SYSTEM "MappingTable.dtd">
+<Root File-format="Xml-1-00" Menu-name="XML-1.00 with complete properties" Mac-creator="MSIE" Mac-type="TEXT" Win-suffix="xml" Encode-out="Utf-8-out">
+	<!--
+	ADOBE SYSTEMS INCORPORATED
+	Copyright 2003 Adobe Systems Incorporated
+	All Rights Reserved
+	
+	NOTICE:  This Notice only applies to this file or any portion thereof.
+	Adobe permits you to use, modify, and distribute this file in accordance
+	with the terms and conditions of the Adobe license agreement accompanying
+	it ("Agreement").  Additionally, Adobe grants you a nonexclusive,
+	nontransferable, royalty-free license to use, modify and distribute
+	all or any portion of this file.  Where the terms of this Notice
+	and the terms of the Agreement differ, the terms of this Notice
+	shall control.  All other terms and conditions of the Agreement
+	remain unchanged and have full force and effect.  If you have received
+	this file from a source other than Adobe, then your use, modification,
+	or distribution of it requires the prior written permission of Adobe.
+-->
+	<!-- ===== Defined Proc-lists =====-->
+	<Define-proc-list Name="Arbitrary-user-attributes">
+		<Proc-property>
+			<!-- Emit a space before the property name-->
+			<Emit-string SP-Before="Yes"/>
+			<Property-name/>
+			<Property-type Type="Fixed">
+				<!-- There is no way for PDF to determine "Length" vs "Fixed".-->
+				<!-- There is no way for PDF to determine "Pixels" vs "Fixed".-->
+				<Emit-string>=&quot;</Emit-string>
+				<Proc-fixed/>
+				<Emit-string>&quot;</Emit-string>
+			</Property-type>
+			<Property-type Type="Int32">
+				<Emit-string>=&quot;</Emit-string>
+				<Proc-integer/>
+				<Emit-string>&quot;</Emit-string>
+			</Property-type>
+			<Property-type Type="Atom">
+				<Emit-string>=&quot;</Emit-string>
+				<Proc-string/>
+				<Emit-string>&quot;</Emit-string>
+			</Property-type>
+			<Property-type Type="String">
+				<Emit-string>=&quot;</Emit-string>
+				<Proc-string/>
+				<Emit-string>&quot;</Emit-string>
+			</Property-type>
+		</Proc-property>
+	</Define-proc-list>
+	<Define-proc-list Name="User-attributes">
+		<Walk-proplist Owner="XML-1.00" Use-proclist="Arbitrary-user-attributes"/>
+		<Walk-proplist Owner="CSS-1.00" Use-proclist="Arbitrary-user-attributes"/>
+		<Walk-proplist Owner="CSS-2.00" Use-proclist="Arbitrary-user-attributes"/>
+		<Walk-proplist Owner="HTML-4.01" Use-proclist="Arbitrary-user-attributes"/>
+		<Walk-proplist Owner="XHTML-1.00" Use-proclist="Arbitrary-user-attributes"/>
+	</Define-proc-list>
+	<Define-proc-list Name="Element-attributes">
+		<Proc-var Pdf-var="ActualText" Owner="Structelem" Type="String" Has-enum="No-enum" Inherit="Not-inherited" Default="-none-" Condition="Has-value">
+			<Emit-string SP-Before="Yes">ActualText=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Alt" Owner="Structelem" Type="String" Has-enum="No-enum" Inherit="Not-inherited" Default="-none-" Condition="Has-value">
+			<Emit-string SP-Before="Yes">Alt=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Lang" Owner="Structelem" Type="String" Has-enum="No-enum" Inherit="Not-inherited" Default="-none-" Condition="Has-value">
+			<Emit-string SP-Before="Yes">xml:lang=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontPDFName" Owner="Layout" Type="String" Has-enum="No-enum" Inherit="Not-inherited" Default="-none-" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes"/>
+			<Emit-string>TaggedPDF-Font=&quot;PDF=&apos;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&apos;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontFamily" Owner="Layout" Type="String" Has-enum="No-enum" Inherit="Not-inherited" Default="-none-" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes"/>
+			<Emit-string>Fam=&apos;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&apos;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontSize" Owner="Layout" Type="Fixed" Has-enum="No-enum" Inherit="Not-inherited" Default="12" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes"/>
+			<Emit-string>Sz=&apos;</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt&apos;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontStyle" Owner="Layout" Type="Atom" Has-enum="No-enum" Inherit="Not-inherited" Default="-none-" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes"/>
+			<Emit-string>It=&apos;</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="Italic" Value-out="italic"/>
+			</Proc-enum>
+			<Emit-string>&apos;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontWeight" Owner="Layout" Type="Int32" Has-enum="No-enum" Inherit="Not-inherited" Default="-none-" Condition="Less-than-value" Compare="550">
+			<Conditional-delimeter SP-After="Yes"/>
+			<Emit-string>Wt=&apos;</Emit-string>
+			<Proc-integer/>
+			<Emit-string>(normal)&apos;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontWeight" Owner="Layout" Type="Int32" Has-enum="No-enum" Inherit="Not-inherited" Default="-none-" Condition="More-than-value" Compare="549">
+			<Conditional-delimeter SP-After="Yes"/>
+			<Emit-string>Wt=&apos;</Emit-string>
+			<Proc-integer/>
+			<Emit-string>(bold)&apos;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontStretch" Owner="Layout" Type="Atom" Has-enum="No-enum" Inherit="Not-inherited" Default="-none-" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes"/>
+			<Emit-string>Sw=&apos;</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="UltraCondensed" Value-out="ultra-condensed"/>
+				<Proc-enum-choice Value-in="ExtraCondensed" Value-out="extra-condensed"/>
+				<Proc-enum-choice Value-in="Condensed" Value-out="condensed"/>
+				<Proc-enum-choice Value-in="SemiCondensed" Value-out="semi-condensed"/>
+				<Proc-enum-choice Value-in="SemiExpanded" Value-out="semi-expanded"/>
+				<Proc-enum-choice Value-in="Expanded" Value-out="expanded"/>
+				<Proc-enum-choice Value-in="ExtraExpanded" Value-out="extra-expanded"/>
+				<Proc-enum-choice Value-in="UltraExpanded" Value-out="ultra-expanded"/>
+			</Proc-enum>
+			<Emit-string>&apos;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontVariant" Owner="Layout" Type="Atom" Has-enum="No-enum" Inherit="Not-inherited" Default="-none-" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes"/>
+			<Emit-string>Var=&apos;</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="SmallCaps" Value-out="small-caps"/>
+			</Proc-enum>
+			<Emit-string>&apos;&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorRed" Owner="Layout" Type="Fixed" Has-enum="No-enum" Inherit="Not-inherited" Default="0" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes"/>
+			<Emit-string>TaggedPDF-Color=&quot;R=</Emit-string>
+			<Proc-fixed/>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorGreen" Owner="Layout" Type="Fixed" Has-enum="No-enum" Inherit="Not-inherited" Default="0" Condition="Has-value">
+			<Emit-string>, G=</Emit-string>
+			<Proc-fixed/>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorBlue" Owner="Layout" Type="Fixed" Has-enum="No-enum" Inherit="Not-inherited" Default="0" Condition="Has-value">
+			<Emit-string>, B=</Emit-string>
+			<Proc-fixed/>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="PageNumber" Owner="Structelem" Type="Int32" Has-enum="No-enum" Inherit="Not-inherited" Default="-none-" Condition="Has-value">
+			<Emit-string SP-Before="Yes">TaggedPDF-page=&quot;</Emit-string>
+			<Proc-integer/>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="BBoxLeft" Owner="Structelem" Type="Fixed" Has-enum="No-enum" Inherit="Not-inherited" Default="-none-" Condition="Has-value">
+			<Emit-string SP-Before="Yes">TaggedPDF-BBox=&quot;L=</Emit-string>
+			<Proc-length/>
+		</Proc-var>
+		<Proc-var Pdf-var="BBoxTop" Owner="Structelem" Type="Fixed" Has-enum="No-enum" Inherit="Not-inherited" Default="-none-" Condition="Has-value">
+			<Emit-string>, T=</Emit-string>
+			<Proc-length/>
+		</Proc-var>
+		<Proc-var Pdf-var="BBoxRight" Owner="Structelem" Type="Fixed" Has-enum="No-enum" Inherit="Not-inherited" Default="-none-" Condition="Has-value">
+			<Emit-string>, R=</Emit-string>
+			<Proc-length/>
+		</Proc-var>
+		<Proc-var Pdf-var="BBoxBottom" Owner="Structelem" Type="Fixed" Has-enum="No-enum" Inherit="Not-inherited" Default="-none-" Condition="Has-value">
+			<Emit-string>, B=</Emit-string>
+			<Proc-length/>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<!-- ========Defined Event-lists======== -->
+	<Define-event-list Name="content-elements">
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-name="-none-" Alternate-name="-none-" Node-content="Has-text-only" Event-class="Enter">
+			<Emit-string>&lt;PDSMC-Text</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Emit-string>&gt;</Emit-string>
+			<Proc-doc-text do-br-substitution="do-xml-br-substitution" Expand-entities="Expand-entities"/>
+			<Emit-string>&lt;/PDSMC-Text&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-name="-none-" Alternate-name="-none-" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string NL-Before="Yes">&lt;PDSMC-Any</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Emit-string>&gt;</Emit-string>
+			<Proc-doc-text do-br-substitution="do-xml-br-substitution" Expand-entities="Expand-entities"/>
+			<Emit-string NL-After="Yes">&lt;/PDSMC-Any&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-name="-none-" Alternate-name="-none-" Node-content="Image" Event-class="Enter">
+			<Emit-string NL-Before="Yes">&lt;PDSMC-Image</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+			<Emit-string NL-After="Yes">&quot;/&gt;</Emit-string>
+			<Conditional-prefix NL-After="Yes">&lt;?xpacket begin=&apos;&#xFEFF;&apos; id='W5M0MpCehiHzreSzNTczkc9d'?&gt;</Conditional-prefix>
+			<Emit-metadata NL-After="Yes"/>
+			<Conditional-suffix NL-After="Yes">&lt;?xpacket end=&apos;r&apos;?&gt;</Conditional-suffix>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-name="-none-" Alternate-name="-none-" Node-content="Image" Event-class="Exit">
+			<Emit-string NL-After="Yes">&quot; /&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-name="-none-" Alternate-name="-none-" Node-content="Graphic" Event-class="Enter">
+			<Emit-string NL-Before="Yes">&lt;PDSMC-Graphic</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-graphic-content/>
+			<Emit-string NL-After="Yes">&quot;/&gt;</Emit-string>
+			<Conditional-prefix NL-After="Yes">&lt;?xpacket begin=&apos;&#xFEFF;&apos; id='W5M0MpCehiHzreSzNTczkc9d'?&gt;</Conditional-prefix>
+			<Emit-metadata NL-After="Yes"/>
+			<Conditional-suffix NL-After="Yes">&lt;?xpacket end=&apos;r&apos;?&gt;</Conditional-suffix>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-name="-none-" Alternate-name="-none-" Node-content="Graphic" Event-class="Exit">
+			<Emit-string NL-After="Yes">&quot; /&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Any" Node-name="-none-" Alternate-name="-none-" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string NL-Before="Yes">&lt;</Emit-string>
+			<Element-name Name-type="Structure-user-label"/>
+			<Emit-string SP-Before="Yes">TaggedPDF-role=&quot;</Emit-string>
+			<Element-name Name-type="Structure-role"/>
+			<Emit-string>&quot;</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string>&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Any" Node-name="-none-" Alternate-name="-none-" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/</Emit-string>
+			<Element-name Name-type="Structure-user-label"/>
+			<Emit-string NL-After="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Any" Node-name="-none-" Alternate-name="-none-" Node-content="Empty" Event-class="Enter">
+			<Emit-string NL-Before="Yes">&lt;</Emit-string>
+			<Element-name Name-type="Structure-user-label"/>
+			<Emit-string SP-Before="Yes">TaggedPDF-role=&quot;</Emit-string>
+			<Element-name Name-type="Structure-role"/>
+			<Emit-string>&quot;</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-After="Yes">/&gt;</Emit-string>
+		</Event>
+	</Define-event-list>
+	<!-- Fixed info at start of file-->
+	<Set-encoding>
+		<Enum-encoding Type="Utf-8-out" Suppress="No" Emit-BOM="No"/>
+		<Enum-encoding Type="Utf-16-out" Suppress="No" Emit-BOM="Yes"/>
+		<Enum-encoding Type="Ucs-4-out" Suppress="No" Emit-BOM="Yes"/>
+		<Enum-encoding Type="Iso-latin-1-out" Suppress="No" Emit-BOM="No"/>
+		<Enum-encoding Type="Html-ascii-out" Suppress="No" Emit-BOM="No"/>
+	</Set-encoding>
+	<Begin-encoding/>
+	<Emit-string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;</Emit-string>
+	<Emit-encoding>
+		<Proc-enum>
+			<Proc-enum-choice Value-in="Utf-8-out" Value-out="UTF-8"/>
+			<Proc-enum-choice Value-in="Utf-16-out" Value-out="UTF-16"/>
+			<Proc-enum-choice Value-in="Ucs-4-out" Value-out="ISO-10646-UCS-4"/>
+			<Proc-enum-choice Value-in="Iso-latin-1-out" Value-out="ISO-8859-1"/>
+			<Proc-enum-choice Value-in="Html-ascii-out" Value-out="US-ASCII"/>
+		</Proc-enum>
+	</Emit-encoding>
+	<Emit-string NL-After="Yes">&quot; ?&gt;</Emit-string>
+	<Emit-string NL-After="Yes">&lt;!-- Created from PDF via Acrobat SaveAs: &apos;XML-1.00 with with complete properties&apos; --&gt;</Emit-string>
+	<Emit-string NL-After="Yes">&lt;!-- Mapping Table version: 28-February-2003 --&gt;</Emit-string>
+	<Emit-string NL-After="Yes">&lt;TaggedPDF-doc&gt;</Emit-string>
+	<Emit-string NL-After="Yes">&lt;?xpacket begin=&apos;&#xFEFF;&apos; id='W5M0MpCehiHzreSzNTczkc9d'?&gt;</Emit-string>
+	<Emit-doc-metadata NL-Before="Yes" NL-After="Yes"/>
+	<Emit-string NL-After="Yes">&lt;?xpacket end=&apos;r&apos;?&gt;</Emit-string>
+	<Walk-structure Use-event-list="content-elements"/>
+	<!-- Fixed info at end of file.-->
+	<Emit-string NL-After="Yes">&lt;/TaggedPDF-doc&gt;&lt;!-- End of document --&gt;</Emit-string>
+</Root>

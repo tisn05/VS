@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/309/trunk/src/uc2/utils/streamfilter
+END
+hexfilter.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/hexfilter.h
+END
+base64filter.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/base64filter.h
+END
+subfilefilter.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/subfilefilter.c
+END
+streamfilter.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/streamfilter.c
+END
+linefilter.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/linefilter.h
+END
+subfilefilter.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/subfilefilter.h
+END
+zlibfilter.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/zlibfilter.c
+END
+binfile.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/binfile.c
+END
+zlibfilter.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/zlibfilter.h
+END
+ascii85filter.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/ascii85filter.c
+END
+stringfilter.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/stringfilter.c
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/README
+END
+binfile.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/binfile.h
+END
+nullfilter.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/nullfilter.c
+END
+ascii85filter.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/ascii85filter.h
+END
+filterobj.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/filterobj.c
+END
+stringfilter.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/stringfilter.h
+END
+filterobj.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/filterobj.h
+END
+nullfilter.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/nullfilter.h
+END
+hexfilter.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/hexfilter.c
+END
+base64filter.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/base64filter.c
+END
+linefilter.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/103/trunk/src/uc2/utils/streamfilter/linefilter.c
+END

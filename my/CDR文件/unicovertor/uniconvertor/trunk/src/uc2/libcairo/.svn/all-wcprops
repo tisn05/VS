@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/343/trunk/src/uc2/libcairo
+END
+_libcairo.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/55/trunk/src/uc2/libcairo/_libcairo.c
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/343/trunk/src/uc2/libcairo/__init__.py
+END

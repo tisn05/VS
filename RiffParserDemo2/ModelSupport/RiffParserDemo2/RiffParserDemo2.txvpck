@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet>
+  <view uin="zo29cfcmj_v">
+    <property name="$name" value="RiffParserDemo2" />
+    <property name="$defaultDiagram" value="True" />
+    <property name="$metaclass" value="Package Diagram" />
+    <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.pnlAVI" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.btnBrowse" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.label1" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.Form1_Load(System.Object,System.EventArgs)" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.label2" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.Main()" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.components" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.openFileDialog1_FileOk(System.Object,System.ComponentModel.CancelEventArgs)" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.BtnOpen" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.txtFileType" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.txtFileFormat" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.InitializeComponent()" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.lblFilename" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.btnBrowse_Click(System.Object,System.EventArgs)" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.Dispose(System.Boolean)" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.openFileDialog1" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.txtFilename" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.RiffParserDemo2()" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.BtnOpen_Click(System.Object,System.EventArgs)" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.rp" />
+      <reference referencedUin="csharp:l_ast:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.rp" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.lblError" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.CheckFile(System.String)" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.Clear()" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.FILEFILTER" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.lbl5a" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.lbl5b" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.lbl2b" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.lbl4a" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.lbl4b" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.lbl6b" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.lbl2a" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.lbl1a" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.lbl6a" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.lbl1b" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.lbl3b" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.lbl3a" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.dh" />
+      <reference referencedUin="csharp:l_ast:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.dh" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParserDemo2.lblInfo" />
+    </reference>
+    <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.RiffParser">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.m_fourBytes" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParser.CloseFile()" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParser.ReadData(System.Byte[],System.Int32,System.Int32)" />
+      <reference referencedUin="csharp:e_property:src:RiffParserDemo2:RiffParserDemo2.RiffParser.FileType" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParser.ToFourCC(System.Char[])" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParser.ReadElement(ref@System.Int32,RiffParserDemo2.RiffParser.ProcessChunkElement,RiffParserDemo2.RiffParser.ProcessListElement)" />
+      <reference referencedUin="csharp:e_property:src:RiffParserDemo2:RiffParserDemo2.RiffParser.FileRIFF" />
+      <reference referencedUin="csharp:e_property:src:RiffParserDemo2:RiffParserDemo2.RiffParser.DataSize" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.m_fileriff" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.LIST4CC" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParser.ToFourCC(System.Char,System.Char,System.Char,System.Char)" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.m_filename" />
+      <reference referencedUin="csharp:e_property:src:RiffParserDemo2:RiffParserDemo2.RiffParser.FileName" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.DWORDSIZE" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.m_filesize" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.m_stream" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParser.RiffParser()" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.RIFF4CC" />
+      <reference referencedUin="csharp:e_property:src:RiffParserDemo2:RiffParserDemo2.RiffParser.ShortName" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParser.SkipData(System.Int32)" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.m_shortname" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.m_filetype" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParser.ReadOneInt(out@System.Int32)" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParser.ToFourCC(System.String)" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.RIFX4CC" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.m_eightBytes" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParser.FromFourCC(System.Int32)" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParser.OpenFile(System.String)" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.TWODWORDSSIZE" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParser.ReadTwoInts(out@System.Int32,out@System.Int32)" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.m_datasize" />
+      <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.RiffParser.ProcessListElement" />
+      <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.RiffParser.ProcessChunkElement" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.ckidAVI" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.ckidWAV" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RiffParser.ckidRMID" />
+    </reference>
+    <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.RiffParserException">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParserException.RiffParserException(System.String,System.Exception)" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParserException.RiffParserException()" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParserException.RiffParserException(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.RiffParserException.RiffParserException(System.String)" />
+    </reference>
+    <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.TIMECODE">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.TIMECODE.cFrames" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.TIMECODE.wFrameRate" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.TIMECODE.wFrameFract" />
+    </reference>
+    <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.AviRiffData">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.AVIF_ISINTERLEAVED" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.AVIIF_LIST" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.TIMECODE_SMPTE_COLOR_FRAME" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.AVIIF_COMPRESSOR" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.AVIF_MUSTUSEINDEX" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.streamtypeMIDI" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.ckidAVIOldIndex" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.AVIF_TRUSTCKTYPE" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.AVISF_DISABLED" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.streamtypeTEXT" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.ckidODML" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.AVISF_VIDEO_PALCHANGES" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.ckidAVIStreamHeader" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.ckidStreamFormat" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.ckidMainAVIHeader" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.TIMECODE_SMPTE_BINARY_GROUP" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.AVIF_COPYRIGHTED" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.AVIIF_KEYFRAME" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.AVIF_WASCAPTUREFILE" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.ckidAVIExtHeader" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.streamtypeAUDIO" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.streamtypeVIDEO" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.AVIF_HASINDEX" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.AVIIF_NO_TIME" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.ckidAVIHeaderList" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AviRiffData.ckidAVIStreamList" />
+    </reference>
+    <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.RECT">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RECT.top" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RECT.right" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RECT.bottom" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.RECT.left" />
+    </reference>
+    <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER.wPriority" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER.dwScale" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER.wLanguage" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER.dwLength" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER.dwSampleSize" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER.dwInitialFrames" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER.dwStart" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER.rcFrame" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER.dwSuggestedBufferSize" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER.fccHandler" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER.dwFlags" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER.fccType" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER.dwRate" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER.dwQuality" />
+      <reference referencedUin="csharp:l_ast:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER.rcFrame" />
+    </reference>
+    <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.TIMECODEDATA">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.TIMECODEDATA.dwSMPTEflags" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.TIMECODEDATA.time" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.TIMECODEDATA.dwUser" />
+      <reference referencedUin="csharp:l_ast:src:RiffParserDemo2:RiffParserDemo2.TIMECODEDATA.time" />
+    </reference>
+    <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.AVIEXTHEADER">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIEXTHEADER.dwGrandFrames" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIEXTHEADER.dwFuture" />
+    </reference>
+    <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.AVIMAINHEADER">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIMAINHEADER.dwHeight" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIMAINHEADER.dwTotalFrames" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIMAINHEADER.dwMicroSecPerFrame" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIMAINHEADER.dwWidth" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIMAINHEADER.dwFlags" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIMAINHEADER.dwPaddingGranularity" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIMAINHEADER.dwSuggestedBufferSize" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIMAINHEADER.dwInitialFrames" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIMAINHEADER.dwMaxBytesPerSec" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIMAINHEADER.dwStreams" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIMAINHEADER.dwReserved2" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIMAINHEADER.dwReserved3" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIMAINHEADER.dwReserved0" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIMAINHEADER.dwReserved1" />
+    </reference>
+    <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.AVIOLDINDEXENTRY">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIOLDINDEXENTRY.dwSize" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIOLDINDEXENTRY.dwChunkId" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIOLDINDEXENTRY.dwFlags" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.AVIOLDINDEXENTRY.dwOffset" />
+    </reference>
+    <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="csharp:e_property:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.Parser" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.m_parser" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.m_streamsFound" />
+      <reference referencedUin="csharp:l_ast:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.m_parser" />
+      <reference referencedUin="csharp:l_ast:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.Parser" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.m_totalFrames" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.m_numStreams" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.m_height" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.m_frameRate" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.m_width" />
+      <reference referencedUin="csharp:e_property:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.FrameRate" />
+      <reference referencedUin="csharp:e_field:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.m_maxBitRate" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.ProcessList(RiffParserDemo2.RiffParser,System.Int32,System.Int32)" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.ProcessAVIList(RiffParserDemo2.RiffParser,System.Int32,System.Int32)" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.DecodeHeader(RiffParserDemo2.RiffParser)" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.ProcessAVIChunk(RiffParserDemo2.RiffParser,System.Int32,System.Int32,System.Int32)" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.ProcessMainAVI()" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.ProcessChunk(RiffParserDemo2.RiffParser,System.Int32,System.Int32,System.Int32)" />
+      <reference referencedUin="csharp:e_property:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.MaxBitRate" />
+      <reference referencedUin="csharp:e_property:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.FrameSize" />
+      <reference referencedUin="csharp:e_property:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.TotalFrames" />
+      <reference referencedUin="csharp:e_property:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.NumStreams" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.DecodeAVIHeader(RiffParserDemo2.RiffParser,System.Int32,System.Int32)" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.DecodeAVIStream(RiffParserDemo2.RiffParser,System.Int32,System.Int32)" />
+      <reference referencedUin="csharp:e_method:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader.Clear()" />
+    </reference>
+  </view>
+</nodeSet>

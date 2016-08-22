@@ -1,0 +1,16 @@
+[bdist_rpm]
+release = 0
+post_install = debian/postinst
+post_uninstall = debian/postrm
+
+#Here are dependencies for different distros. 
+#To use preferences for your distro just uncomment its.
+
+#Mageia dependencies:
+#requires = libcairo2
+
+#OpenSuse dependencies:
+#requires = cairo
+
+#Fedora dependencies:
+#requires = cairo

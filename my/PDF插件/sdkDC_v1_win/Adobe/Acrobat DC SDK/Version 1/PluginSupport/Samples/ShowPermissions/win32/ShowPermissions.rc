@@ -1,0 +1,171 @@
+// Microsoft Visual C++ generated resource script.
+//
+// #include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
+API_ENCRYPTED_DIGEST RCDATA
+BEGIN
+	0x9583
+	0x412B
+	0x6135
+	0x61D7
+	0xF144
+	0xCA28
+	0x4DA8
+	0x59B9
+	0x5351
+	0xF05C
+	0x0C49
+	0x1534
+	0x9A74
+	0xF677
+	0xE2DF
+	0xD0F3
+	0x2BD0
+	0x644F
+	0xE3A6
+	0x8E61
+	0xFB6C
+	0x3A83
+	0x1493
+	0xAFAD
+	0x9864
+	0x8698
+	0x1BF9
+	0x5113
+	0x69CA
+	0x9267
+	0x1686
+	0x1C6A
+END
+
+
+
+API_DIGITAL_CERTIFICATE RCDATA
+BEGIN
+	0x6C9C
+	0xF709
+	0x21E9
+	0x3394
+	0x712B
+	0xDB1E
+	0x24CF
+	0xC1F0
+	0xE432
+	0x741F
+	0xEC30
+	0x317C
+	0x9AD4
+	0x6680
+	0xC8C3
+	0xC451
+	0x9C9C
+	0x73FE
+	0x232D
+	0xC861
+	0x2AA7
+	0x0582
+	0xD077
+	0x698A
+	0xF87D
+	0xCB6C
+	0x0FB7
+	0xE41B
+	0x6936
+	0x3DBA
+	0xB1A9
+	0xEEE5
+	0xC205
+	0x0C3D
+	0x44A9
+	0xE088
+	0xE57E
+	0x50AB
+	0x323C
+	0xB280
+	0x177C
+	0x6F0D
+	0xF5C0
+	0xC096
+	0x9126
+	0x4C33
+	0xB2FD
+	0x71F1
+	0xE118
+	0x953D
+	0x8B26
+	0xE57C
+	0x3D09
+	0x6EFA
+	0xE330
+	0xF852
+	0xD437
+	0x76E6
+	0x53EE
+	0xF752
+	0x3258
+	0xE5D8
+	0x532A
+	0x8CC6
+END
+
+
+

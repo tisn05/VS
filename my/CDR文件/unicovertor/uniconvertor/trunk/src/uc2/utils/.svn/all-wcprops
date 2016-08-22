@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/340/trunk/src/uc2/utils
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/205/trunk/src/uc2/utils/__init__.py
+END
+system.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/55/trunk/src/uc2/utils/system.py
+END
+config.py
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/340/trunk/src/uc2/utils/config.py
+END
+fs.py
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/339/trunk/src/uc2/utils/fs.py
+END

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xmlns:dc="http://purl.org/dc/elements/1.0/"-->
+<x:xapmeta xmlns:x='adobe:ns:meta/'>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+
+<rdf:Description rdf:about=""
+ xmlns:a0="a0/">
+ <a0:timestamps>
+    <rdf:Bag>
+        <rdf:li parseType='Resource'>
+            <a0:path>a/b/c/d</a0:path>
+            <a0:last>19990909T</a0:last>
+        </rdf:li>
+        <rdf:li parseType='Resource'>
+            <a0:path>Title/*</a0:path>
+            <a0:last>20010910T</a0:last>
+        </rdf:li>
+    </rdf:Bag>
+ </a0:timestamps>
+</rdf:Description>
+
+<rdf:Description rdf:about=""
+  xmlns:xxx="xxx">
+    <xxx:a>1</xxx:a>
+    <xxx:b>2</xxx:b>
+</rdf:Description>
+
+<rdf:Description rdf:about=""
+  xmlns:aaa="aaa'bbb"
+  aaa:simple="quote &quot; apos &apos; done">
+    <aaa:nasty>This text won't be nice "like this" and CR:&#xD;will also have all the stuff that we fear LF:&#xA;too. All we need are some &amp; and &lt; with &gt; and we are done.</aaa:nasty>
+</rdf:Description>
+
+</rdf:RDF>
+</x:xapmeta>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/309/trunk/src/uc2/formats/riff
+END
+presenter.py
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/55/trunk/src/uc2/formats/riff/presenter.py
+END
+riff_config.py
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/55/trunk/src/uc2/formats/riff/riff_config.py
+END
+stub.py
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/55/trunk/src/uc2/formats/riff/stub.py
+END
+riff_filters.py
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/55/trunk/src/uc2/formats/riff/riff_filters.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/55/trunk/src/uc2/formats/riff/__init__.py
+END
+utils.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/55/trunk/src/uc2/formats/riff/utils.py
+END
+model.py
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/111/trunk/src/uc2/formats/riff/model.py
+END

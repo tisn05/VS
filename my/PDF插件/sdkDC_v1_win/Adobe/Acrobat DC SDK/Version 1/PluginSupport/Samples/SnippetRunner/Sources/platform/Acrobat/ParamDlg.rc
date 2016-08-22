@@ -1,0 +1,334 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PARAMRSRC DIALOG  0, 0, 539, 94
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Snippet Runner Parameter String Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDC_OK,482,7,50,14
+    PUSHBUTTON      "Cancel",IDC_CANCEL,482,24,50,14
+    LTEXT           "Help text inserted right here",IDC_HELPTEXT,12,10,462,
+                    44
+    EDITTEXT        IDC_PARAMBOX,12,68,518,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Default",IDC_DEFAULT,482,43,50,14
+END
+
+IDD_DEBUGWINDOW DIALOG  0, 0, 454, 253
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDITWIN,7,7,440,214,ES_MULTILINE | WS_VSCROLL
+    DEFPUSHBUTTON   "Clear",IDC_CLEAR,395,227,52,19
+END
+
+IDD_TIMER_DLG DIALOG  0, 0, 128, 61
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Timer"
+FONT 12, "MS Sans Serif"
+BEGIN
+    LTEXT           "",IDC_ELAPSED_TIME,15,35,93,12,SS_SUNKEN
+    LTEXT           "",IDC_TIME,15,17,93,12,SS_SUNKEN
+    GROUPBOX        "",IDC_STATIC,7,7,110,43
+END
+
+IDD_DIALOG_PROMPT DIALOG  0, 0, 181, 65
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,28,44,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,101,44,50,14
+    EDITTEXT        IDC_EDIT_PROMPT,7,24,167,13,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_STATIC_LABEL,7,7,167,16
+END
+
+IDD_DIALOG_HIER_LIST DIALOGEX 0, 0, 220, 246
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "SDK Code Snippet List"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Close",IDOK,162,221,38,15
+    PUSHBUTTON      "Execute",IDC_BUTTON_EXECUTE,115,222,38,14
+    CONTROL         "",IDC_LIST_USERBOX,"Static",SS_BLACKFRAME | NOT 
+                    WS_VISIBLE,7,7,205,148
+    PUSHBUTTON      "Documentation",IDC_BUTTON_DESCIPTION,20,221,58,15,NOT 
+                    WS_VISIBLE
+    LTEXT           "",IDC_STATIC_ITEMDESCIP,12,160,200,55
+END
+
+IDD_DIALOG_LIST DIALOG  0, 0, 229, 148
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "List Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Close",ID_BUTTON_OK,184,126,38,14
+    PUSHBUTTON      "Add",IDC_BUTTON_ADDITEM,184,7,38,14
+    PUSHBUTTON      "Delete",IDC_BUTTON_DELETEITEM,184,31,38,14
+    LTEXT           "List Box ",IDC_STATIC_TITLE,14,7,152,11
+    PUSHBUTTON      "Up",IDC_BUTTON_UP,184,55,38,14
+    PUSHBUTTON      "Down",IDC_BUTTON_DOWN,184,79,38,14
+    LISTBOX         IDC_LISTBOX,7,20,166,100,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_NEWITEM,7,126,165,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "Select",IDC_BUTTON_HELP,185,103,37,13
+END
+
+IDD_DIALOG_PROMPT1 DIALOG  0, 0, 158, 63
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Input Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,22,42,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,84,42,50,14
+    EDITTEXT        IDC_EDIT_PROMPT,13,22,132,12,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_STATIC_LABEL,20,7,99,9
+END
+
+IDD_DIALOG_USERDATA DIALOG  0, 0, 188, 103
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "User Data Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,30,82,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,104,82,50,14
+    LTEXT           "Input text :",IDC_STATIC,7,7,39,12
+    EDITTEXT        IDC_EDIT_USER_TEXT,45,7,136,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_USER_INT,45,26,45,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_USER_FLOAT,44,46,47,12,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Check",IDC_BUTTON_USER_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,45,62,43,12
+    CONTROL         "Option A",IDC_BUTTON_USER_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,107,34,53,13
+    CONTROL         "Option B",IDC_BUTTON_USER_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,108,48,53,13
+    CONTROL         "Option C",IDC_BUTTON_USER_RADIO3,"Button",
+                    BS_AUTORADIOBUTTON,108,60,53,13
+    LTEXT           "Integer :",IDC_STATIC,7,26,39,12
+    LTEXT           "Floating Number :",IDC_STATIC,7,44,31,19
+    GROUPBOX        "Options",IDC_STATIC,103,22,60,53
+END
+
+IDD_DIALOG_ONETEXT DIALOG  0, 0, 183, 63
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,31,42,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,103,42,50,14
+    EDITTEXT        IDC_EDIT_TEXT_FIELD,7,7,169,30,ES_MULTILINE | 
+                    ES_AUTOHSCROLL
+END
+
+IDD_DIALOG_HIERARCHY_LIST DIALOG  0, 0, 214, 150
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Hierarchy List"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Close",IDOK,124,125,38,15
+    PUSHBUTTON      "Select",IDC_BUTTON_SELECT,51,126,38,14
+    CONTROL         "",IDC_LISTBOX_DUMMY,"Static",SS_BLACKFRAME | NOT 
+                    WS_VISIBLE,7,7,199,112
+END
+
+IDD_METADATA DIALOG  0, 0, 306, 161
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Doc Level Metadata"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Search Base URL",IDC_SEARCH_URL,13,89,67,15
+    DEFPUSHBUTTON   "Add URL Metadata",IDC_ADD_URL,13,111,67,15
+    DEFPUSHBUTTON   "Get Metadata",IDC_GET_METADATA,13,29,67,15
+    DEFPUSHBUTTON   "Close",IDC_CANCEL,13,129,67,15
+    EDITTEXT        IDC_DATA,86,28,196,41,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    DEFPUSHBUTTON   "Add Metadata",IDC_ADD_METADATA,13,55,67,15
+    LTEXT           "Usage and Action Results",IDC_STATIC,88,7,85,12
+    LTEXT           "Base URL",IDC_STATIC,89,78,69,12
+    EDITTEXT        IDC_URL_LIST,88,96,196,48,ES_AUTOHSCROLL
+END
+
+IDD_DEBUGWINDOW_RESIZE DIALOG  0, 0, 199, 199
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDITWIN,7,23,185,169,ES_MULTILINE | WS_VSCROLL
+    PUSHBUTTON      "Clear",IDC_CLEAR_RESIZE,7,3,43,12
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_PARAMRSRC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 532
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+
+    IDD_DEBUGWINDOW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 447
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 246
+    END
+
+    IDD_TIMER_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 121
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 54
+    END
+
+    IDD_DIALOG_PROMPT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 174
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
+    END
+
+    IDD_DIALOG_HIER_LIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 212
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 236
+    END
+
+    IDD_DIALOG_LIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 222
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 141
+    END
+
+    IDD_DIALOG_PROMPT1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 151
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 56
+    END
+
+    IDD_DIALOG_USERDATA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 181
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_DIALOG_ONETEXT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 176
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 56
+    END
+
+    IDD_DIALOG_HIERARCHY_LIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 206
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 140
+    END
+
+    IDD_METADATA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 299
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 154
+    END
+
+    IDD_DEBUGWINDOW_RESIZE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 192
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 192
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

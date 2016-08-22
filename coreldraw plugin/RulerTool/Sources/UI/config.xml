@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+  <resources>
+    <resource name="RulerToolResources" path="RulerTool.cpg">
+      <resourceMap>
+        <resEntry id="a5bdc561-e254-a088-4c94-ed1eb6f8e320" string="100" icon="200" cursor="200"/> <!-- Ruler Tool -->
+        <resEntry id="07da4f59-2cfd-4d8a-49bc-6d121ebcd47b" string="101"/> <!-- Ruler Tool property bar -->
+        <resEntry id="01e04e8a-b8b2-88a2-4d1a-14f4184c980d" string="102"/> <!-- Distance control-->
+        <resEntry id="1e2247a4-3b70-b5a3-4fb3-109d467ed64e" string="103"/> <!-- Distance label-->
+      </resourceMap>
+    </resource>
+  </resources>
+</config>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+	<resources>
+		<resource name="cdrPluginT" path="cdrPluginT.CorelAddon">
+			<resourceMap>
+				<!-- Toolbox icon and string resource -->
+				<resEntry id="c7722bb4-c835-4aec-b257-17d3370badae" icon="105"/>
+        <resEntry id="5b1309be-b43e-4611-9492-b09308a77699" icon="106"/>
+      </resourceMap>
+		</resource>
+	</resources>
+</config>

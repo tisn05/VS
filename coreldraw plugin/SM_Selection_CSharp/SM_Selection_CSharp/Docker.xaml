@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="SM_Selection_CSharp.Docker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="225">
+    <StackPanel>
+        <Label Name="lblObjectType" Height="22" Margin="0,5,0,0" Content="Selected object type:" Padding="5,5,5,0" />
+        <TextBox Name="txtObjectType" Height="23" Margin="5,0" />
+        <Label Name="lblNumSelected" Height="22" Margin="0,10,0,0" Content="Number of objects selected:" Padding="5,5,5,0" />
+        <TextBox Name="txtNumSelected" Height="23" Margin="5,0" />
+        <Label Name="lblSelect" Height="22" Margin="0,10,0,0" Content="Select:" Padding="5,5,5,0" />
+        <Button Name="btnRectangles" Height="23" Margin="5,0,5,2" Content="Rectangles" Click="btnRectangles_Click" />
+        <Button Name="btnEllipses" Height="23" Margin="5,0,5,2" Content="Ellipses" Click="btnEllipses_Click" />
+        <Button Name="btnCurves" Height="23" Margin="5,0,5,2" Content="Curves" Click="btnCurves_Click" />
+        <Button Name="btnPolygons" Height="23" Margin="5,0,5,2" Content="Polygons" Click="btnPolygons_Click" />
+        <Button Name="btnArtisticText" Height="23" Margin="5,0,5,2" Content="Artistic Text" Click="btnArtisticText_Click" />
+        <Button Name="btnParagraphText" Height="23" Margin="5,0,5,2" Content="Paragraph Text" Click="btnParagraphText_Click" />
+        <Button Name="btnGroups" Height="23" Margin="5,0,5,2" Content="Groups" Click="btnGroups_Click" />
+        <Button Name="btnSelectSame" Height="23" Margin="5,20,5,0" Content="Select same type" Click="btnSelectSame_Click" />
+        <TextBlock Name="lblWarning" Margin="5,10,5,0" TextWrapping="Wrap" Visibility="Hidden">
+            <Bold Foreground="Red">Warning:</Bold>
+            There are some objects contained within groups that were not selected.&quot;
+        </TextBlock>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/338/trunk/src/uc2/formats/cdrz
+END
+const.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/55/trunk/src/uc2/formats/cdrz/const.py
+END
+presenter.py
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/204/trunk/src/uc2/formats/cdrz/presenter.py
+END
+cdrz_config.py
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/55/trunk/src/uc2/formats/cdrz/cdrz_config.py
+END
+cdrz_filters.py
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/338/trunk/src/uc2/formats/cdrz/cdrz_filters.py
+END
+cdrz_translators.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/55/trunk/src/uc2/formats/cdrz/cdrz_translators.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/55/trunk/src/uc2/formats/cdrz/__init__.py
+END
+model.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/55/trunk/src/uc2/formats/cdrz/model.py
+END

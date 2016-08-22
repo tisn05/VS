@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container" xmlns:crl="urn:corel:namespaces:zcf:xmlns:container">
+    <rootfiles>
+        <rootfile crl:file-kind="main" full-path="content/root.dat" media-type="application/x-vnd.corel.cdr.rootdata" />
+        <rootfile crl:file-kind="thumbnail" crl:image-height="256" crl:image-width="256" full-path="previews/thumbnail.png" media-type="image/png" />
+        <rootfile crl:caption=":[页面 1];cs:[页面 1];" crl:file-kind="page" crl:image-height="254" crl:image-width="128" crl:index="1" full-path="previews/page1.png" media-type="image/png" />
+        <rootfile crl:caption=":[页面 2-3];cs:[页面 2-3];" crl:file-kind="page" crl:image-height="254" crl:image-width="256" crl:index="2" full-path="previews/page2.png" media-type="image/png" />
+        <rootfile crl:caption=":[页面 4-5];cs:[页面 4-5];" crl:file-kind="page" crl:image-height="254" crl:image-width="256" crl:index="3" full-path="previews/page3.png" media-type="image/png" />
+        <rootfile crl:caption=":[页面 6-7];cs:[页面 6-7];" crl:file-kind="page" crl:image-height="254" crl:image-width="256" crl:index="4" full-path="previews/page4.png" media-type="image/png" />
+        <rootfile crl:caption=":[页面 8-9];cs:[页面 8-9];" crl:file-kind="page" crl:image-height="254" crl:image-width="256" crl:index="5" full-path="previews/page5.png" media-type="image/png" />
+        <rootfile crl:caption=":[页面 10-11];cs:[页面 10-11];" crl:file-kind="page" crl:image-height="254" crl:image-width="256" crl:index="6" full-path="previews/page6.png" media-type="image/png" />
+        <rootfile crl:caption=":[页面 12-13];cs:[页面 12-13];" crl:file-kind="page" crl:image-height="254" crl:image-width="256" crl:index="7" full-path="previews/page7.png" media-type="image/png" />
+        <rootfile crl:caption=":[页面 14-15];cs:[页面 14-15];" crl:file-kind="page" crl:image-height="254" crl:image-width="256" crl:index="8" full-path="previews/page8.png" media-type="image/png" />
+        <rootfile crl:caption=":[页面 16-17];cs:[页面 16-17];" crl:file-kind="page" crl:image-height="254" crl:image-width="256" crl:index="9" full-path="previews/page9.png" media-type="image/png" />
+        <rootfile crl:caption=":[页面 18-19];cs:[页面 18-19];" crl:file-kind="page" crl:image-height="254" crl:image-width="256" crl:index="10" full-path="previews/page10.png" media-type="image/png" />
+        <rootfile crl:caption=":[页面 20-21];cs:[页面 20-21];" crl:file-kind="page" crl:image-height="254" crl:image-width="256" crl:index="11" full-path="previews/page11.png" media-type="image/png" />
+        <rootfile crl:caption=":[页面 22-23];cs:[页面 22-23];" crl:file-kind="page" crl:image-height="254" crl:image-width="256" crl:index="12" full-path="previews/page12.png" media-type="image/png" />
+        <rootfile crl:caption=":[页面 24-25];cs:[页面 24-25];" crl:file-kind="page" crl:image-height="254" crl:image-width="256" crl:index="13" full-path="previews/page13.png" media-type="image/png" />
+    </rootfiles>
+</container>

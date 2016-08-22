@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/55/trunk/tools/cdr-explorer/src
+END
+chunks.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/55/trunk/tools/cdr-explorer/src/chunks.py
+END
+tkDefaultsWin
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/55/trunk/tools/cdr-explorer/src/tkDefaultsWin
+END
+ZoomHeight.py
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/55/trunk/tools/cdr-explorer/src/ZoomHeight.py
+END
+tkDefaults
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/55/trunk/tools/cdr-explorer/src/tkDefaults
+END
+os_utils.py
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/55/trunk/tools/cdr-explorer/src/os_utils.py
+END
+TreeWidget.py
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/55/trunk/tools/cdr-explorer/src/TreeWidget.py
+END
+widgets.py
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/55/trunk/tools/cdr-explorer/src/widgets.py
+END
+cdr_explorer.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/55/trunk/tools/cdr-explorer/src/cdr_explorer.py
+END

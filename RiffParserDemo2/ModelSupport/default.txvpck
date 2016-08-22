@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet>
+  <view uin="0l2zpw60r_v">
+    <property name="$name" value="default" />
+    <property name="$defaultDiagram" value="True" />
+    <property name="$metaclass" value="Package Diagram" />
+    <reference referencedUin="design:view:::b94pl245k_v">
+      <property name="$shortcutReference" value="true" />
+    </reference>
+    <reference referencedUin="design:view:::zo29cfcmj_v">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.RiffParser" />
+      <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.RiffParserException" />
+      <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.TIMECODE" />
+      <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.AviRiffData" />
+      <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.RECT" />
+      <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.AVISTREAMHEADER" />
+      <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.TIMECODEDATA" />
+      <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.AVIEXTHEADER" />
+      <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.AVIMAINHEADER" />
+      <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.AVIOLDINDEXENTRY" />
+      <reference referencedUin="csharp:e_class:src:RiffParserDemo2:RiffParserDemo2.DecodeHeader" />
+    </reference>
+    <reference referencedUin="design:view:::4i6jyudn8y44erh_v">
+      <property name="$shortcutReference" value="true" />
+    </reference>
+    <reference referencedUin="design:view:::xy5hwhsu3ec84lm_v">
+      <property name="$shortcutReference" value="true" />
+    </reference>
+  </view>
+</nodeSet>

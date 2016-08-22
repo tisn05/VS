@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/309/trunk/src/uc2/formats/plt
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/55/trunk/src/uc2/formats/plt/__init__.py
+END
+model.py
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/55/trunk/src/uc2/formats/plt/model.py
+END
+plt_config.py
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/55/trunk/src/uc2/formats/plt/plt_config.py
+END
+pltconst.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/117/trunk/src/uc2/formats/plt/pltconst.py
+END
+presenter.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/55/trunk/src/uc2/formats/plt/presenter.py
+END
+plt_filters.py
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/55/trunk/src/uc2/formats/plt/plt_filters.py
+END
+plt_translators.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/117/trunk/src/uc2/formats/plt/plt_translators.py
+END

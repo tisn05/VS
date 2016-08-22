@@ -1,0 +1,1091 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F642EDD1-9D30-4DE8-B3D8-9732C4089891}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>cdrPluginT</RootNamespace>
+    <AssemblyName>cdrPluginT</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>.\resources.rct</Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET40</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET40</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Corel.Interop.VGCore, Version=17.1.0.522, Culture=neutral, PublicKeyToken=e4835428e22ad6f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Addon.cs" />
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CaptureImageTool\CaptureImageTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CaptureImageTool\CaptureImageTool.Designer.cs">
+      <DependentUpon>CaptureImageTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CaptureImageTool\CaptureImageToolColorTable.cs" />
+    <Compile Include="CaptureImageTool\ColorLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CaptureImageTool\ColorSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CaptureImageTool\ColorSelector.Designer.cs">
+      <DependentUpon>ColorSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CaptureImageTool\ControlPaintEx.cs" />
+    <Compile Include="CaptureImageTool\DrawStyle.cs" />
+    <Compile Include="CaptureImageTool\DrawTextData.cs" />
+    <Compile Include="CaptureImageTool\DrawToolsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CaptureImageTool\DrawToolsControl.designer.cs">
+      <DependentUpon>DrawToolsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CaptureImageTool\DrawToolsDockStyle.cs" />
+    <Compile Include="CaptureImageTool\GraphicsPathHelper.cs" />
+    <Compile Include="CaptureImageTool\NativeMethods.cs" />
+    <Compile Include="CaptureImageTool\OperateManager.cs" />
+    <Compile Include="CaptureImageTool\OperateObject.cs" />
+    <Compile Include="CaptureImageTool\OperateType.cs" />
+    <Compile Include="CaptureImageTool\RegionHelper.cs" />
+    <Compile Include="CaptureImageTool\RoundStyle.cs" />
+    <Compile Include="CaptureImageTool\SizeGrip.cs" />
+    <Compile Include="CaptureImageTool\ToolStripRendererEx.cs" />
+    <Compile Include="clsConfig.cs" />
+    <Compile Include="ColorComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ColorComboBox.Designer.cs">
+      <DependentUpon>ColorComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAIClipBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAIClipBoard.Designer.cs">
+      <DependentUpon>frmAIClipBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAlign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlign.Designer.cs">
+      <DependentUpon>frmAlign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmColorReplace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmColorReplace.Designer.cs">
+      <DependentUpon>frmColorReplace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCompressText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCompressText.Designer.cs">
+      <DependentUpon>frmCompressText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDoing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoing.Designer.cs">
+      <DependentUpon>frmDoing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFindFont.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFindFont.Designer.cs">
+      <DependentUpon>frmFindFont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBook.Designer.cs">
+      <DependentUpon>frmBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmColorChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmColorChange.Designer.cs">
+      <DependentUpon>frmColorChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCompressPic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCompressPic.Designer.cs">
+      <DependentUpon>frmCompressPic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConvertTo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConvertTo.Designer.cs">
+      <DependentUpon>frmConvertTo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCropMark.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCropMark.Designer.cs">
+      <DependentUpon>frmCropMark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDelSymbols.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDelSymbols.Designer.cs">
+      <DependentUpon>frmDelSymbols.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDelViews.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDelViews.Designer.cs">
+      <DependentUpon>frmDelViews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGuideLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGuideLine.Designer.cs">
+      <DependentUpon>frmGuideLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImport.Designer.cs">
+      <DependentUpon>frmImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInput.Designer.cs">
+      <DependentUpon>frmInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMakeHighlight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMakeHighlight.Designer.cs">
+      <DependentUpon>frmMakeHighlight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPicIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPicIn.Designer.cs">
+      <DependentUpon>frmPicIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQrCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQrCode.Designer.cs">
+      <DependentUpon>frmQrCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRemoveViews.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRemoveViews.Designer.cs">
+      <DependentUpon>frmRemoveViews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmScreen.Designer.cs">
+      <DependentUpon>frmScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelect.Designer.cs">
+      <DependentUpon>frmSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmShowHide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShowHide.Designer.cs">
+      <DependentUpon>frmShowHide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTest.Designer.cs">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTJAsk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTJAsk.Designer.cs">
+      <DependentUpon>frmTJAsk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QRCodeLib\data\QRCodeBitmapImage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\data\QRCodeImage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\data\QRCodeSymbol.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\ecc\BCH15_5.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\ecc\ReedSolomon.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\exception\AlignmentPatternNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\exception\DecodingFailedException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\exception\FinderPatternNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\exception\InvalidDataBlockException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\exception\InvalidVersionException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\exception\InvalidVersionInfoException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\exception\SymbolNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\exception\VersionInformationException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\geom\Axis.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\geom\Line.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\geom\Point.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\geom\SamplingGrid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\QRCodeDecoder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\QRCodeEncoder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\reader\pattern\AlignmentPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\reader\pattern\FinderPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\reader\pattern\LogicalSeed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\reader\QRCodeDataBlockReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\reader\QRCodeImageReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\util\Color.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\util\ConsoleCanvas.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\util\ContentConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\util\DebugCanvas.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\util\DebugCanvasAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\util\QRCodeUtility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QRCodeLib\util\SystemUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zxing\aztec\AztecDetectorResult.cs" />
+    <Compile Include="zxing\aztec\AztecReader.cs" />
+    <Compile Include="zxing\aztec\AztecResultMetadata.cs" />
+    <Compile Include="zxing\aztec\AztecWriter.cs" />
+    <Compile Include="zxing\aztec\decoder\Decoder.cs" />
+    <Compile Include="zxing\aztec\detector\Detector.cs" />
+    <Compile Include="zxing\aztec\encoder\AztecCode.cs" />
+    <Compile Include="zxing\aztec\encoder\AztecEncodingOptions.cs" />
+    <Compile Include="zxing\aztec\encoder\BinaryShiftToken.cs" />
+    <Compile Include="zxing\aztec\encoder\Encoder.cs" />
+    <Compile Include="zxing\aztec\encoder\HighLevelEncoder.cs" />
+    <Compile Include="zxing\aztec\encoder\SimpleToken.cs" />
+    <Compile Include="zxing\aztec\encoder\State.cs" />
+    <Compile Include="zxing\aztec\encoder\Token.cs" />
+    <Compile Include="zxing\BarcodeFormat.cs" />
+    <Compile Include="zxing\BarcodeReader.cs" />
+    <Compile Include="zxing\BarcodeReaderGeneric.cs" />
+    <Compile Include="zxing\BarcodeWriter.cs" />
+    <Compile Include="zxing\BarcodeWriterGeneric.cs" />
+    <Compile Include="zxing\BaseLuminanceSource.cs" />
+    <Compile Include="zxing\Binarizer.cs" />
+    <Compile Include="zxing\BinaryBitmap.cs" />
+    <Compile Include="zxing\BitmapLuminanceSource.cs" />
+    <Compile Include="zxing\client\result\AbstractDoCoMoResultParser.cs" />
+    <Compile Include="zxing\client\result\AddressBookAUResultParser.cs" />
+    <Compile Include="zxing\client\result\AddressBookDoCoMoResultParser.cs" />
+    <Compile Include="zxing\client\result\AddressBookParsedResult.cs" />
+    <Compile Include="zxing\client\result\BizcardResultParser.cs" />
+    <Compile Include="zxing\client\result\BookmarkDoCoMoResultParser.cs" />
+    <Compile Include="zxing\client\result\CalendarParsedResult.cs" />
+    <Compile Include="zxing\client\result\EmailAddressParsedResult.cs" />
+    <Compile Include="zxing\client\result\EmailAddressResultParser.cs" />
+    <Compile Include="zxing\client\result\EmailDoCoMoResultParser.cs" />
+    <Compile Include="zxing\client\result\ExpandedProductParsedResult.cs" />
+    <Compile Include="zxing\client\result\ExpandedProductResultParser.cs" />
+    <Compile Include="zxing\client\result\GeoParsedResult.cs" />
+    <Compile Include="zxing\client\result\GeoResultParser.cs" />
+    <Compile Include="zxing\client\result\ISBNParsedResult.cs" />
+    <Compile Include="zxing\client\result\ISBNResultParser.cs" />
+    <Compile Include="zxing\client\result\ParsedResult.cs" />
+    <Compile Include="zxing\client\result\ParsedResultType.cs" />
+    <Compile Include="zxing\client\result\ProductParsedResult.cs" />
+    <Compile Include="zxing\client\result\ProductResultParser.cs" />
+    <Compile Include="zxing\client\result\ResultParser.cs" />
+    <Compile Include="zxing\client\result\SMSMMSResultParser.cs" />
+    <Compile Include="zxing\client\result\SMSParsedResult.cs" />
+    <Compile Include="zxing\client\result\SMSTOMMSTOResultParser.cs" />
+    <Compile Include="zxing\client\result\SMTPResultParser.cs" />
+    <Compile Include="zxing\client\result\TelParsedResult.cs" />
+    <Compile Include="zxing\client\result\TelResultParser.cs" />
+    <Compile Include="zxing\client\result\TextParsedResult.cs" />
+    <Compile Include="zxing\client\result\URIParsedResult.cs" />
+    <Compile Include="zxing\client\result\URIResultParser.cs" />
+    <Compile Include="zxing\client\result\URLTOResultParser.cs" />
+    <Compile Include="zxing\client\result\VCardResultParser.cs" />
+    <Compile Include="zxing\client\result\VEventResultParser.cs" />
+    <Compile Include="zxing\client\result\VINParsedResult.cs" />
+    <Compile Include="zxing\client\result\VINResultParser.cs" />
+    <Compile Include="zxing\client\result\WifiParsedResult.cs" />
+    <Compile Include="zxing\client\result\WifiResultParser.cs" />
+    <Compile Include="zxing\common\BigInteger\Base10BigInteger.cs" />
+    <Compile Include="zxing\common\BigInteger\BigInteger.cs" />
+    <Compile Include="zxing\common\BigInteger\BigIntegerException.cs" />
+    <Compile Include="zxing\common\BigInteger\Sign.cs" />
+    <Compile Include="zxing\common\BitArray.cs" />
+    <Compile Include="zxing\common\BitMatrix.cs" />
+    <Compile Include="zxing\common\BitMatrix.Drawing.cs" />
+    <Compile Include="zxing\common\BitSource.cs" />
+    <Compile Include="zxing\common\CharacterSetECI.cs" />
+    <Compile Include="zxing\common\DecoderResult.cs" />
+    <Compile Include="zxing\common\DecodingOptions.cs" />
+    <Compile Include="zxing\common\DefaultGridSampler.cs" />
+    <Compile Include="zxing\common\DetectorResult.cs" />
+    <Compile Include="zxing\common\detector\MathUtils.cs" />
+    <Compile Include="zxing\common\detector\MonochromeRectangleDetector.cs" />
+    <Compile Include="zxing\common\detector\WhiteRectangleDetector.cs" />
+    <Compile Include="zxing\common\ECI.cs" />
+    <Compile Include="zxing\common\EncodingOptions.cs" />
+    <Compile Include="zxing\common\GlobalHistogramBinarizer.cs" />
+    <Compile Include="zxing\common\GridSampler.cs" />
+    <Compile Include="zxing\common\HybridBinarizer.cs" />
+    <Compile Include="zxing\common\PerspectiveTransform.cs" />
+    <Compile Include="zxing\common\reedsolomon\GenericGF.cs" />
+    <Compile Include="zxing\common\reedsolomon\GenericGFPoly.cs" />
+    <Compile Include="zxing\common\reedsolomon\ReedSolomonDecoder.cs" />
+    <Compile Include="zxing\common\reedsolomon\ReedSolomonEncoder.cs" />
+    <Compile Include="zxing\common\StringUtils.cs" />
+    <Compile Include="zxing\datamatrix\DataMatrixReader.cs" />
+    <Compile Include="zxing\datamatrix\DataMatrixWriter.cs" />
+    <Compile Include="zxing\datamatrix\decoder\BitMatrixParser.cs" />
+    <Compile Include="zxing\datamatrix\decoder\DataBlock.cs" />
+    <Compile Include="zxing\datamatrix\decoder\DecodedBitStreamParser.cs" />
+    <Compile Include="zxing\datamatrix\decoder\Decoder.cs" />
+    <Compile Include="zxing\datamatrix\decoder\Version.cs" />
+    <Compile Include="zxing\datamatrix\detector\Detector.cs" />
+    <Compile Include="zxing\datamatrix\encoder\ASCIIEncoder.cs" />
+    <Compile Include="zxing\datamatrix\encoder\Base256Encoder.cs" />
+    <Compile Include="zxing\datamatrix\encoder\C40Encoder.cs" />
+    <Compile Include="zxing\datamatrix\encoder\DatamatrixEncodingOptions.cs" />
+    <Compile Include="zxing\datamatrix\encoder\DataMatrixSymbolInfo144.cs" />
+    <Compile Include="zxing\datamatrix\encoder\DefaultPlacement.cs" />
+    <Compile Include="zxing\datamatrix\encoder\EdifactEncoder.cs" />
+    <Compile Include="zxing\datamatrix\encoder\Encodation.cs" />
+    <Compile Include="zxing\datamatrix\encoder\Encoder.cs" />
+    <Compile Include="zxing\datamatrix\encoder\EncoderContext.cs" />
+    <Compile Include="zxing\datamatrix\encoder\ErrorCorrection.cs" />
+    <Compile Include="zxing\datamatrix\encoder\HighLevelEncoder.cs" />
+    <Compile Include="zxing\datamatrix\encoder\SymbolInfo.cs" />
+    <Compile Include="zxing\datamatrix\encoder\SymbolShapeHint.cs" />
+    <Compile Include="zxing\datamatrix\encoder\TextEncoder.cs" />
+    <Compile Include="zxing\datamatrix\encoder\X12Encoder.cs" />
+    <Compile Include="zxing\DecodeHintType.cs" />
+    <Compile Include="zxing\Dimension.cs" />
+    <Compile Include="zxing\EncodeHintType.cs" />
+    <Compile Include="zxing\FormatException.cs" />
+    <Compile Include="zxing\IBarcodeReader.cs" />
+    <Compile Include="zxing\IBarcodeReaderGeneric.cs" />
+    <Compile Include="zxing\IBarcodeWriter.cs" />
+    <Compile Include="zxing\IBarcodeWriterGeneric.cs" />
+    <Compile Include="zxing\imb\IMBReader.cs" />
+    <Compile Include="zxing\IMultipleBarcodeReader.cs" />
+    <Compile Include="zxing\IMultipleBarcodeReaderGeneric.cs" />
+    <Compile Include="zxing\InvertedLuminanceSource.cs" />
+    <Compile Include="zxing\LuminanceSource.cs" />
+    <Compile Include="zxing\maxicode\decoder\BitMatrixParser.cs" />
+    <Compile Include="zxing\maxicode\decoder\DecodedBitStreamParser.cs" />
+    <Compile Include="zxing\maxicode\decoder\Decoder.cs" />
+    <Compile Include="zxing\maxicode\MaxiCodeReader.cs" />
+    <Compile Include="zxing\MultiFormatReader.cs" />
+    <Compile Include="zxing\MultiFormatWriter.cs" />
+    <Compile Include="zxing\multi\ByQuadrantReader.cs" />
+    <Compile Include="zxing\multi\GenericMultipleBarcodeReader.cs" />
+    <Compile Include="zxing\multi\MultipleBarcodeReader.cs" />
+    <Compile Include="zxing\multi\qrcode\detector\MultiDetector.cs" />
+    <Compile Include="zxing\multi\qrcode\detector\MultiFinderPatternFinder.cs" />
+    <Compile Include="zxing\multi\qrcode\QRCodeMultiReader.cs" />
+    <Compile Include="zxing\oned\CodaBarReader.cs" />
+    <Compile Include="zxing\oned\CodaBarWriter.cs" />
+    <Compile Include="zxing\oned\Code128EncodingOptions.cs" />
+    <Compile Include="zxing\oned\Code128Reader.cs" />
+    <Compile Include="zxing\oned\Code128Writer.cs" />
+    <Compile Include="zxing\oned\Code39Reader.cs" />
+    <Compile Include="zxing\oned\Code39Writer.cs" />
+    <Compile Include="zxing\oned\Code93Reader.cs" />
+    <Compile Include="zxing\oned\EAN13Reader.cs" />
+    <Compile Include="zxing\oned\EAN13Writer.cs" />
+    <Compile Include="zxing\oned\EAN8Reader.cs" />
+    <Compile Include="zxing\oned\EAN8Writer.cs" />
+    <Compile Include="zxing\oned\EANManufacturerOrgSupport.cs" />
+    <Compile Include="zxing\oned\ITFReader.cs" />
+    <Compile Include="zxing\oned\ITFWriter.cs" />
+    <Compile Include="zxing\oned\MSIReader.cs" />
+    <Compile Include="zxing\oned\MSIWriter.cs" />
+    <Compile Include="zxing\oned\MultiFormatOneDReader.cs" />
+    <Compile Include="zxing\oned\MultiFormatUPCEANReader.cs" />
+    <Compile Include="zxing\oned\OneDimensionalCodeWriter.cs" />
+    <Compile Include="zxing\oned\OneDReader.cs" />
+    <Compile Include="zxing\oned\PlesseyWriter.cs" />
+    <Compile Include="zxing\oned\rss\AbstractRSSReader.cs" />
+    <Compile Include="zxing\oned\rss\DataCharacter.cs" />
+    <Compile Include="zxing\oned\rss\expanded\BitArrayBuilder.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\AbstractExpandedDecoder.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\AI013103decoder.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\AI01320xDecoder.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\AI01392xDecoder.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\AI01393xDecoder.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\AI013x0x1xDecoder.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\AI013x0xDecoder.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\AI01AndOtherAIs.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\AI01decoder.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\AI01weightDecoder.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\AnyAIDecoder.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\BlockParsedResult.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\CurrentParsingState.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\DecodedChar.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\DecodedInformation.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\DecodedNumeric.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\DecodedObject.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\FieldParser.cs" />
+    <Compile Include="zxing\oned\rss\expanded\decoders\GeneralAppIdDecoder.cs" />
+    <Compile Include="zxing\oned\rss\expanded\ExpandedPair.cs" />
+    <Compile Include="zxing\oned\rss\expanded\ExpandedRow.cs" />
+    <Compile Include="zxing\oned\rss\expanded\RSSExpandedReader.cs" />
+    <Compile Include="zxing\oned\rss\FinderPattern.cs" />
+    <Compile Include="zxing\oned\rss\Pair.cs" />
+    <Compile Include="zxing\oned\rss\RSS14Reader.cs" />
+    <Compile Include="zxing\oned\rss\RSSUtils.cs" />
+    <Compile Include="zxing\oned\UPCAReader.cs" />
+    <Compile Include="zxing\oned\UPCAWriter.cs" />
+    <Compile Include="zxing\oned\UPCEANExtension2Support.cs" />
+    <Compile Include="zxing\oned\UPCEANExtension5Support.cs" />
+    <Compile Include="zxing\oned\UPCEANExtensionSupport.cs" />
+    <Compile Include="zxing\oned\UPCEANReader.cs" />
+    <Compile Include="zxing\oned\UPCEANWriter.cs" />
+    <Compile Include="zxing\oned\UPCEReader.cs" />
+    <Compile Include="zxing\pdf417\decoder\BarcodeMetadata.cs" />
+    <Compile Include="zxing\pdf417\decoder\BarcodeValue.cs" />
+    <Compile Include="zxing\pdf417\decoder\BoundingBox.cs" />
+    <Compile Include="zxing\pdf417\decoder\Codeword.cs" />
+    <Compile Include="zxing\pdf417\decoder\DecodedBitStreamParser.cs" />
+    <Compile Include="zxing\pdf417\decoder\DetectionResult.cs" />
+    <Compile Include="zxing\pdf417\decoder\DetectionResultColumn.cs" />
+    <Compile Include="zxing\pdf417\decoder\DetectionResultRowIndicatorColumn.cs" />
+    <Compile Include="zxing\pdf417\decoder\ec\ErrorCorrection.cs" />
+    <Compile Include="zxing\pdf417\decoder\ec\ModulusGF.cs" />
+    <Compile Include="zxing\pdf417\decoder\ec\ModulusPoly.cs" />
+    <Compile Include="zxing\pdf417\decoder\PDF417CodewordDecoder.cs" />
+    <Compile Include="zxing\pdf417\decoder\PDF417ScanningDecoder.cs" />
+    <Compile Include="zxing\pdf417\detector\Detector.cs" />
+    <Compile Include="zxing\pdf417\detector\PDF417DetectorResult.cs" />
+    <Compile Include="zxing\pdf417\encoder\BarcodeMatrix.cs" />
+    <Compile Include="zxing\pdf417\encoder\BarcodeRow.cs" />
+    <Compile Include="zxing\pdf417\encoder\Compaction.cs" />
+    <Compile Include="zxing\pdf417\encoder\Dimensions.cs" />
+    <Compile Include="zxing\pdf417\encoder\PDF417.cs" />
+    <Compile Include="zxing\pdf417\encoder\PDF417EncodingOptions.cs" />
+    <Compile Include="zxing\pdf417\encoder\PDF417ErrorCorrection.cs" />
+    <Compile Include="zxing\pdf417\encoder\PDF417HighLevelEncoder.cs" />
+    <Compile Include="zxing\pdf417\PDF417Common.cs" />
+    <Compile Include="zxing\pdf417\PDF417Reader.cs" />
+    <Compile Include="zxing\pdf417\PDF417ResultMetadata.cs" />
+    <Compile Include="zxing\pdf417\PDF417Writer.cs" />
+    <Compile Include="zxing\PlanarYUVLuminanceSource.cs" />
+    <Compile Include="zxing\qrcode\decoder\BitMatrixParser.cs" />
+    <Compile Include="zxing\qrcode\decoder\DataBlock.cs" />
+    <Compile Include="zxing\qrcode\decoder\DataMask.cs" />
+    <Compile Include="zxing\qrcode\decoder\DecodedBitStreamParser.cs" />
+    <Compile Include="zxing\qrcode\decoder\Decoder.cs" />
+    <Compile Include="zxing\qrcode\decoder\ErrorCorrectionLevel.cs" />
+    <Compile Include="zxing\qrcode\decoder\FormatInformation.cs" />
+    <Compile Include="zxing\qrcode\decoder\Mode.cs" />
+    <Compile Include="zxing\qrcode\decoder\QRCodeDecoderMetaData.cs" />
+    <Compile Include="zxing\qrcode\decoder\Version.cs" />
+    <Compile Include="zxing\qrcode\detector\AlignmentPattern.cs" />
+    <Compile Include="zxing\qrcode\detector\AlignmentPatternFinder.cs" />
+    <Compile Include="zxing\qrcode\detector\Detector.cs" />
+    <Compile Include="zxing\qrcode\detector\FinderPattern.cs" />
+    <Compile Include="zxing\qrcode\detector\FinderPatternFinder.cs" />
+    <Compile Include="zxing\qrcode\detector\FinderPatternInfo.cs" />
+    <Compile Include="zxing\qrcode\encoder\BlockPair.cs" />
+    <Compile Include="zxing\qrcode\encoder\ByteMatrix.cs" />
+    <Compile Include="zxing\qrcode\encoder\Encoder.cs" />
+    <Compile Include="zxing\qrcode\encoder\MaskUtil.cs" />
+    <Compile Include="zxing\qrcode\encoder\MatrixUtil.cs" />
+    <Compile Include="zxing\qrcode\encoder\QRCode.cs" />
+    <Compile Include="zxing\qrcode\encoder\QrCodeEncodingOptions.cs" />
+    <Compile Include="zxing\qrcode\QRCodeReader.cs" />
+    <Compile Include="zxing\qrcode\QRCodeWriter.cs" />
+    <Compile Include="zxing\Reader.cs" />
+    <Compile Include="zxing\ReaderException.cs" />
+    <Compile Include="zxing\renderer\BitmapRenderer.cs" />
+    <Compile Include="zxing\renderer\IBarcodeRenderer.cs" />
+    <Compile Include="zxing\renderer\PixelData.cs" />
+    <Compile Include="zxing\renderer\PixelDataRenderer.cs" />
+    <Compile Include="zxing\renderer\SVGRenderer.cs" />
+    <Compile Include="zxing\Result.cs" />
+    <Compile Include="zxing\ResultMetadataType.cs" />
+    <Compile Include="zxing\ResultPoint.cs" />
+    <Compile Include="zxing\ResultPointCallback.cs" />
+    <Compile Include="zxing\RGB565LuminanceSource.cs" />
+    <Compile Include="zxing\RGBLuminanceSource.cs" />
+    <Compile Include="zxing\SupportClass.cs" />
+    <Compile Include="zxing\Writer.cs" />
+    <Compile Include="zxing\WriterException.cs" />
+    <Compile Include="一键PS\frmPStoCurve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="一键PS\frmPStoCurve.Designer.cs">
+      <DependentUpon>frmPStoCurve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmToJPG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmToJPG.Designer.cs">
+      <DependentUpon>frmToJPG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Settings1.cs" />
+    <Compile Include="一键PS\frmSetPSPath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="一键PS\frmSetPSPath.Designer.cs">
+      <DependentUpon>frmSetPSPath.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Content Include="CaptureImageTool\Icons\Accept.ico" />
+    <Content Include="CaptureImageTool\Icons\Arrow.ico" />
+    <Content Include="CaptureImageTool\Icons\Ellipse.ico" />
+    <Content Include="CaptureImageTool\Icons\Exit.ico" />
+    <Content Include="CaptureImageTool\Icons\Line.ico" />
+    <Content Include="CaptureImageTool\Icons\Rectangular.ico" />
+    <Content Include="CaptureImageTool\Icons\Redo.png" />
+    <Content Include="CaptureImageTool\Icons\Save.ico" />
+    <Content Include="CaptureImageTool\Icons\Text.ico" />
+    <Content Include="config.xml" />
+    <Content Include="Readme.txt" />
+    <Content Include="resources.rct" />
+    <Content Include="Resources\Accept.png" />
+    <Content Include="Resources\Arrow.png" />
+    <None Include="CaptureImageTool\Icons\Thumbs.db" />
+    <None Include="Resources\bitbug_favicon.ico" />
+    <Content Include="Resources\Ellipse.png" />
+    <Content Include="Resources\Exit.png" />
+    <Content Include="Resources\Line.png" />
+    <Content Include="Resources\Rectangular.png" />
+    <Content Include="Resources\Redo.png" />
+    <Content Include="Resources\Save.png" />
+    <Content Include="Resources\Text.png" />
+    <Content Include="CorelDrw.addon" />
+    <None Include="Resources\tisn2015.cdws" />
+    <None Include="Resources\tisn2016.cdws" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Designer.addon" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\qrv10_0.dat" />
+    <None Include="Resources\qrv10_1.dat" />
+    <None Include="Resources\qrv10_2.dat" />
+    <None Include="Resources\qrv10_3.dat" />
+    <None Include="Resources\qrv11_0.dat" />
+    <None Include="Resources\qrv11_1.dat" />
+    <None Include="Resources\qrv11_2.dat" />
+    <None Include="Resources\qrv11_3.dat" />
+    <None Include="Resources\qrv12_0.dat" />
+    <None Include="Resources\qrv12_1.dat" />
+    <None Include="Resources\qrv12_2.dat" />
+    <None Include="Resources\qrv12_3.dat" />
+    <None Include="Resources\qrv13_0.dat" />
+    <None Include="Resources\qrv13_1.dat" />
+    <None Include="Resources\qrv13_2.dat" />
+    <None Include="Resources\qrv13_3.dat" />
+    <None Include="Resources\qrv14_0.dat" />
+    <None Include="Resources\qrv14_1.dat" />
+    <None Include="Resources\qrv14_2.dat" />
+    <None Include="Resources\qrv14_3.dat" />
+    <None Include="Resources\qrv15_0.dat" />
+    <None Include="Resources\qrv15_1.dat" />
+    <None Include="Resources\qrv15_2.dat" />
+    <None Include="Resources\qrv15_3.dat" />
+    <None Include="Resources\qrv16_0.dat" />
+    <None Include="Resources\qrv16_1.dat" />
+    <None Include="Resources\qrv16_2.dat" />
+    <None Include="Resources\qrv16_3.dat" />
+    <None Include="Resources\qrv17_0.dat" />
+    <None Include="Resources\qrv17_1.dat" />
+    <None Include="Resources\qrv17_2.dat" />
+    <None Include="Resources\qrv17_3.dat" />
+    <None Include="Resources\qrv18_0.dat" />
+    <None Include="Resources\qrv18_1.dat" />
+    <None Include="Resources\qrv18_2.dat" />
+    <None Include="Resources\qrv18_3.dat" />
+    <None Include="Resources\qrv19_0.dat" />
+    <None Include="Resources\qrv19_1.dat" />
+    <None Include="Resources\qrv19_2.dat" />
+    <None Include="Resources\qrv19_3.dat" />
+    <None Include="Resources\qrv1_0.dat" />
+    <None Include="Resources\qrv1_1.dat" />
+    <None Include="Resources\qrv1_2.dat" />
+    <None Include="Resources\qrv1_3.dat" />
+    <None Include="Resources\qrv20_0.dat" />
+    <None Include="Resources\qrv20_1.dat" />
+    <None Include="Resources\qrv20_2.dat" />
+    <None Include="Resources\qrv20_3.dat" />
+    <None Include="Resources\qrv21_0.dat" />
+    <None Include="Resources\qrv21_1.dat" />
+    <None Include="Resources\qrv21_2.dat" />
+    <None Include="Resources\qrv21_3.dat" />
+    <None Include="Resources\qrv22_0.dat" />
+    <None Include="Resources\qrv22_1.dat" />
+    <None Include="Resources\qrv22_2.dat" />
+    <None Include="Resources\qrv22_3.dat" />
+    <None Include="Resources\qrv23_0.dat" />
+    <None Include="Resources\qrv23_1.dat" />
+    <None Include="Resources\qrv23_2.dat" />
+    <None Include="Resources\qrv23_3.dat" />
+    <None Include="Resources\qrv24_0.dat" />
+    <None Include="Resources\qrv24_1.dat" />
+    <None Include="Resources\qrv24_2.dat" />
+    <None Include="Resources\qrv24_3.dat" />
+    <None Include="Resources\qrv25_0.dat" />
+    <None Include="Resources\qrv25_1.dat" />
+    <None Include="Resources\qrv25_2.dat" />
+    <None Include="Resources\qrv25_3.dat" />
+    <None Include="Resources\qrv26_0.dat" />
+    <None Include="Resources\qrv26_1.dat" />
+    <None Include="Resources\qrv26_2.dat" />
+    <None Include="Resources\qrv26_3.dat" />
+    <None Include="Resources\qrv27_0.dat" />
+    <None Include="Resources\qrv27_1.dat" />
+    <None Include="Resources\qrv27_2.dat" />
+    <None Include="Resources\qrv27_3.dat" />
+    <None Include="Resources\qrv28_0.dat" />
+    <None Include="Resources\qrv28_1.dat" />
+    <None Include="Resources\qrv28_2.dat" />
+    <None Include="Resources\qrv28_3.dat" />
+    <None Include="Resources\qrv29_0.dat" />
+    <None Include="Resources\qrv29_1.dat" />
+    <None Include="Resources\qrv29_2.dat" />
+    <None Include="Resources\qrv29_3.dat" />
+    <None Include="Resources\qrv2_0.dat" />
+    <None Include="Resources\qrv2_1.dat" />
+    <None Include="Resources\qrv2_2.dat" />
+    <None Include="Resources\qrv2_3.dat" />
+    <None Include="Resources\qrv30_0.dat" />
+    <None Include="Resources\qrv30_1.dat" />
+    <None Include="Resources\qrv30_2.dat" />
+    <None Include="Resources\qrv30_3.dat" />
+    <None Include="Resources\qrv31_0.dat" />
+    <None Include="Resources\qrv31_1.dat" />
+    <None Include="Resources\qrv31_2.dat" />
+    <None Include="Resources\qrv31_3.dat" />
+    <None Include="Resources\qrv32_0.dat" />
+    <None Include="Resources\qrv32_1.dat" />
+    <None Include="Resources\qrv32_2.dat" />
+    <None Include="Resources\qrv32_3.dat" />
+    <None Include="Resources\qrv33_0.dat" />
+    <None Include="Resources\qrv33_1.dat" />
+    <None Include="Resources\qrv33_2.dat" />
+    <None Include="Resources\qrv33_3.dat" />
+    <None Include="Resources\qrv34_0.dat" />
+    <None Include="Resources\qrv34_1.dat" />
+    <None Include="Resources\qrv34_2.dat" />
+    <None Include="Resources\qrv34_3.dat" />
+    <None Include="Resources\qrv35_0.dat" />
+    <None Include="Resources\qrv35_1.dat" />
+    <None Include="Resources\qrv35_2.dat" />
+    <None Include="Resources\qrv35_3.dat" />
+    <None Include="Resources\qrv36_0.dat" />
+    <None Include="Resources\qrv36_1.dat" />
+    <None Include="Resources\qrv36_2.dat" />
+    <None Include="Resources\qrv36_3.dat" />
+    <None Include="Resources\qrv37_0.dat" />
+    <None Include="Resources\qrv37_1.dat" />
+    <None Include="Resources\qrv37_2.dat" />
+    <None Include="Resources\qrv37_3.dat" />
+    <None Include="Resources\qrv38_0.dat" />
+    <None Include="Resources\qrv38_1.dat" />
+    <None Include="Resources\qrv38_2.dat" />
+    <None Include="Resources\qrv38_3.dat" />
+    <None Include="Resources\qrv39_0.dat" />
+    <None Include="Resources\qrv39_1.dat" />
+    <None Include="Resources\qrv39_2.dat" />
+    <None Include="Resources\qrv39_3.dat" />
+    <None Include="Resources\qrv3_0.dat" />
+    <None Include="Resources\qrv3_1.dat" />
+    <None Include="Resources\qrv3_2.dat" />
+    <None Include="Resources\qrv3_3.dat" />
+    <None Include="Resources\qrv40_0.dat" />
+    <None Include="Resources\qrv40_1.dat" />
+    <None Include="Resources\qrv40_2.dat" />
+    <None Include="Resources\qrv40_3.dat" />
+    <None Include="Resources\qrv4_0.dat" />
+    <None Include="Resources\qrv4_1.dat" />
+    <None Include="Resources\qrv4_2.dat" />
+    <None Include="Resources\qrv4_3.dat" />
+    <None Include="Resources\qrv5_0.dat" />
+    <None Include="Resources\qrv5_1.dat" />
+    <None Include="Resources\qrv5_2.dat" />
+    <None Include="Resources\qrv5_3.dat" />
+    <None Include="Resources\qrv6_0.dat" />
+    <None Include="Resources\qrv6_1.dat" />
+    <None Include="Resources\qrv6_2.dat" />
+    <None Include="Resources\qrv6_3.dat" />
+    <None Include="Resources\qrv7_0.dat" />
+    <None Include="Resources\qrv7_1.dat" />
+    <None Include="Resources\qrv7_2.dat" />
+    <None Include="Resources\qrv7_3.dat" />
+    <None Include="Resources\qrv8_0.dat" />
+    <None Include="Resources\qrv8_1.dat" />
+    <None Include="Resources\qrv8_2.dat" />
+    <None Include="Resources\qrv8_3.dat" />
+    <None Include="Resources\qrv9_0.dat" />
+    <None Include="Resources\qrv9_1.dat" />
+    <None Include="Resources\qrv9_2.dat" />
+    <None Include="Resources\qrv9_3.dat" />
+    <None Include="Resources\qrvfr1.dat" />
+    <None Include="Resources\qrvfr10.dat" />
+    <None Include="Resources\qrvfr11.dat" />
+    <None Include="Resources\qrvfr12.dat" />
+    <None Include="Resources\qrvfr13.dat" />
+    <None Include="Resources\qrvfr14.dat" />
+    <None Include="Resources\qrvfr15.dat" />
+    <None Include="Resources\qrvfr16.dat" />
+    <None Include="Resources\qrvfr17.dat" />
+    <None Include="Resources\qrvfr18.dat" />
+    <None Include="Resources\qrvfr19.dat" />
+    <None Include="Resources\qrvfr2.dat" />
+    <None Include="Resources\qrvfr20.dat" />
+    <None Include="Resources\qrvfr21.dat" />
+    <None Include="Resources\qrvfr22.dat" />
+    <None Include="Resources\qrvfr23.dat" />
+    <None Include="Resources\qrvfr24.dat" />
+    <None Include="Resources\qrvfr25.dat" />
+    <None Include="Resources\qrvfr26.dat" />
+    <None Include="Resources\qrvfr27.dat" />
+    <None Include="Resources\qrvfr28.dat" />
+    <None Include="Resources\qrvfr29.dat" />
+    <None Include="Resources\qrvfr3.dat" />
+    <None Include="Resources\qrvfr30.dat" />
+    <None Include="Resources\qrvfr31.dat" />
+    <None Include="Resources\qrvfr32.dat" />
+    <None Include="Resources\qrvfr33.dat" />
+    <None Include="Resources\qrvfr34.dat" />
+    <None Include="Resources\qrvfr35.dat" />
+    <None Include="Resources\qrvfr36.dat" />
+    <None Include="Resources\qrvfr37.dat" />
+    <None Include="Resources\qrvfr38.dat" />
+    <None Include="Resources\qrvfr39.dat" />
+    <None Include="Resources\qrvfr4.dat" />
+    <None Include="Resources\qrvfr40.dat" />
+    <None Include="Resources\qrvfr5.dat" />
+    <None Include="Resources\qrvfr6.dat" />
+    <None Include="Resources\qrvfr7.dat" />
+    <None Include="Resources\qrvfr8.dat" />
+    <None Include="Resources\qrvfr9.dat" />
+    <None Include="Resources\rsc10.dat" />
+    <None Include="Resources\rsc13.dat" />
+    <None Include="Resources\rsc15.dat" />
+    <None Include="Resources\rsc16.dat" />
+    <None Include="Resources\rsc17.dat" />
+    <None Include="Resources\rsc18.dat" />
+    <None Include="Resources\rsc20.dat" />
+    <None Include="Resources\rsc22.dat" />
+    <None Include="Resources\rsc24.dat" />
+    <None Include="Resources\rsc26.dat" />
+    <None Include="Resources\rsc28.dat" />
+    <None Include="Resources\rsc30.dat" />
+    <None Include="Resources\rsc32.dat" />
+    <None Include="Resources\rsc34.dat" />
+    <None Include="Resources\rsc36.dat" />
+    <None Include="Resources\rsc40.dat" />
+    <None Include="Resources\rsc42.dat" />
+    <None Include="Resources\rsc44.dat" />
+    <None Include="Resources\rsc46.dat" />
+    <None Include="Resources\rsc48.dat" />
+    <None Include="Resources\rsc50.dat" />
+    <None Include="Resources\rsc52.dat" />
+    <None Include="Resources\rsc54.dat" />
+    <None Include="Resources\rsc56.dat" />
+    <None Include="Resources\rsc58.dat" />
+    <None Include="Resources\rsc60.dat" />
+    <None Include="Resources\rsc62.dat" />
+    <None Include="Resources\rsc64.dat" />
+    <None Include="Resources\rsc66.dat" />
+    <None Include="Resources\rsc68.dat" />
+    <None Include="Resources\rsc7.dat" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CaptureImageTool\CaptureImageTool.resx">
+      <DependentUpon>CaptureImageTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CaptureImageTool\ColorSelector.resx">
+      <DependentUpon>ColorSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CaptureImageTool\DrawToolsControl.resx">
+      <DependentUpon>DrawToolsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAIClipBoard.resx">
+      <DependentUpon>frmAIClipBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAlign.resx">
+      <DependentUpon>frmAlign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmColorReplace.resx">
+      <DependentUpon>frmColorReplace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCompressText.resx">
+      <DependentUpon>frmCompressText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDoing.resx">
+      <DependentUpon>frmDoing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFindFont.resx">
+      <DependentUpon>frmFindFont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.zh-CN.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBook.resx">
+      <DependentUpon>frmBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmColorChange.resx">
+      <DependentUpon>frmColorChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCompressPic.resx">
+      <DependentUpon>frmCompressPic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConvertTo.resx">
+      <DependentUpon>frmConvertTo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCropMark.resx">
+      <DependentUpon>frmCropMark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDelSymbols.resx">
+      <DependentUpon>frmDelSymbols.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDelViews.resx">
+      <DependentUpon>frmDelViews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGuideLine.resx">
+      <DependentUpon>frmGuideLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImport.resx">
+      <DependentUpon>frmImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInput.resx">
+      <DependentUpon>frmInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMakeHighlight.resx">
+      <DependentUpon>frmMakeHighlight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPicIn.resx">
+      <DependentUpon>frmPicIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQrCode.resx">
+      <DependentUpon>frmQrCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRemoveViews.resx">
+      <DependentUpon>frmRemoveViews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmScreen.resx">
+      <DependentUpon>frmScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelect.resx">
+      <DependentUpon>frmSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShowHide.resx">
+      <DependentUpon>frmShowHide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTest.resx">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTJAsk.resx">
+      <DependentUpon>frmTJAsk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="一键PS\frmPStoCurve.resx">
+      <DependentUpon>frmPStoCurve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmToJPG.resx">
+      <DependentUpon>frmToJPG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="一键PS\frmSetPSPath.resx">
+      <DependentUpon>frmSetPSPath.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="导出图片\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>if not exist "D:\Program Files\Corel\CorelDRAW Graphics Suite X8\Programs64\Addons\$(SolutionName)" md "D:\Program Files\Corel\CorelDRAW Graphics Suite X8\Programs64\Addons\$(SolutionName)"
+copy "$(ProjectDir)CorelDrw.addon" "D:\Program Files\Corel\CorelDRAW Graphics Suite X8\Programs64\Addons\$(SolutionName)" /y
+copy "$(ProjectDir)Designer.addon" "D:\Program Files\Corel\CorelDRAW Graphics Suite X8\Programs64\Addons\$(SolutionName)" /y
+copy "$(ProjectDir)config.xml" "D:\Program Files\Corel\CorelDRAW Graphics Suite X8\Programs64\Addons\$(SolutionName)" /y
+copy "$(ProjectDir)AppUI.xslt" "D:\Program Files\Corel\CorelDRAW Graphics Suite X8\Programs64\Addons\$(SolutionName)" /y
+copy "$(ProjectDir)UserUI.xslt" "D:\Program Files\Corel\CorelDRAW Graphics Suite X8\Programs64\Addons\$(SolutionName)" /y
+copy "$(TargetPath)" "D:\Program Files\Corel\CorelDRAW Graphics Suite X8\Programs64\Addons\$(SolutionName)\$(SolutionName).CorelAddon"
+if $(ConfigurationName) == Debug copy "$(TargetDir)\$(SolutionName).pdb" "D:\Program Files\Corel\CorelDRAW Graphics Suite X8\Programs64\Addons\$(SolutionName)\$(SolutionName).pdb"
+echo ------------------------------------------------------------------------------------------------------
+echo 复制文件到 D:\Program Files\Corel\CorelDRAW Graphics Suite X8\Programs64\Addons\$(SolutionName)\ 完成
+echo ------------------------------------------------------------------------------------------------------</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

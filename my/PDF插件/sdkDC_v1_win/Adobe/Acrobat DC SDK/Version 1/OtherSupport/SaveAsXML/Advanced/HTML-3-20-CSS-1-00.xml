@@ -1,0 +1,3112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Root SYSTEM "MappingTable.dtd">
+<Root File-format="Html-3-20-with-css-1-00" Menu-name="HTML-3.20 with CSS-1.00" Mac-creator="MSIE" Mac-type="TEXT" Win-suffix="htm" Encode-out="Html-ascii-out">
+	<!--
+	ADOBE SYSTEMS INCORPORATED
+	Copyright 2003 Adobe Systems Incorporated
+	All Rights Reserved
+	
+	NOTICE:  This Notice only applies to this file or any portion thereof.
+	Adobe permits you to use, modify, and distribute this file in accordance
+	with the terms and conditions of the Adobe license agreement accompanying
+	it ("Agreement").  Additionally, Adobe grants you a nonexclusive,
+	nontransferable, royalty-free license to use, modify and distribute
+	all or any portion of this file.  Where the terms of this Notice
+	and the terms of the Agreement differ, the terms of this Notice
+	shall control.  All other terms and conditions of the Agreement
+	remain unchanged and have full force and effect.  If you have received
+	this file from a source other than Adobe, then your use, modification,
+	or distribution of it requires the prior written permission of Adobe.
+-->
+	<Comment>---------------Defined Proc-lists---------------</Comment>
+	<Define-proc-list Name="basic-metadata">
+		<Comment>For HTML, we issue Dublin Core Metadata plus "Keywords"
+.</Comment>
+		<Proc-var Pdf-var="Title" Owner="Metadata" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string>&lt;META</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">name="DC.Title&quot;</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">content=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string NL-After="Yes">&quot; &gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Author" Owner="Metadata" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<Comment>Author is mapped to DC.Contributor for Dublin Core Metadata.</Comment>
+			<Emit-string>&lt;META</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">name="DC.Contributor&quot;</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">content=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string NL-After="Yes">&quot; &gt;</Emit-string>
+		</Proc-var>
+		<Comment>Metadata:Keywords -- Dublin core does not support this
+doc-info/metadata item.</Comment>
+		<Proc-var Pdf-var="Subject" Owner="Metadata" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string>&lt;META</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">name="DC.Subject&quot;</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">content=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string NL-After="Yes">&quot; &gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Creator" Owner="Metadata" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string>&lt;META</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">name="DC.Creator&quot;</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">content=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string NL-After="Yes">&quot; &gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="CreationDate" Owner="Metadata" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string>&lt;META</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">name="DC.Date&quot;</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">content=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string NL-After="Yes">&quot; &gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="ModDate" Owner="Metadata" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string>&lt;META</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">name="DC.Date.Modified&quot;</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">content=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string NL-After="Yes">&quot; &gt;</Emit-string>
+		</Proc-var>
+		<Comment>Metadata:Trapped -- Dublin core does not support this doc-info/metadata
+item.</Comment>
+	</Define-proc-list>
+	<Define-proc-list Name="Arbitrary-user-attributes">
+		<Proc-property>
+			<Comment>Emit a space before the property name</Comment>
+			<Emit-string SP-Before="Yes"/>
+			<Property-name/>
+			<Property-type Type="Fixed">
+				<Comment>There is no way for PDF to determine "Length" vs "Fixed".</Comment>
+				<Comment>There is no way for PDF to determine "Pixels" vs "Fixed".</Comment>
+				<Emit-string>=</Emit-string>
+				<Proc-fixed/>
+			</Property-type>
+			<Property-type Type="Int32">
+				<Emit-string>=</Emit-string>
+				<Proc-integer/>
+			</Property-type>
+			<Property-type Type="Atom">
+				<Emit-string>=&apos;</Emit-string>
+				<Proc-string/>
+				<Emit-string>&apos;</Emit-string>
+			</Property-type>
+			<Property-type Type="String">
+				<Emit-string>=&apos;</Emit-string>
+				<Proc-string/>
+				<Emit-string>&apos;</Emit-string>
+			</Property-type>
+		</Proc-property>
+	</Define-proc-list>
+	<Define-proc-list Name="User-attributes">
+		<Walk-proplist Owner="HTML-3.20" Use-proclist="Arbitrary-user-attributes"/>
+	</Define-proc-list>
+	<Define-proc-list Name="Element-attributes">
+		<Proc-var Pdf-var="Alt" Owner="Structelem" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string SP-Before="Yes">alt=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+		<Comment>Lang does not apply to HTML-3.20</Comment>
+	</Define-proc-list>
+	<Define-proc-list Name="Span-element-attributes">
+		<Comment>Alt is not allowed on Spans in HTML 3.20</Comment>
+		<Comment>Language is not allowed on Spans in HTML 3.20</Comment>
+	</Define-proc-list>
+	<Define-proc-list Name="Arbitrary-user-styles">
+		<Proc-property>
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Property-name/>
+			<Property-type Type="Fixed">
+				<Comment>There is no way for PDF to determine "Length" vs "Fixed".</Comment>
+				<Comment>There is no way for PDF to determine "Pixels" vs "Fixed".</Comment>
+				<Emit-string>:</Emit-string>
+				<Proc-fixed/>
+			</Property-type>
+			<Property-type Type="Int32">
+				<Emit-string>:</Emit-string>
+				<Proc-integer/>
+			</Property-type>
+			<Property-type Type="Atom">
+				<Emit-string>:&apos;</Emit-string>
+				<Proc-string/>
+				<Emit-string>&apos;</Emit-string>
+			</Property-type>
+			<Property-type Type="String">
+				<Emit-string>:&apos;</Emit-string>
+				<Proc-string/>
+				<Emit-string>&apos;</Emit-string>
+			</Property-type>
+		</Proc-property>
+	</Define-proc-list>
+	<Define-proc-list Name="Css-styles">
+		<Walk-proplist Owner="CSS-1.00" Use-proclist="Arbitrary-user-styles"/>
+	</Define-proc-list>
+	<Define-proc-list Name="Cached-para-styles">
+		<Proc-var Pdf-var="TextAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Start" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>text-align:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="Center" Value-out="center"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="justify"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="SpaceAfter" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Always" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-bottom:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="SpaceBefore" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Always" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-top:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="EndIndent" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Always" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-right:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="StartIndent" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Always" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-left:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="TextIndent" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Always" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>text-indent:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="WritingMode" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="LrTb" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>direction:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="LrTb" Value-out="ltr"/>
+				<Proc-enum-choice Value-in="RlTb" Value-out="rtl"/>
+				<Proc-enum-choice Value-in="TbRl" Value-out="ltr"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="FontFamily" Owner="Layout" Type="String" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-family:&apos;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&apos;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontSize" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="12" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-size:</Emit-string>
+			<Proc-length/>
+		</Proc-var>
+		<Proc-var Pdf-var="FontStyle" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-style:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="Italic" Value-out="italic"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="FontWeight" Owner="Layout" Type="Int32" Inherit="Inheritable" Condition="Less-than-value" Compare="550">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-weight:normal</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontWeight" Owner="Layout" Type="Int32" Inherit="Inheritable" Condition="More-than-value" Compare="549">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-weight:bold</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontStretch" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-stretch:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="UltraCondensed" Value-out="ultra-condensed"/>
+				<Proc-enum-choice Value-in="ExtraCondensed" Value-out="extra-condensed"/>
+				<Proc-enum-choice Value-in="Condensed" Value-out="condensed"/>
+				<Proc-enum-choice Value-in="SemiCondensed" Value-out="semi-condensed"/>
+				<Proc-enum-choice Value-in="SemiExpanded" Value-out="semi-expanded"/>
+				<Proc-enum-choice Value-in="Expanded" Value-out="expanded"/>
+				<Proc-enum-choice Value-in="ExtraExpanded" Value-out="extra-expanded"/>
+				<Proc-enum-choice Value-in="UltraExpanded" Value-out="ultra-expanded"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="FontVariant" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-variant:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="SmallCaps" Value-out="small-caps"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="LineHeight" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>line-height:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="LineHeight" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>line-height:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="normal"/>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+			</Proc-enum>
+			<Comment>Auto is not supported by HTML/CSS: Use 'normal'</Comment>
+		</Proc-var>
+		<Proc-var Pdf-var="BaselineShift" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="Has-value">
+			<Emit-string>vertical-align:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="TextDecoration" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>text-decoration:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Underline" Value-out="underline"/>
+				<Proc-enum-choice Value-in="Overline" Value-out="overline"/>
+				<Proc-enum-choice Value-in="LineThrough" Value-out="line-through"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorRed" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>color:#</Emit-string>
+			<Proc-hex Mul="255" Add="0" Div="1" Num-digits="2"/>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorGreen" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Has-value">
+			<Proc-hex Mul="255" Add="0" Div="1" Num-digits="2"/>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorBlue" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Has-value">
+			<Proc-hex Mul="255" Add="0" Div="1" Num-digits="2"/>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Cached-span-styles">
+		<Proc-var Pdf-var="FontFamily" Owner="Layout" Type="String" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-family:&apos;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&apos;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontSize" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="12" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-size:</Emit-string>
+			<Proc-length/>
+		</Proc-var>
+		<Proc-var Pdf-var="FontStyle" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-style:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="Italic" Value-out="italic"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="FontWeight" Owner="Layout" Type="Int32" Inherit="Inheritable" Condition="Less-than-value" Compare="550">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-weight:normal</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontWeight" Owner="Layout" Type="Int32" Inherit="Inheritable" Condition="More-than-value" Compare="549">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-weight:bold</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontStretch" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-stretch:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="UltraCondensed" Value-out="ultra-condensed"/>
+				<Proc-enum-choice Value-in="ExtraCondensed" Value-out="extra-condensed"/>
+				<Proc-enum-choice Value-in="Condensed" Value-out="condensed"/>
+				<Proc-enum-choice Value-in="SemiCondensed" Value-out="semi-condensed"/>
+				<Proc-enum-choice Value-in="SemiExpanded" Value-out="semi-expanded"/>
+				<Proc-enum-choice Value-in="Expanded" Value-out="expanded"/>
+				<Proc-enum-choice Value-in="ExtraExpanded" Value-out="extra-expanded"/>
+				<Proc-enum-choice Value-in="UltraExpanded" Value-out="ultra-expanded"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="FontVariant" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-variant:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="SmallCaps" Value-out="small-caps"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="LineHeight" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>line-height:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="LineHeight" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>line-height:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="normal"/>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+			</Proc-enum>
+			<Comment>Auto is not supported by HTML/CSS: Use 'normal'</Comment>
+		</Proc-var>
+		<Proc-var Pdf-var="BaselineShift" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="Has-value">
+			<Emit-string>vertical-align:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="TextDecoration" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>text-decoration:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Underline" Value-out="underline"/>
+				<Proc-enum-choice Value-in="Overline" Value-out="overline"/>
+				<Proc-enum-choice Value-in="LineThrough" Value-out="line-through"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorRed" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>color:#</Emit-string>
+			<Proc-hex Mul="255" Add="0" Div="1" Num-digits="2"/>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorGreen" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Has-value">
+			<Proc-hex Mul="255" Add="0" Div="1" Num-digits="2"/>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorBlue" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Has-value">
+			<Proc-hex Mul="255" Add="0" Div="1" Num-digits="2"/>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Cached-list-styles">
+		<Proc-var Pdf-var="ListNumberFormat" Owner="List" Type="Atom" Inherit="Inheritable" Default="None" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>list-style-type:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="None" Value-out="none"/>
+				<Proc-enum-choice Value-in="Disc" Value-out="disc"/>
+				<Proc-enum-choice Value-in="Circle" Value-out="circle"/>
+				<Proc-enum-choice Value-in="Square" Value-out="square"/>
+				<Proc-enum-choice Value-in="Decimal" Value-out="decimal"/>
+				<Proc-enum-choice Value-in="LowerRoman" Value-out="lower-roman"/>
+				<Proc-enum-choice Value-in="UpperRoman" Value-out="upper-roman"/>
+				<Proc-enum-choice Value-in="LowerAlpha" Value-out="lower-alpha"/>
+				<Proc-enum-choice Value-in="UpperAlpha" Value-out="upper-alpha"/>
+			</Proc-enum>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Cached-table-styles">
+		<Proc-var Pdf-var="InlineAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Start" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>text-align:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="Center" Value-out="center"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="left"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="BlockAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Before" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>vertical-align:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Before" Value-out="top"/>
+				<Proc-enum-choice Value-in="Center" Value-out="middle"/>
+				<Proc-enum-choice Value-in="After" Value-out="bottom"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="top"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="SpaceAfter" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Always" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-bottom:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="SpaceBefore" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Always" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-top:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="EndIndent" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Always" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-right:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="StartIndent" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Always" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-left:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="WritingMode" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="LrTb" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>direction:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="LrTb" Value-out="ltr"/>
+				<Proc-enum-choice Value-in="RlTb" Value-out="rtl"/>
+				<Proc-enum-choice Value-in="TbRl" Value-out="ltr"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="Width" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>width:</Emit-string>
+			<Proc-pixels/>
+			<Emit-string>px</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Width" Owner="Layout" Type="Atom" Inherit="Not-inherited" Default="Auto" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>width:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="Auto"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>height:</Emit-string>
+			<Proc-pixels/>
+			<Emit-string>px</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Atom" Inherit="Not-inherited" Default="Auto" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>height:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="Auto"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="Placement" Owner="Layout" Type="Atom" Inherit="Not-inherited" Default="Inline" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>display:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Inline" Value-out="inline-table"/>
+				<Proc-enum-choice Value-in="Block" Value-out="table"/>
+				<Proc-enum-choice Value-in="Start" Value-out="table"/>
+				<Proc-enum-choice Value-in="End" Value-out="table"/>
+				<Proc-enum-choice Value-in="Before" Value-out="table"/>
+				<Proc-enum-choice Value-in="After" Value-out="table"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="Placement" Owner="Layout" Type="Atom" Inherit="Not-inherited" Default="Inline" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>float:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Inline" Value-out="none"/>
+				<Proc-enum-choice Value-in="Block" Value-out="none"/>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Before" Value-out="left"/>
+				<Proc-enum-choice Value-in="After" Value-out="right"/>
+			</Proc-enum>
+		</Proc-var>
+		<Comment>BBox is not applicable to HTML-3.20</Comment>
+	</Define-proc-list>
+	<Define-proc-list Name="Cached-table-row-styles">
+		<Proc-var Pdf-var="BlockAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Before" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>vertical-align:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Before" Value-out="top"/>
+				<Proc-enum-choice Value-in="Middle" Value-out="middle"/>
+				<Proc-enum-choice Value-in="After" Value-out="bottom"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="top"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>height:</Emit-string>
+			<Proc-pixels/>
+			<Emit-string>px</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Atom" Inherit="Not-inherited" Default="Auto" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>height:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="Auto"/>
+			</Proc-enum>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Cached-table-cell-styles">
+		<Proc-var Pdf-var="InlineAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Start" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>text-align:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="Center" Value-out="center"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="left"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="BlockAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Before" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>vertical-align:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Before" Value-out="top"/>
+				<Proc-enum-choice Value-in="Middle" Value-out="middle"/>
+				<Proc-enum-choice Value-in="After" Value-out="bottom"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="top"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="Width" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>width:</Emit-string>
+			<Proc-pixels/>
+			<Emit-string>px</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Width" Owner="Layout" Type="Atom" Inherit="Not-inherited" Default="Auto" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>width:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="Auto"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>height:</Emit-string>
+			<Proc-pixels/>
+			<Emit-string>px</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Atom" Inherit="Not-inherited" Default="Auto" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>height:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="Auto"/>
+			</Proc-enum>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Cached-figure-styles">
+		<Proc-var Pdf-var="InlineAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Start" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>text-align:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="Center" Value-out="center"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="left"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="BlockAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Before" Condition="Always">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>vertical-align:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Before" Value-out="top"/>
+				<Proc-enum-choice Value-in="Middle" Value-out="middle"/>
+				<Proc-enum-choice Value-in="After" Value-out="bottom"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="top"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="SpaceAfter" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Always" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-bottom:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="SpaceBefore" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Always" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-top:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="EndIndent" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Always" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-right:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="StartIndent" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Always" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-left:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="WritingMode" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="LrTb" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>direction:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="LrTb" Value-out="ltr"/>
+				<Proc-enum-choice Value-in="RlTb" Value-out="rtl"/>
+				<Proc-enum-choice Value-in="TbRl" Value-out="ltr"/>
+			</Proc-enum>
+		</Proc-var>
+		<Comment>BBox is not applicable to OEB-1.00</Comment>
+	</Define-proc-list>
+	<Define-proc-list Name="Span-styles">
+		<Proc-var Pdf-var="LineHeight" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>line-height:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="LineHeight" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Auto" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>line-height:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="normal"/>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+			</Proc-enum>
+			<Comment>Auto is not supported by OEB/HTML/CSS: Use 'normal'</Comment>
+		</Proc-var>
+		<Comment>Subscript/Superscript is done via element wrappers.</Comment>
+		<Proc-var Pdf-var="TextDecoration" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>text-decoration:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Underline" Value-out="underline"/>
+				<Proc-enum-choice Value-in="Overline" Value-out="overline"/>
+				<Proc-enum-choice Value-in="LineThrough" Value-out="line-through"/>
+			</Proc-enum>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Mcc-styles">
+		<Proc-var Pdf-var="FontFamily" Owner="AutoTextStyle" Type="String" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-family:&apos;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&apos;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontFamilyAlt" Owner="AutoTextStyle" Type="String" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter>,</Conditional-delimeter>
+			<Emit-string>&apos;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&apos;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontFamilyClass" Owner="AutoTextStyle" Type="String" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter>,</Conditional-delimeter>
+			<Proc-string/>
+		</Proc-var>
+		<Proc-var Pdf-var="FontSize" Owner="AutoTextStyle" Type="Fixed" Inherit="Inheritable" Default="12" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-size:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontStyle" Owner="AutoTextStyle" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-style:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="Italic" Value-out="italic"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="FontWeight" Owner="AutoTextStyle" Type="Int32" Inherit="Inheritable" Condition="Less-than-value" Compare="550">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-weight:normal</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontWeight" Owner="AutoTextStyle" Type="Int32" Inherit="Inheritable" Condition="More-than-value" Compare="549">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-weight:bold</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontStretch" Owner="AutoTextStyle" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-stretch:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="UltraCondensed" Value-out="ultra-condensed"/>
+				<Proc-enum-choice Value-in="ExtraCondensed" Value-out="extra-condensed"/>
+				<Proc-enum-choice Value-in="Condensed" Value-out="condensed"/>
+				<Proc-enum-choice Value-in="SemiCondensed" Value-out="semi-condensed"/>
+				<Proc-enum-choice Value-in="SemiExpanded" Value-out="semi-expanded"/>
+				<Proc-enum-choice Value-in="Expanded" Value-out="expanded"/>
+				<Proc-enum-choice Value-in="ExtraExpanded" Value-out="extra-expanded"/>
+				<Proc-enum-choice Value-in="UltraExpanded" Value-out="ultra-expanded"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="FontVariant" Owner="AutoTextStyle" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-variant:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="SmallCaps" Value-out="small-caps"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorRed" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>color:#</Emit-string>
+			<Proc-hex Mul="255" Add="0" Div="1" Num-digits="2"/>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorGreen" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Has-value">
+			<Proc-hex Mul="255" Add="0" Div="1" Num-digits="2"/>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorBlue" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Has-value">
+			<Proc-hex Mul="255" Add="0" Div="1" Num-digits="2"/>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Para-styles">
+		<Proc-var Pdf-var="TextAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Start" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>text-align:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="Center" Value-out="center"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="justify"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="SpaceAfter" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Diff-from-default-for-event" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-bottom:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="SpaceBefore" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Diff-from-default-for-event" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-top:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="EndIndent" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Diff-from-default-for-event" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-right:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="StartIndent" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Diff-from-default-for-event" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-left:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="TextIndent" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Diff-from-default-for-event" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>text-indent:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="WritingMode" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="LrTb" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>direction:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="LrTb" Value-out="ltr"/>
+				<Proc-enum-choice Value-in="RlTb" Value-out="rtl"/>
+				<Proc-enum-choice Value-in="TbRl" Value-out="ltr"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="FontFamily" Owner="Layout" Type="String" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-family:&apos;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&apos;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontSize" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="12" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-size:</Emit-string>
+			<Proc-length/>
+		</Proc-var>
+		<Proc-var Pdf-var="FontStyle" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-style:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="Italic" Value-out="italic"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="FontWeight" Owner="Layout" Type="Int32" Inherit="Inheritable" Condition="Less-than-value" Compare="550">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-weight:normal</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontWeight" Owner="Layout" Type="Int32" Inherit="Inheritable" Condition="More-than-value" Compare="549">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-weight:bold</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontStretch" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-stretch:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="UltraCondensed" Value-out="ultra-condensed"/>
+				<Proc-enum-choice Value-in="ExtraCondensed" Value-out="extra-condensed"/>
+				<Proc-enum-choice Value-in="Condensed" Value-out="condensed"/>
+				<Proc-enum-choice Value-in="SemiCondensed" Value-out="semi-condensed"/>
+				<Proc-enum-choice Value-in="SemiExpanded" Value-out="semi-expanded"/>
+				<Proc-enum-choice Value-in="Expanded" Value-out="expanded"/>
+				<Proc-enum-choice Value-in="ExtraExpanded" Value-out="extra-expanded"/>
+				<Proc-enum-choice Value-in="UltraExpanded" Value-out="ultra-expanded"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="FontVariant" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-variant:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="SmallCaps" Value-out="small-caps"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="LineHeight" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>line-height:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="LineHeight" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>line-height:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="normal"/>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+			</Proc-enum>
+			<Comment>Auto is not supported by HTML/CSS: Use 'normal'</Comment>
+		</Proc-var>
+		<Proc-var Pdf-var="BaselineShift" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="Has-value">
+			<Emit-string>vertical-align:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="TextDecoration" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>text-decoration:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Underline" Value-out="underline"/>
+				<Proc-enum-choice Value-in="Overline" Value-out="overline"/>
+				<Proc-enum-choice Value-in="LineThrough" Value-out="line-through"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorRed" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>color:#</Emit-string>
+			<Proc-hex Mul="255" Add="0" Div="1" Num-digits="2"/>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorGreen" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Has-value">
+			<Proc-hex Mul="255" Add="0" Div="1" Num-digits="2"/>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorBlue" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Has-value">
+			<Proc-hex Mul="255" Add="0" Div="1" Num-digits="2"/>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="List-styles">
+		<Proc-var Pdf-var="ListNumberFormat" Owner="List" Type="Atom" Inherit="Inheritable" Default="None" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>list-style-type:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="None" Value-out="none"/>
+				<Proc-enum-choice Value-in="Disc" Value-out="disc"/>
+				<Proc-enum-choice Value-in="Circle" Value-out="circle"/>
+				<Proc-enum-choice Value-in="Square" Value-out="square"/>
+				<Proc-enum-choice Value-in="Decimal" Value-out="decimal"/>
+				<Proc-enum-choice Value-in="LowerRoman" Value-out="lower-roman"/>
+				<Proc-enum-choice Value-in="UpperRoman" Value-out="upper-roman"/>
+				<Proc-enum-choice Value-in="LowerAlpha" Value-out="lower-alpha"/>
+				<Proc-enum-choice Value-in="UpperAlpha" Value-out="upper-alpha"/>
+			</Proc-enum>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Table-styles">
+		<Proc-var Pdf-var="InlineAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Start" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>text-align:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="Center" Value-out="center"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="left"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="BlockAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Before" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>vertical-align:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Before" Value-out="top"/>
+				<Proc-enum-choice Value-in="Center" Value-out="middle"/>
+				<Proc-enum-choice Value-in="After" Value-out="bottom"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="top"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="SpaceAfter" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Diff-from-default-for-event" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-bottom:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="SpaceBefore" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Diff-from-default-for-event" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-top:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="EndIndent" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Diff-from-default-for-event" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-right:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="StartIndent" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Diff-from-default-for-event" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-left:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="WritingMode" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="LrTb" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>direction:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="LrTb" Value-out="ltr"/>
+				<Proc-enum-choice Value-in="RlTb" Value-out="rtl"/>
+				<Proc-enum-choice Value-in="TbRl" Value-out="ltr"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="Width" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>width:</Emit-string>
+			<Proc-pixels/>
+			<Emit-string>px</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Width" Owner="Layout" Type="Atom" Inherit="Not-inherited" Default="Auto" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>width:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="Auto"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>height:</Emit-string>
+			<Proc-pixels/>
+			<Emit-string>px</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Atom" Inherit="Not-inherited" Default="Auto" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>height:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="Auto"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="Placement" Owner="Layout" Type="Atom" Inherit="Not-inherited" Default="Inline" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>display:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Inline" Value-out="inline-table"/>
+				<Proc-enum-choice Value-in="Block" Value-out="table"/>
+				<Proc-enum-choice Value-in="Start" Value-out="table"/>
+				<Proc-enum-choice Value-in="End" Value-out="table"/>
+				<Proc-enum-choice Value-in="Before" Value-out="table"/>
+				<Proc-enum-choice Value-in="After" Value-out="table"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="Placement" Owner="Layout" Type="Atom" Inherit="Not-inherited" Default="Inline" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>float:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Inline" Value-out="none"/>
+				<Proc-enum-choice Value-in="Block" Value-out="none"/>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Before" Value-out="left"/>
+				<Proc-enum-choice Value-in="After" Value-out="right"/>
+			</Proc-enum>
+		</Proc-var>
+		<Comment>BBox is not applicable to HTML-3.20</Comment>
+	</Define-proc-list>
+	<Define-proc-list Name="Table-row-styles">
+		<Proc-var Pdf-var="BlockAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Before" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>vertical-align:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Before" Value-out="top"/>
+				<Proc-enum-choice Value-in="Middle" Value-out="middle"/>
+				<Proc-enum-choice Value-in="After" Value-out="bottom"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="top"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>height:</Emit-string>
+			<Proc-pixels/>
+			<Emit-string>px</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Atom" Inherit="Not-inherited" Default="Auto" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>height:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="Auto"/>
+			</Proc-enum>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Table-cell-attributes">
+		<Proc-var Pdf-var="ColSpan" Owner="Table" Type="Int32" Inherit="Inheritable" Default="1" Condition="Has-value">
+			<Emit-string SP-Before="Yes">colspan=</Emit-string>
+			<Proc-integer Mul="1" Add="0" Div="1"/>
+		</Proc-var>
+		<Proc-var Pdf-var="RowSpan" Owner="Table" Type="Int32" Inherit="Inheritable" Default="1" Condition="Has-value">
+			<Emit-string SP-Before="Yes">rowspan=</Emit-string>
+			<Proc-integer Mul="1" Add="0" Div="1"/>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Table-cell-styles">
+		<Proc-var Pdf-var="InlineAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Start" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>text-align:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="Center" Value-out="center"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="left"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="BlockAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Before" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>vertical-align:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Before" Value-out="top"/>
+				<Proc-enum-choice Value-in="Middle" Value-out="middle"/>
+				<Proc-enum-choice Value-in="After" Value-out="bottom"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="top"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="Width" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>width:</Emit-string>
+			<Proc-pixels/>
+			<Emit-string>px</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Width" Owner="Layout" Type="Atom" Inherit="Not-inherited" Default="Auto" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>width:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="Auto"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>height:</Emit-string>
+			<Proc-pixels/>
+			<Emit-string>px</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Atom" Inherit="Not-inherited" Default="Auto" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>height:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="Auto"/>
+			</Proc-enum>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Figure-attributes">
+		<Proc-var Pdf-var="Width" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="Diff-from-default-for-event">
+			<Emit-string SP-Before="Yes">width=</Emit-string>
+			<Proc-pixels/>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="Diff-from-default-for-event">
+			<Emit-string SP-Before="Yes">height=</Emit-string>
+			<Proc-pixels/>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Figure-styles">
+		<Proc-var Pdf-var="InlineAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Start" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>text-align:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="Center" Value-out="center"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="left"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="BlockAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Before" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>vertical-align:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Before" Value-out="top"/>
+				<Proc-enum-choice Value-in="Middle" Value-out="middle"/>
+				<Proc-enum-choice Value-in="After" Value-out="bottom"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="top"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="SpaceAfter" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Diff-from-default-for-event" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-bottom:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="SpaceBefore" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Diff-from-default-for-event" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-top:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="EndIndent" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Diff-from-default-for-event" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-right:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="StartIndent" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Diff-from-default-for-event" Compare="0">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>margin-left:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="WritingMode" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="LrTb" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>direction:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="LrTb" Value-out="ltr"/>
+				<Proc-enum-choice Value-in="RlTb" Value-out="rtl"/>
+				<Proc-enum-choice Value-in="TbRl" Value-out="ltr"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="Placement" Owner="Layout" Type="Atom" Inherit="Not-inherited" Default="Inline" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>display:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Inline" Value-out="inline"/>
+				<Proc-enum-choice Value-in="Block" Value-out="block"/>
+				<Proc-enum-choice Value-in="Start" Value-out="block"/>
+				<Proc-enum-choice Value-in="End" Value-out="block"/>
+				<Proc-enum-choice Value-in="Before" Value-out="block"/>
+				<Proc-enum-choice Value-in="After" Value-out="block"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="Placement" Owner="Layout" Type="Atom" Inherit="Not-inherited" Default="Inline" Condition="Diff-from-default-for-event">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>float:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Inline" Value-out="none"/>
+				<Proc-enum-choice Value-in="Block" Value-out="none"/>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Before" Value-out="left"/>
+				<Proc-enum-choice Value-in="After" Value-out="right"/>
+			</Proc-enum>
+		</Proc-var>
+		<Comment>BBox is not applicable to OEB-1.00</Comment>
+	</Define-proc-list>
+	<Define-proc-list Name="Span-entry-wrappers">
+		<Proc-var Pdf-var="TextDecorationType" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Normal" Condition="Matches-value" Compare="Underline">
+			<Emit-string>&lt;U&gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="TextDecorationType" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Normal" Condition="Matches-value" Compare="LineThrough">
+			<Emit-string>&lt;Strike&gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="BaselineShift" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="Less-than-value" Compare="0">
+			<Emit-string>&lt;Sub&gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="BaselineShift" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="More-than-value" Compare="0">
+			<Emit-string>&lt;Sup&gt;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Span-exit-wrappers">
+		<Proc-var Pdf-var="BaselineShift" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="More-than-value" Compare="0">
+			<Emit-string>&lt;/Sup&gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="BaselineShift" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="Less-than-value" Compare="0">
+			<Emit-string>&lt;/Sub&gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="TextDecorationType" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Normal" Condition="Matches-value" Compare="LineThrough">
+			<Emit-string>&lt;/Strike&gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="TextDecorationType" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Normal" Condition="Matches-value" Compare="Underline">
+			<Emit-string>&lt;/U&gt;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Mcc-entry-wrappers">
+		<Proc-var Pdf-var="FontWeight" Owner="AutoTextStyle" Type="Atom" Inherit="Inheritable" Default="Normal" Condition="Matches-value" Compare="Bold">
+			<Emit-string>&lt;B&gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontStyle" Owner="AutoTextStyle" Type="Atom" Inherit="Inheritable" Default="Normal" Condition="Matches-value" Compare="Italic">
+			<Emit-string>&lt;I&gt;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Mcc-exit-wrappers">
+		<Proc-var Pdf-var="FontStyle" Owner="AutoTextStyle" Type="Atom" Inherit="Inheritable" Default="Normal" Condition="Matches-value" Compare="Italic">
+			<Emit-string>&lt;/I&gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontWeight" Owner="AutoTextStyle" Type="Atom" Inherit="Inheritable" Default="Normal" Condition="Matches-value" Compare="Bold">
+			<Emit-string>&lt;/B&gt;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Span-attributes">
+		<Comment>Lang does not apply to HTML-3.20</Comment>
+		<Proc-var Pdf-var="E" Owner="Inline-markup" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<Comment>Output as alt-text since HTML-3.2 does not have an expansion-text
+attribute.</Comment>
+			<Emit-string SP-Before="Yes">alt=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Span-styles">
+		<Proc-var Pdf-var="LineHeight" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>line-height:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="LineHeight" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Auto" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>line-height:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="normal"/>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+			</Proc-enum>
+			<Comment>Auto is not supported by OEB/HTML/CSS: Use 'normal'</Comment>
+		</Proc-var>
+		<Comment>Subscript/Superscript is done via element wrappers.</Comment>
+		<Proc-var Pdf-var="TextDecoration" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>text-decoration:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Underline" Value-out="underline"/>
+				<Proc-enum-choice Value-in="Overline" Value-out="overline"/>
+				<Proc-enum-choice Value-in="LineThrough" Value-out="line-through"/>
+			</Proc-enum>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Mcc-styles">
+		<Proc-var Pdf-var="FontFamily" Owner="AutoTextStyle" Type="String" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-family:&apos;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&apos;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontFamilyAlt" Owner="AutoTextStyle" Type="String" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter>,</Conditional-delimeter>
+			<Emit-string>&apos;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&apos;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontFamilyClass" Owner="AutoTextStyle" Type="String" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter>,</Conditional-delimeter>
+			<Proc-string/>
+		</Proc-var>
+		<Proc-var Pdf-var="FontSize" Owner="AutoTextStyle" Type="Fixed" Inherit="Inheritable" Default="12" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-size:</Emit-string>
+			<Proc-length/>
+			<Emit-string>pt</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontStyle" Owner="AutoTextStyle" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-style:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="Italic" Value-out="italic"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="FontWeight" Owner="AutoTextStyle" Type="Int32" Inherit="Inheritable" Condition="Less-than-value" Compare="550">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-weight:normal</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontWeight" Owner="AutoTextStyle" Type="Int32" Inherit="Inheritable" Condition="More-than-value" Compare="549">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-weight:bold</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="FontStretch" Owner="AutoTextStyle" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-stretch:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="UltraCondensed" Value-out="ultra-condensed"/>
+				<Proc-enum-choice Value-in="ExtraCondensed" Value-out="extra-condensed"/>
+				<Proc-enum-choice Value-in="Condensed" Value-out="condensed"/>
+				<Proc-enum-choice Value-in="SemiCondensed" Value-out="semi-condensed"/>
+				<Proc-enum-choice Value-in="SemiExpanded" Value-out="semi-expanded"/>
+				<Proc-enum-choice Value-in="Expanded" Value-out="expanded"/>
+				<Proc-enum-choice Value-in="ExtraExpanded" Value-out="extra-expanded"/>
+				<Proc-enum-choice Value-in="UltraExpanded" Value-out="ultra-expanded"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="FontVariant" Owner="AutoTextStyle" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>font-variant:</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Normal" Value-out="normal"/>
+				<Proc-enum-choice Value-in="SmallCaps" Value-out="small-caps"/>
+			</Proc-enum>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorRed" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Has-value">
+			<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+			<Emit-string>color:#</Emit-string>
+			<Proc-hex Mul="255" Add="0" Div="1" Num-digits="2"/>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorGreen" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Has-value">
+			<Proc-hex Mul="255" Add="0" Div="1" Num-digits="2"/>
+		</Proc-var>
+		<Proc-var Pdf-var="ColorBlue" Owner="Layout" Type="Fixed" Inherit="Inheritable" Default="0" Condition="Has-value">
+			<Proc-hex Mul="255" Add="0" Div="1" Num-digits="2"/>
+		</Proc-var>
+	</Define-proc-list>
+	<Comment>---------------Defined Event-lists---------------</Comment>
+	<Define-event-list Name="Css-cached-styles">
+		<Comment>----------Builds CSS selector rules----------</Comment>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Div" Alternate-name="Division" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">DIV {</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Doc" Alternate-name="Document" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">DIV[class="Document"]
+{</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Art" Alternate-name="Article" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">DIV[class="Article"]
+{</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Part" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">DIV[class="Part"]
+{</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Sect" Alternate-name="Section" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">DIV[class="Sect"]
+{</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H" Alternate-name="Heading" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">H1 {</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H1" Alternate-name="Heading1" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">H1 {</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H2" Alternate-name="Heading2" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">H2 {</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H3" Alternate-name="Heading3" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">H3 {</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H4" Alternate-name="Heading4" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">H4 {</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H5" Alternate-name="Heading5" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">H5 {</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H6" Alternate-name="Heading6" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">H6 {</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="P" Alternate-name="Paragraph" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">P {</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Blockquote" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix NL-After="Yes">BLOCKQUOTE {</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="BibEntry" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">DIV[class="BibEntry"]
+{</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Index" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">DIV[class="Index"]
+{</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TOC" Alternate-name="TableOfContents" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">DIV[class="TOC"] {</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TOCI" Alternate-name="ContentItem" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">DIV[class="TOCI"]
+{</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="UL" Node-content="Has-kids" Event-class="Enter">
+			<Comment>For OEB: UL is mapped to DL, there is no list-numbering
+styles for bullets</Comment>
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">UL {</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="OL" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">OL {</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="DL" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">DL {</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="L" Alternate-name="List" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="No-value">
+				<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+					<Conditional-prefix SP-After="Yes" NL-After="Yes">DL {</Conditional-prefix>
+					<Call-proc-list Name="Cached-para-styles"/>
+					<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+				</Evaluate-var>
+				<Walk-children Use-event-list="Css-cached-styles"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="None">
+				<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+					<Conditional-prefix SP-After="Yes" NL-After="Yes">DL {</Conditional-prefix>
+					<Call-proc-list Name="Cached-para-styles"/>
+					<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+				</Evaluate-var>
+				<Walk-children Use-event-list="Css-cached-styles"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Disc">
+				<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+					<Conditional-prefix SP-After="Yes" NL-After="Yes">UL {</Conditional-prefix>
+					<Call-proc-list Name="List-styles"/>
+					<Call-proc-list Name="Cached-para-styles"/>
+					<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+				</Evaluate-var>
+				<Walk-children Use-event-list="Css-cached-styles"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Circle">
+				<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+					<Conditional-prefix SP-After="Yes" NL-After="Yes">UL {</Conditional-prefix>
+					<Call-proc-list Name="Cached-list-styles"/>
+					<Call-proc-list Name="Cached-para-styles"/>
+					<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+				</Evaluate-var>
+				<Walk-children Use-event-list="Css-cached-styles"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Square">
+				<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+					<Conditional-prefix SP-After="Yes" NL-After="Yes">UL {</Conditional-prefix>
+					<Call-proc-list Name="Cached-list-styles"/>
+					<Call-proc-list Name="Cached-para-styles"/>
+					<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+				</Evaluate-var>
+				<Walk-children Use-event-list="Css-cached-styles"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Decimal">
+				<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+					<Conditional-prefix SP-After="Yes" NL-After="Yes">OL {</Conditional-prefix>
+					<Call-proc-list Name="Cached-list-styles"/>
+					<Call-proc-list Name="Cached-para-styles"/>
+					<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+				</Evaluate-var>
+				<Walk-children Use-event-list="Css-cached-styles"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="LowerRoman">
+				<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+					<Conditional-prefix SP-After="Yes" NL-After="Yes">OL {</Conditional-prefix>
+					<Call-proc-list Name="Cached-list-styles"/>
+					<Call-proc-list Name="Cached-para-styles"/>
+					<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+				</Evaluate-var>
+				<Walk-children Use-event-list="Css-cached-styles"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="UpperRoman">
+				<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+					<Conditional-prefix SP-After="Yes" NL-After="Yes">OL {</Conditional-prefix>
+					<Call-proc-list Name="Cached-list-styles"/>
+					<Call-proc-list Name="Cached-para-styles"/>
+					<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+				</Evaluate-var>
+				<Walk-children Use-event-list="Css-cached-styles"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="LowerAlpha">
+				<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+					<Conditional-prefix SP-After="Yes" NL-After="Yes">OL {</Conditional-prefix>
+					<Call-proc-list Name="Cached-list-styles"/>
+					<Call-proc-list Name="Cached-para-styles"/>
+					<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+				</Evaluate-var>
+				<Walk-children Use-event-list="Css-cached-styles"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="UpperAlpha">
+				<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+					<Conditional-prefix SP-After="Yes" NL-After="Yes">OL {</Conditional-prefix>
+					<Call-proc-list Name="Cached-list-styles"/>
+					<Call-proc-list Name="Cached-para-styles"/>
+					<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+				</Evaluate-var>
+				<Walk-children Use-event-list="Css-cached-styles"/>
+			</Evaluate-var>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">LI {</Conditional-prefix>
+				<Call-proc-list Name="Cached-list-styles"/>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Lbl" Alternate-name="Label" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">DT {</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LBody" Alternate-name="ListBody" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">DD {</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Quote" Alternate-name="Q" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">Q {</Conditional-prefix>
+				<Call-proc-list Name="Cached-span-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Link" Alternate-name="A" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Comment>Link placeholder</Comment>
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">A {</Conditional-prefix>
+				<Call-proc-list Name="Cached-span-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Code" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Comment>Inline code fragment</Comment>
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">CODE {</Conditional-prefix>
+				<Call-proc-list Name="Cached-span-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Table" Alternate-name="Tbl" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">TABLE {</Conditional-prefix>
+				<Comment>There is no PDF equivalent property to border-width, -collapse,
+or cell-spacing</Comment>
+				<Emit-string>border-width:thin</Emit-string>
+				<Emit-string>; border-collapse:collapse</Emit-string>
+				<Emit-string>; padding:3px</Emit-string>
+				<Call-proc-list Name="Cached-table-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Caption" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Comment>In OEB-1.00, &lt;CAPTION> is child of &lt;TABLE>; in
+XSL is peer under &lt;fo:table-and-caption>.</Comment>
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">CAPTION {</Conditional-prefix>
+				<Comment>&quot;caption-side" (align) is not supported in OEB</Comment>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TR" Alternate-name="TableRow" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">TR {</Conditional-prefix>
+				<Call-proc-list Name="Cached-table-row-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TH" Alternate-name="TableHeaderCell" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">TH {</Conditional-prefix>
+				<Call-proc-list Name="Cached-table-cell-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TD" Alternate-name="TableDataCell" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">TD { </Conditional-prefix>
+				<Call-proc-list Name="Cached-table-cell-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Figure" Alternate-name="Img" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix NL-After="Yes">IMG {</Conditional-prefix>
+				<Call-proc-list Name="Cached-figure-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Note" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="isCached" Owner="Style-cache" Type="String" Inherit="Not-inherited" Condition="Matches-value" Compare="0">
+				<Conditional-prefix SP-After="Yes" NL-After="Yes">DIV[class="Note"]
+{</Conditional-prefix>
+				<Call-proc-list Name="Cached-para-styles"/>
+				<Conditional-suffix NL-Before="Yes" NL-After="Yes">}</Conditional-suffix>
+			</Evaluate-var>
+			<Walk-children Use-event-list="Css-cached-styles"/>
+		</Event>
+	</Define-event-list>
+	<Define-event-list Name="dictionary-list-elements">
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Has-text-only" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;SPAN</Emit-string>
+			<Call-proc-list Name="Span-element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Call-proc-list Name="Span-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Mcc-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string>&gt;</Emit-string>
+			<Call-proc-list Name="Mcc-entry-wrappers"/>
+			<Proc-doc-text do-br-substitution="do-br-substitution"/>
+			<Call-proc-list Name="Mcc-exit-wrappers"/>
+			<Emit-string>&lt;/SPAN&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;SPAN</Emit-string>
+			<Call-proc-list Name="Span-element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Call-proc-list Name="Span-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Mcc-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string>&gt;</Emit-string>
+			<Call-proc-list Name="Mcc-entry-wrappers"/>
+			<Proc-doc-text do-br-substitution="do-br-substitution"/>
+			<Call-proc-list Name="Mcc-exit-wrappers"/>
+			<Emit-string>&lt;/SPAN&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Image" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Figure-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Image" Event-class="Exit">
+			<Emit-string>&quot; &gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Graphic" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Figure-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Graphic" Event-class="Exit">
+			<Emit-string>&quot; &gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Enter">
+			<Comment>No tag issued for LI within a DL for HTML-3.20</Comment>
+			<Walk-children Use-event-list="dictionary-list-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Exit">
+			<Comment>No tag issued for /LI within a DL for HTML-3.20</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Lbl" Alternate-name="Label" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;DT</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="List-styles"/>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Lbl" Alternate-name="Label" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DT</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LBody" Alternate-name="ListBody" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;DD</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="List-styles"/>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LBody" Alternate-name="ListBody" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DD</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+	</Define-event-list>
+	<Define-event-list Name="numbered-list-elements">
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Has-text-only" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;SPAN</Emit-string>
+			<Call-proc-list Name="Span-element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Call-proc-list Name="Span-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Mcc-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string>&gt;</Emit-string>
+			<Call-proc-list Name="Mcc-entry-wrappers"/>
+			<Proc-doc-text do-br-substitution="do-br-substitution"/>
+			<Call-proc-list Name="Mcc-exit-wrappers"/>
+			<Emit-string>&lt;/SPAN&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;SPAN</Emit-string>
+			<Call-proc-list Name="Span-element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Call-proc-list Name="Span-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Mcc-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string>&gt;</Emit-string>
+			<Call-proc-list Name="Mcc-entry-wrappers"/>
+			<Proc-doc-text do-br-substitution="do-br-substitution"/>
+			<Call-proc-list Name="Mcc-exit-wrappers"/>
+			<Emit-string>&lt;/SPAN&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Image" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Figure-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Image" Event-class="Exit">
+			<Emit-string>&quot; &gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Graphic" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Figure-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Graphic" Event-class="Exit">
+			<Emit-string>&quot; &gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;LI</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="List-styles"/>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="numbered-list-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/LI</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Lbl" Alternate-name="Label" Node-content="Has-kids" Event-class="Enter">
+			<Comment>Lbl &#38; its content is discarded in numbered/unnumbered
+lists for HTML-3.20</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Lbl" Alternate-name="Label" Node-content="Has-kids" Event-class="Exit">
+			<Comment>Lbl &#38; its content is discarded in numbered/unnumbered
+lists for HTML-3.20</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LBody" Alternate-name="ListBody" Node-content="Has-kids" Event-class="Enter">
+			<Comment>No wrapper tag is issued for LBody in numbered/unnumbered
+lists for HTML-3.20</Comment>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LBody" Alternate-name="ListBody" Node-content="Has-kids" Event-class="Exit">
+			<Comment>No wrapper tag is issued for LBody in numbered/unnumbered
+lists for HTML-3.20</Comment>
+		</Event>
+		<Call-event-list Name="content-elements"/>
+	</Define-event-list>
+	<Define-event-list Name="unnumbered-list-elements">
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Has-text-only" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;SPAN</Emit-string>
+			<Call-proc-list Name="Span-element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Call-proc-list Name="Span-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Mcc-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string>&gt;</Emit-string>
+			<Call-proc-list Name="Mcc-entry-wrappers"/>
+			<Proc-doc-text do-br-substitution="do-br-substitution"/>
+			<Call-proc-list Name="Mcc-exit-wrappers"/>
+			<Emit-string>&lt;/SPAN&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;SPAN</Emit-string>
+			<Call-proc-list Name="Span-element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Call-proc-list Name="Span-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Mcc-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string>&gt;</Emit-string>
+			<Call-proc-list Name="Mcc-entry-wrappers"/>
+			<Proc-doc-text do-br-substitution="do-br-substitution"/>
+			<Call-proc-list Name="Mcc-exit-wrappers"/>
+			<Emit-string>&lt;/SPAN&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Image" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Figure-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Image" Event-class="Exit">
+			<Emit-string>&quot; &gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Graphic" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Figure-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Graphic" Event-class="Exit">
+			<Emit-string>&quot; &gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;LI</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="List-styles"/>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="unnumbered-list-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/LI</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Lbl" Alternate-name="Label" Node-content="Has-kids" Event-class="Enter">
+			<Comment>Lbl &#38; its content is discarded in numbered/unnumbered
+lists for HTML-3.20</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Lbl" Alternate-name="Label" Node-content="Has-kids" Event-class="Exit">
+			<Comment>Lbl &#38; its content is discarded in numbered/unnumbered
+lists for HTML-3.20</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LBody" Alternate-name="ListBody" Node-content="Has-kids" Event-class="Enter">
+			<Comment>No wrapper tag is issued for LBody in numbered/unnumbered
+lists for HTML-3.20</Comment>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LBody" Alternate-name="ListBody" Node-content="Has-kids" Event-class="Exit">
+			<Comment>No wrapper tag is issued for LBody in numbered/unnumbered
+lists for HTML-3.20</Comment>
+		</Event>
+		<Call-event-list Name="content-elements"/>
+	</Define-event-list>
+	<Define-event-list Name="figure-contents">
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Has-text-only" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;SPAN</Emit-string>
+			<Call-proc-list Name="Span-element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="Span-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Mcc-styles"/>
+			<Call-proc-list Name="Figure-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string>&gt;</Emit-string>
+			<Call-proc-list Name="Mcc-entry-wrappers"/>
+			<Proc-doc-text do-br-substitution="do-br-substitution"/>
+			<Call-proc-list Name="Mcc-exit-wrappers"/>
+			<Emit-string>&lt;/SPAN&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;SPAN</Emit-string>
+			<Call-proc-list Name="Span-element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="Span-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Mcc-styles"/>
+			<Call-proc-list Name="Figure-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string>&gt;</Emit-string>
+			<Call-proc-list Name="Mcc-entry-wrappers"/>
+			<Proc-doc-text do-br-substitution="do-br-substitution"/>
+			<Call-proc-list Name="Mcc-exit-wrappers"/>
+			<Emit-string>&lt;/SPAN&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Image" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Figure-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Image" Event-class="Exit">
+			<Emit-string>&quot; &gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Graphic" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Figure-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Graphic" Event-class="Exit">
+			<Emit-string>&quot; &gt;</Emit-string>
+		</Event>
+	</Define-event-list>
+	<Define-event-list Name="table-contents">
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTR" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;TR </Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Table-row-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTR" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/TR</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTH" Node-content="Empty" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;TH</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Table-cell-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Table-cell-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">>&lt;/TH&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTH" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;TH</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Table-cell-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Table-cell-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTH" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/TH</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTD" Node-content="Empty" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;TD </Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Table-cell-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Table-cell-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">>&lt;/TD&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTD" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;TD </Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Table-cell-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Table-cell-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTD" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/TD</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Caption" Node-content="Has-kids" Event-class="Enter">
+			<Comment>In HTML, &lt;CAPTION> is child of &lt;TABLE>; in XSL
+is peer under &lt;fo:table-and-caption>.</Comment>
+			<Emit-string SP-After="Yes">&lt;CAPTION </Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string SP-Before="Yes">style=&quot;</Emit-string>
+			<Proc-var Pdf-var="CaptionAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Before" Condition="Has-value">
+				<Conditional-delimeter SP-After="Yes" NL-After="Yes">;</Conditional-delimeter>
+				<Emit-string SP-Before="Yes">caption-side:</Emit-string>
+				<Proc-enum>
+					<Proc-enum-choice Value-in="Before" Value-out="top"/>
+					<Proc-enum-choice Value-in="After" Value-out="bottom"/>
+					<Proc-enum-choice Value-in="Start" Value-out="left"/>
+					<Proc-enum-choice Value-in="End" Value-out="right"/>
+				</Proc-enum>
+			</Proc-var>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Emit-string>&quot;</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Caption" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/CAPTION</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TR" Alternate-name="TableRow" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;TR </Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Table-row-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TR" Alternate-name="TableRow" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/TR</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TH" Alternate-name="TableHeaderCell" Node-content="Empty" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;TH</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Table-cell-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Table-cell-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">>&lt;/TH&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TH" Alternate-name="TableHeaderCell" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;TH</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Table-cell-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Table-cell-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TH" Alternate-name="TableHeaderCell" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/TH</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TD" Alternate-name="TableDataCell" Node-content="Empty" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;TD </Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Table-cell-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Table-cell-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">>&lt;/TD&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TD" Alternate-name="TableDataCell" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;TD </Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Table-cell-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Table-cell-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TD" Alternate-name="TableDataCell" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/TD</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Any" Node-content="Has-kids" Event-class="Enter">
+			<Walk-children Use-event-list="table-contents"/>
+		</Event>
+	</Define-event-list>
+	<Define-event-list Name="content-elements">
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Has-text-only" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;SPAN</Emit-string>
+			<Call-proc-list Name="Span-element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Call-proc-list Name="Span-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Mcc-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string>&gt;</Emit-string>
+			<Call-proc-list Name="Mcc-entry-wrappers"/>
+			<Proc-doc-text do-br-substitution="do-br-substitution"/>
+			<Call-proc-list Name="Mcc-exit-wrappers"/>
+			<Emit-string>&lt;/SPAN&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;SPAN</Emit-string>
+			<Call-proc-list Name="Span-element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Call-proc-list Name="Span-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Mcc-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string>&gt;</Emit-string>
+			<Call-proc-list Name="Mcc-entry-wrappers"/>
+			<Proc-doc-text do-br-substitution="do-br-substitution"/>
+			<Call-proc-list Name="Mcc-exit-wrappers"/>
+			<Emit-string>&lt;/SPAN&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Image" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Figure-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Image" Event-class="Exit">
+			<Emit-string>&quot; &gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Graphic" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Figure-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Graphic" Event-class="Exit">
+			<Emit-string>&quot; &gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Doc" Alternate-name="Document" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;DIV class="Document&quot;</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Doc" Alternate-name="Document" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Art" Alternate-name="Article" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;DIV class="Article&quot;</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Art" Alternate-name="Article" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Div" Alternate-name="Division" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;DIV</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Div" Alternate-name="Division" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Part" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;DIV class="Part&quot;</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Part" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Sect" Alternate-name="Section" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;DIV class="Sect&quot;</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Sect" Alternate-name="Section" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H" Alternate-name="Heading" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;H1</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H" Alternate-name="Heading" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/H1</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H1" Alternate-name="Heading1" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;H1</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H1" Alternate-name="Heading1" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/H1</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H2" Alternate-name="Heading2" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;H2</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H2" Alternate-name="Heading2" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/H2</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H3" Alternate-name="Heading3" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;H3</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H3" Alternate-name="Heading3" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/H3</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H4" Alternate-name="Heading4" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;H4</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H4" Alternate-name="Heading4" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/H4</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H5" Alternate-name="Heading5" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;H5</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H5" Alternate-name="Heading5" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string SP-After="Yes">&lt;/H5</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H6" Alternate-name="Heading6" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;H6</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H6" Alternate-name="Heading6" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/H6</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="P" Alternate-name="Paragraph" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;P</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="P" Alternate-name="Paragraph" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/P</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Blockquote" Alternate-name="BQ" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string>&lt;BLOCKQUOTE</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Blockquote" Alternate-name="BQ" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/BLOCKQUOTE</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="BibEntry" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;DIV class="BibEntry&quot;</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="BibEntry" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Index" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;DIV class="Index&quot;</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Index" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TOC" Alternate-name="TableOfContents" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;DIV class="TOC" </Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TOC" Alternate-name="TableOfContents" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TOCI" Alternate-name="ContentItem" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;DIV class="TOCI" </Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TOCI" Alternate-name="ContentItem" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="UL" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;UL</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="List-styles"/>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="unnumbered-list-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="UL" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/UL</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="OL" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;OL</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="List-styles"/>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="numbered-list-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="OL" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/OL</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="DL" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;DL</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="dictionary-list-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="DL" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DL</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="L" Alternate-name="List" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="No-value">
+				<Emit-string SP-After="Yes">&lt;DL</Emit-string>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+				<Call-proc-list Name="Para-styles"/>
+				<Call-proc-list Name="Css-styles"/>
+				<Conditional-suffix>&quot;</Conditional-suffix>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="dictionary-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="None">
+				<Emit-string SP-After="Yes">&lt;DL</Emit-string>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+				<Call-proc-list Name="Para-styles"/>
+				<Call-proc-list Name="Css-styles"/>
+				<Conditional-suffix>&quot;</Conditional-suffix>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="dictionary-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Disc">
+				<Emit-string SP-After="Yes">&lt;UL</Emit-string>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+				<Call-proc-list Name="List-styles"/>
+				<Call-proc-list Name="Para-styles"/>
+				<Call-proc-list Name="Css-styles"/>
+				<Conditional-suffix>&quot;</Conditional-suffix>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="unnumbered-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Circle">
+				<Emit-string SP-After="Yes">&lt;UL</Emit-string>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+				<Call-proc-list Name="List-styles"/>
+				<Call-proc-list Name="Para-styles"/>
+				<Call-proc-list Name="Css-styles"/>
+				<Conditional-suffix>&quot;</Conditional-suffix>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="unnumbered-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Square">
+				<Emit-string SP-After="Yes">&lt;UL</Emit-string>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+				<Call-proc-list Name="List-styles"/>
+				<Call-proc-list Name="Para-styles"/>
+				<Call-proc-list Name="Css-styles"/>
+				<Conditional-suffix>&quot;</Conditional-suffix>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="unnumbered-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Decimal">
+				<Emit-string SP-After="Yes">&lt;OL</Emit-string>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+				<Call-proc-list Name="List-styles"/>
+				<Call-proc-list Name="Para-styles"/>
+				<Call-proc-list Name="Css-styles"/>
+				<Conditional-suffix>&quot;</Conditional-suffix>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="numbered-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="LowerRoman">
+				<Emit-string SP-After="Yes">&lt;OL</Emit-string>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+				<Call-proc-list Name="List-styles"/>
+				<Call-proc-list Name="Para-styles"/>
+				<Call-proc-list Name="Css-styles"/>
+				<Conditional-suffix>&quot;</Conditional-suffix>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="numbered-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="UpperRoman">
+				<Emit-string SP-After="Yes">&lt;OL</Emit-string>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+				<Call-proc-list Name="List-styles"/>
+				<Call-proc-list Name="Para-styles"/>
+				<Call-proc-list Name="Css-styles"/>
+				<Conditional-suffix>&quot;</Conditional-suffix>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="numbered-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="LowerAlpha">
+				<Emit-string SP-After="Yes">&lt;OL</Emit-string>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+				<Call-proc-list Name="List-styles"/>
+				<Call-proc-list Name="Para-styles"/>
+				<Call-proc-list Name="Css-styles"/>
+				<Conditional-suffix>&quot;</Conditional-suffix>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="numbered-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="UpperAlpha">
+				<Emit-string SP-After="Yes">&lt;OL</Emit-string>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+				<Call-proc-list Name="List-styles"/>
+				<Call-proc-list Name="Para-styles"/>
+				<Call-proc-list Name="Css-styles"/>
+				<Conditional-suffix>&quot;</Conditional-suffix>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="numbered-list-elements"/>
+			</Evaluate-var>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="L" Alternate-name="List" Node-content="Has-kids" Event-class="Exit">
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="No-value">
+				<Emit-string>&lt;/DL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="None">
+				<Emit-string>&lt;/DL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Disc">
+				<Emit-string>&lt;/UL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Circle">
+				<Emit-string>&lt;/UL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Square">
+				<Emit-string>&lt;/UL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Decimal">
+				<Emit-string>&lt;/OL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="LowerRoman">
+				<Emit-string>&lt;/OL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="UpperRoman">
+				<Emit-string>&lt;/OL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="LowerAlpha">
+				<Emit-string>&lt;/OL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="UpperAlpha">
+				<Emit-string>&lt;/OL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Span" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="ActualText" Owner="Structelem" Type="String" Inherit="Not-inherited" Condition="Has-value">
+				<Call-proc-list Name="Span-entry-wrappers"/>
+				<Emit-string SP-After="Yes">&lt;SPAN</Emit-string>
+				<Call-proc-list Name="Span-element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Call-proc-list Name="Span-attributes"/>
+				<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+				<Call-proc-list Name="Mcc-styles"/>
+				<Call-proc-list Name="Css-styles"/>
+				<Conditional-suffix>&quot;</Conditional-suffix>
+				<Emit-string>&gt;</Emit-string>
+				<Call-proc-list Name="Mcc-entry-wrappers"/>
+				<Proc-var Pdf-var="ActualText" Owner="Structelem" Type="String" Inherit="Not-inherited" Condition="Always">
+					<Proc-string/>
+				</Proc-var>
+				<Call-proc-list Name="Mcc-exit-wrappers"/>
+				<Emit-string>&lt;/SPAN&gt;</Emit-string>
+				<Call-proc-list Name="Span-exit-wrappers"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ActualText" Owner="Structelem" Type="String" Inherit="Not-inherited" Condition="No-value">
+				<Call-proc-list Name="Span-entry-wrappers"/>
+				<Walk-children Use-event-list="content-elements"/>
+			</Evaluate-var>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Span" Node-content="Has-kids" Event-class="Exit">
+			<Evaluate-var Pdf-var="ActualText" Owner="Structelem" Type="String" Inherit="Not-inherited" Condition="No-value">
+				<Call-proc-list Name="Span-exit-wrappers"/>
+			</Evaluate-var>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Quote" Alternate-name="Q" Node-content="Has-kids" Event-class="Enter">
+			<Comment>Inline quote</Comment>
+			<Emit-string SP-After="Yes">&lt;Q</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Call-proc-list Name="Span-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Span-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string>&gt;</Emit-string>
+			<Call-proc-list Name="Span-entry-wrappers"/>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Quote" Alternate-name="Q" Node-content="Has-kids" Event-class="Exit">
+			<Call-proc-list Name="Span-exit-wrappers"/>
+			<Emit-string>&lt;/Q&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Link" Alternate-name="A" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="LinkDestination" Owner="Link" Type="String" Inherit="Not-inherited" Condition="Has-value">
+				<Emit-string SP-After="Yes">&lt;A</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="LinkDestination" Owner="Link" Type="String" Inherit="Not-inherited" Condition="No-value">
+				<Evaluate-var Pdf-var="LinkTargetLabel" Owner="Link" Type="String" Inherit="Not-inherited" Condition="Has-value">
+					<Emit-string SP-After="Yes">&lt;A</Emit-string>
+				</Evaluate-var>
+				<Evaluate-var Pdf-var="LinkTargetLabel" Owner="Link" Type="String" Inherit="Not-inherited" Condition="No-value">
+					<Emit-string SP-After="Yes">&lt;SPAN</Emit-string>
+				</Evaluate-var>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="LinkDestination" Owner="Link" Type="String" Inherit="Not-inherited" Condition="Has-value">
+				<Emit-string>href=&apos;</Emit-string>
+				<Proc-var Pdf-var="LinkDestination" Owner="Link" Type="String" Inherit="Not-inherited" Condition="Always">
+					<Proc-string/>
+				</Proc-var>
+				<Emit-string SP-After="Yes">&apos;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="LinkTargetLabel" Owner="Link" Type="String" Inherit="Not-inherited" Condition="Has-value">
+				<Emit-string>name=&apos;</Emit-string>
+				<Proc-var Pdf-var="LinkTargetLabel" Owner="Link" Type="String" Inherit="Not-inherited" Condition="Always">
+					<Proc-string/>
+				</Proc-var>
+				<Emit-string SP-After="Yes">&apos;</Emit-string>
+			</Evaluate-var>
+			<Call-proc-list Name="Span-element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Call-proc-list Name="Span-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Span-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string>&gt;</Emit-string>
+			<Call-proc-list Name="Span-entry-wrappers"/>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Link" Alternate-name="A" Node-content="Has-kids" Event-class="Exit">
+			<Call-proc-list Name="Span-exit-wrappers"/>
+			<Evaluate-var Pdf-var="LinkDestination" Owner="Link" Type="String" Inherit="Not-inherited" Condition="Has-value">
+				<Emit-string>&lt;/A&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="LinkDestination" Owner="Link" Type="String" Inherit="Not-inherited" Condition="No-value">
+				<Evaluate-var Pdf-var="LinkTargetLabel" Owner="Link" Type="String" Inherit="Not-inherited" Condition="Has-value">
+					<Emit-string>&lt;/A&gt;</Emit-string>
+				</Evaluate-var>
+				<Evaluate-var Pdf-var="LinkTargetLabel" Owner="Link" Type="String" Inherit="Not-inherited" Condition="No-value">
+					<Emit-string>&lt;/SPAN&gt;</Emit-string>
+				</Evaluate-var>
+			</Evaluate-var>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Code" Node-content="Has-kids" Event-class="Enter">
+			<Comment>Inline code fragment</Comment>
+			<Emit-string SP-After="Yes">&lt;CODE</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Call-proc-list Name="Span-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Span-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string>&gt;</Emit-string>
+			<Call-proc-list Name="Span-entry-wrappers"/>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Code" Node-content="Has-kids" Event-class="Exit">
+			<Call-proc-list Name="Span-exit-wrappers"/>
+			<Emit-string>&lt;/CODE&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTable" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;TABLE</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Table-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="table-contents"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTable" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/TABLE</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Table" Alternate-name="Tbl" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;TABLE</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Table-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="table-contents"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Table" Alternate-name="Tbl" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/TABLE</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Figure" Alternate-name="Img" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Figure-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+			<Emit-string>&quot; &gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Img" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Figure-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+			<Emit-string>&quot; &gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="Figure" Alternate-name="Img" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Figure-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+			<Emit-string>&quot; &gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="Img" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="Height" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Has-value">
+				<Evaluate-var Pdf-var="Width" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Has-value">
+					<Emit-string>&lt;IMG</Emit-string>
+					<Call-proc-list Name="Element-attributes"/>
+					<Call-proc-list Name="Figure-attributes"/>
+					<Call-proc-list Name="User-attributes"/>
+					<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+					<Call-proc-list Name="Figure-styles"/>
+					<Call-proc-list Name="Css-styles"/>
+					<Conditional-suffix>&quot;</Conditional-suffix>
+					<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+					<Proc-image-content/>
+					<Emit-string>&quot; &gt;</Emit-string>
+				</Evaluate-var>
+			</Evaluate-var>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Figure" Alternate-name="Img" Node-content="Has-kids" Event-class="Exit">
+			<Comment>Do nothing on exit</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Img" Node-content="Has-kids" Event-class="Exit">
+			<Comment>Do nothing on exit</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="Figure" Alternate-name="Img" Node-content="Has-kids" Event-class="Exit">
+			<Comment>Do nothing on exit</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="Img" Node-content="Has-kids" Event-class="Exit">
+			<Comment>Do nothing on exit</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Note" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;DIV class="Note&quot;</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Note" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Form" Node-content="Has-kids" Event-class="Enter">
+			<Comment>Form nodes and thier children are discarded</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Form" Node-content="Has-kids" Event-class="Exit">
+			<Comment>Form: Not Implemented</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Formula" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string>&lt;IMG class="Formula&quot;</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Figure-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Walk-children Use-event-list="figure-contents"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Formula" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Reference" Node-content="Has-kids" Event-class="Enter">
+			<Comment>Reference nodes and thier children are discarded</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Reference" Node-content="Has-kids" Event-class="Exit">
+			<Comment>Reference nodes and thier children are discarded</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Group" Node-content="Has-kids" Event-class="Enter">
+			<Comment>Group: No tags applied</Comment>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Group" Node-content="Has-kids" Event-class="Exit">
+			<Comment>Group: No tags applied</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Private" Node-content="Has-kids" Event-class="Enter">
+			<Comment>Private nodes and thier children are discarded</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Private" Node-content="Has-kids" Event-class="Exit">
+			<Comment>Private nodes and thier children are discarded</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Caption" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes">&lt;DIV Class="unexpected-caption" </Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Caption" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Enter">
+			<Comment>Unexpected LI is converted to a DL</Comment>
+			<Emit-string SP-After="Yes">&lt;DL class="unexpected-ListItem&quot;</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Conditional-prefix SP-Before="Yes">style=&quot;</Conditional-prefix>
+			<Call-proc-list Name="Para-styles"/>
+			<Call-proc-list Name="Css-styles"/>
+			<Conditional-suffix>&quot;</Conditional-suffix>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="dictionary-list-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Exit">
+			<Comment>Unexpected LI is converted to a DL</Comment>
+			<Emit-string>&lt;/DL</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+	</Define-event-list>
+	<Comment>Fixed info at start of file</Comment>
+	<Set-encoding>
+		<Enum-encoding Type="Utf-8-out" Suppress="No" Emit-BOM="No"/>
+		<Enum-encoding Type="Utf-16-out" Suppress="No" Emit-BOM="Yes"/>
+		<Enum-encoding Type="Ucs-4-out" Suppress="No" Emit-BOM="Yes"/>
+		<Enum-encoding Type="Iso-latin-1-out" Suppress="No" Emit-BOM="No"/>
+		<Enum-encoding Type="Html-ascii-out" Suppress="No" Emit-BOM="No"/>
+	</Set-encoding>
+	<Begin-encoding/>
+	<Emit-string NL-After="Yes">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final//EN&quot;&gt;</Emit-string>
+	<Emit-string NL-After="Yes">&lt;!--</Emit-string>
+	<Emit-string SP-Before="Yes" NL-After="Yes">Created from PDF via Acrobat 6.0 SaveAs: &apos;HTML-3.20 with CSS-1.00&apos;</Emit-string>
+	<Emit-string SP-Before="Yes" NL-After="Yes">Mapping Table version: 28-February-2003</Emit-string>
+	<Emit-string NL-After="Yes">--&gt;</Emit-string>
+	<Emit-string NL-After="Yes">&lt;HTML&gt;</Emit-string>
+	<Emit-string NL-After="Yes">&lt;HEAD&gt;</Emit-string>
+	<Emit-string NL-After="Yes">&lt;STYLE type=&quot;text/css&quot;&gt;</Emit-string>
+	<Walk-cached-property-sets Use-event-list="Css-cached-styles"/>
+	<Emit-string>&lt;/STYLE&gt;</Emit-string>
+	<Walk-doc-metadata Use-proc-list="basic-metadata"/>
+	<Comment>End of document header info</Comment>
+	<Emit-string>&lt;/HEAD&gt;</Emit-string>
+	<Comment>Begin document body (actual content).</Comment>
+	<Emit-string SP-After="Yes" NL-Before="Yes">&lt;BODY</Emit-string>
+	<Emit-string SP-Before="Yes" SP-After="Yes">bgcolor=white</Emit-string>
+	<Emit-string SP-Before="Yes" SP-After="Yes">text=black</Emit-string>
+	<Emit-string SP-Before="Yes" SP-After="Yes">link=blue</Emit-string>
+	<Emit-string SP-Before="Yes" SP-After="Yes">vlink=purple</Emit-string>
+	<Emit-string SP-Before="Yes" SP-After="Yes">alink=fushia</Emit-string>
+	<Emit-string NL-Before="Yes">&gt;</Emit-string>
+	<Walk-structure Use-event-list="content-elements"/>
+	<Comment>Fixed info at end of file.</Comment>
+	<Emit-string>&lt;/BODY&gt;</Emit-string>
+	<Emit-string NL-After="Yes">&lt;/HTML&gt;</Emit-string>
+</Root>

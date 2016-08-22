@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{4E13E88E-CFF9-49D6-A9E2-D2A227605881} = s 'RemoteControlAcrobat'
+		'RemoteControlAcrobat.EXE'
+		{
+			val AppID = s {4E13E88E-CFF9-49D6-A9E2-D2A227605881}
+		}
+	}
+}

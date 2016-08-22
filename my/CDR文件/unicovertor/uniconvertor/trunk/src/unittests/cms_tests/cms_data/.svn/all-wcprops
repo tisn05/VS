@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/309/trunk/src/unittests/cms_tests/cms_data
+END
+GenericCMYK.icm
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/55/trunk/src/unittests/cms_tests/cms_data/GenericCMYK.icm
+END
+black100x100.png
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/55/trunk/src/unittests/cms_tests/cms_data/black100x100.png
+END
+color100x100.png
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/55/trunk/src/unittests/cms_tests/cms_data/color100x100.png
+END
+white100x100.png
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/55/trunk/src/unittests/cms_tests/cms_data/white100x100.png
+END
+sRGB.icm
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/55/trunk/src/unittests/cms_tests/cms_data/sRGB.icm
+END
+empty.icm
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/55/trunk/src/unittests/cms_tests/cms_data/empty.icm
+END

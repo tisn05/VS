@@ -1,0 +1,21 @@
+﻿<Window x:Class="UC小说转换.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="451" Width="525">
+    <Grid RenderTransformOrigin="0,0" Margin="0,0,0,37">
+        <Button Content="浏览" HorizontalAlignment="Left" Margin="432,36,0,0" VerticalAlignment="Top" Width="75" Cursor="" Click="Button_Click"/>
+        <TextBox x:Name="tbFileName" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="417"/>
+        <Label Content="选择novel目录：" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Button Content="打开" HorizontalAlignment="Left" Margin="432,63,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <ListView x:Name="lvM" HorizontalAlignment="Left" Height="277" Margin="11,64,0,0" VerticalAlignment="Top" Width="416">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn HeaderStringFormat="名称"/>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+        <Button Content="转换" HorizontalAlignment="Left" Margin="432,90,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <ProgressBar x:Name="progressBar1" HorizontalAlignment="Left" Height="26" Margin="10,346,0,0" VerticalAlignment="Top" Width="497"/>
+    </Grid>
+</Window>

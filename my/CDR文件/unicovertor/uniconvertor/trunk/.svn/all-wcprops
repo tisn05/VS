@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 23
+/svn/!svn/ver/379/trunk
+END
+.pydevproject
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/316/trunk/.pydevproject
+END
+libutils.py
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/292/trunk/libutils.py
+END
+setup.cfg
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/300/trunk/setup.cfg
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/56/trunk/LICENSE
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/2/trunk/.project
+END
+setup.py
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/368/trunk/setup.py
+END
+GPLv3.txt
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/55/trunk/GPLv3.txt
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/367/trunk/README.txt
+END
+MANIFEST.in
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/366/trunk/MANIFEST.in
+END

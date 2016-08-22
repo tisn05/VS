@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UC小说转换", "UC小说转换\UC小说转换.csproj", "{DE9A7336-8438-435D-8CD0-9FA0D21756F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICSharpCode.SharpZLib", "..\icsharpcode-SharpZipLib\src\ICSharpCode.SharpZLib.csproj", "{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE9A7336-8438-435D-8CD0-9FA0D21756F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE9A7336-8438-435D-8CD0-9FA0D21756F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE9A7336-8438-435D-8CD0-9FA0D21756F1}.Debug|x64.ActiveCfg = Debug|x64
+		{DE9A7336-8438-435D-8CD0-9FA0D21756F1}.Debug|x64.Build.0 = Debug|x64
+		{DE9A7336-8438-435D-8CD0-9FA0D21756F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE9A7336-8438-435D-8CD0-9FA0D21756F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE9A7336-8438-435D-8CD0-9FA0D21756F1}.Release|x64.ActiveCfg = Release|x64
+		{DE9A7336-8438-435D-8CD0-9FA0D21756F1}.Release|x64.Build.0 = Release|x64
+		{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}.Debug|x64.ActiveCfg = Debug|x64
+		{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}.Debug|x64.Build.0 = Debug|x64
+		{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}.Release|x64.ActiveCfg = Release|x64
+		{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

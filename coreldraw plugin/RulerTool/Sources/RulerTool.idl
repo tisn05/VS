@@ -1,0 +1,31 @@
+// RulerTool.idl : IDL source for RulerTool
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RulerTool.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(2AC7496C-1F25-4D57-9C96-9BB922ED1830),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IRulerDataSource : IDispatch {
+  [propget, id(1)] HRESULT Distance([out, retval] double* pVal);
+  [propget, id(2)] HRESULT IsMeasuring([out, retval] VARIANT_BOOL* pVal);
+};
+
+[
+	uuid(EFDEC47C-A2D8-B19B-4841-DEDB0D75E4EF),
+	version(1.0),
+]
+library RulerToolLib
+{
+	importlib("stdole2.tlb");
+  interface IRulerDataSource;
+};
+

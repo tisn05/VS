@@ -1,0 +1,1284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Root SYSTEM "MappingTable.dtd">
+<Root File-format="html-3-20-access" Menu-name="HTML 3.2 Accessible" Mac-creator="MSIE" Mac-type="TEXT" Win-suffix="htm" Encode-out="Html-ascii-out">
+	<!--
+	ADOBE SYSTEMS INCORPORATED
+	Copyright 2003 Adobe Systems Incorporated
+	All Rights Reserved
+	
+	NOTICE:  This Notice only applies to this file or any portion thereof.
+	Adobe permits you to use, modify, and distribute this file in accordance
+	with the terms and conditions of the Adobe license agreement accompanying
+	it ("Agreement").  Additionally, Adobe grants you a nonexclusive,
+	nontransferable, royalty-free license to use, modify and distribute
+	all or any portion of this file.  Where the terms of this Notice
+	and the terms of the Agreement differ, the terms of this Notice
+	shall control.  All other terms and conditions of the Agreement
+	remain unchanged and have full force and effect.  If you have received
+	this file from a source other than Adobe, then your use, modification,
+	or distribution of it requires the prior written permission of Adobe.
+-->
+	<!--===== Defined Proc-lists =====-->
+	<Define-proc-list Name="basic-metadata">
+		<!--For HTML, we issue Dublin Core Metadata plus Keywords.-->
+		<Proc-var Pdf-var="Title" Owner="Metadata" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string>&lt;META</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">name=&quot;DC.Title&quot;</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">content=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string NL-After="Yes">&quot; &gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Author" Owner="Metadata" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<!--Author is mapped to DC.Contributor for Dublin Core Metadata.-->
+			<Emit-string>&lt;META</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">name=&quot;DC.Contributor&quot;</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">content=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string NL-After="Yes">&quot; &gt;</Emit-string>
+		</Proc-var>
+		<!--Metadata:Keywords.  Dublin core does not support this doc-info/metadata item.-->
+		<Proc-var Pdf-var="Subject" Owner="Metadata" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string>&lt;META</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">name=&quot;DC.Subject&quot;</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">content=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string NL-After="Yes">&quot; &gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Creator" Owner="Metadata" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string>&lt;META</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">name=&quot;DC.Creator&quot;</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">content=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string NL-After="Yes">&quot; &gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="CreationDate" Owner="Metadata" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string>&lt;META</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">name=&quot;DC.Date&quot;</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">content=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string NL-After="Yes">&quot; &gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="ModDate" Owner="Metadata" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string>&lt;META</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">name=&quot;DC.Date.Modified&quot;</Emit-string>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">content=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string NL-After="Yes">&quot; &gt;</Emit-string>
+		</Proc-var>
+		<!--Metadata:Trapped.  Dublin core does not support this doc-info/metadata item.-->
+	</Define-proc-list>
+	<!--@ special owner attribute handling-->
+	<Define-proc-list Name="Arbitrary-user-attributes">
+		<Proc-property>
+			<Comment>Emit a space before the property name</Comment>
+			<Emit-string SP-Before="Yes"/>
+			<Property-name/>
+			<Property-type Type="Fixed">
+				<!--There is no way for PDF to determine &quot;Length&quot; vs &quot;Fixed&quot;.-->
+				<!--There is no way for PDF to determine &quot;Pixels&quot; vs &quot;Fixed&quot;.-->
+				<Emit-string>=</Emit-string>
+				<Proc-fixed/>
+			</Property-type>
+			<Property-type Type="Int32">
+				<Emit-string>=</Emit-string>
+				<Proc-integer/>
+			</Property-type>
+			<Property-type Type="Int32">
+				<Emit-string>=</Emit-string>
+				<Proc-integer/>
+			</Property-type>
+			<Property-type Type="Atom">
+				<Emit-string>=&apos;</Emit-string>
+				<Proc-string/>
+				<Emit-string>&apos;</Emit-string>
+			</Property-type>
+			<Property-type Type="String">
+				<Emit-string>=&apos;</Emit-string>
+				<Proc-string/>
+				<Emit-string>&apos;</Emit-string>
+			</Property-type>
+		</Proc-property>
+	</Define-proc-list>
+	<Define-proc-list Name="User-attributes">
+		<Walk-proplist Owner="HTML-3.20" Use-proclist="Arbitrary-user-attributes"/>
+	</Define-proc-list>
+	<!--@ attribute handling-->
+	<Define-proc-list Name="Element-attributes">
+		<Proc-var Pdf-var="ID" Owner="Link" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string SP-Before="Yes">ID=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Alt" Owner="Structelem" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string SP-Before="Yes">Alt=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Table-element-attributes">
+		<Proc-var Pdf-var="Alt" Owner="Structelem" Type="String" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string SP-Before="Yes">summary=&quot;</Emit-string>
+			<Proc-string/>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Para-attributes">
+		<Proc-var Pdf-var="TextAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Start" Condition="Has-value">
+			<Emit-string SP-Before="Yes">align=&quot;</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="Center" Value-out="center"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="justify"/>
+			</Proc-enum>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="List-attributes">
+		<Proc-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Default="None" Condition="Has-value">
+			<Comment>No corresponding PDF-state info, need to synthesize list-type.</Comment>
+			<Comment>How to deal with numbered &#38; dictionary lists ???</Comment>
+			<Emit-string SP-Before="Yes">type=&quot;</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="None" Value-out="none"/>
+				<Proc-enum-choice Value-in="Disc" Value-out="disc"/>
+				<Proc-enum-choice Value-in="Circle" Value-out="circle"/>
+				<Proc-enum-choice Value-in="Square" Value-out="square"/>
+				<Proc-enum-choice Value-in="Decimal" Value-out="1"/>
+				<Proc-enum-choice Value-in="LowerRoman" Value-out="i"/>
+				<Proc-enum-choice Value-in="UpperRoman" Value-out="I"/>
+				<Proc-enum-choice Value-in="LowerAlpha" Value-out="a"/>
+				<Proc-enum-choice Value-in="UpperAlpha" Value-out="A"/>
+			</Proc-enum>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="TextAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Default="Start" Condition="Has-value">
+			<Emit-string SP-Before="Yes">align=&quot;</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="Center" Value-out="center"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="justify"/>
+			</Proc-enum>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Table-attributes">
+		<Proc-var Pdf-var="InlineAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Emit-string SP-Before="Yes">align=&quot;</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="Center" Value-out="center"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+			</Proc-enum>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Width" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string SP-Before="Yes">width=&quot;</Emit-string>
+			<Proc-pixels/>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="auto"/>
+			</Proc-enum>
+			<Emit-string SP-After="Yes">&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string SP-Before="Yes">height=&quot;</Emit-string>
+			<Proc-pixels/>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="auto"/>
+			</Proc-enum>
+			<Emit-string SP-After="Yes">&quot;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Table-row-attributes">
+		<Proc-var Pdf-var="BlockAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Emit-string SP-Before="Yes">valign=&quot;</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Before" Value-out="top"/>
+				<Proc-enum-choice Value-in="Middle" Value-out="middle"/>
+				<Proc-enum-choice Value-in="After" Value-out="bottom"/>
+			</Proc-enum>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string SP-Before="Yes">height=&quot;</Emit-string>
+			<Proc-pixels/>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="auto"/>
+			</Proc-enum>
+			<Emit-string SP-After="Yes">&quot;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Table-cell-attributes">
+		<Proc-var Pdf-var="ColSpan" Owner="Table" Type="Int32" Inherit="Inheritable" Condition="Has-value">
+			<Emit-string SP-Before="Yes">colspan=</Emit-string>
+			<Proc-integer/>
+		</Proc-var>
+		<Proc-var Pdf-var="RowSpan" Owner="Table" Type="Int32" Inherit="Inheritable" Condition="Has-value">
+			<Emit-string SP-Before="Yes">rowspan=</Emit-string>
+			<Proc-integer/>
+		</Proc-var>
+		<Proc-var Pdf-var="InlineAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Emit-string SP-Before="Yes">align=&quot;</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="Center" Value-out="center"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+			</Proc-enum>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Width" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="Has-value">
+			<Emit-string SP-Before="Yes">width=&quot;</Emit-string>
+			<Proc-pixels/>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="auto"/>
+			</Proc-enum>
+			<Emit-string SP-After="Yes">&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="BlockAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Emit-string SP-Before="Yes">valign=&quot;</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Before" Value-out="top"/>
+				<Proc-enum-choice Value-in="Middle" Value-out="middle"/>
+				<Proc-enum-choice Value-in="After" Value-out="bottom"/>
+			</Proc-enum>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="Has-value">
+			<Emit-string SP-Before="Yes">height=&quot;</Emit-string>
+			<Proc-pixels/>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="auto"/>
+			</Proc-enum>
+			<Emit-string SP-After="Yes">&quot;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Figure-attributes">
+		<Proc-var Pdf-var="Width" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string SP-Before="Yes">width=&quot;</Emit-string>
+			<Proc-pixels/>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="auto"/>
+			</Proc-enum>
+			<Emit-string SP-After="Yes">&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Width" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="No-value">
+			<Proc-var Pdf-var="Width" Owner="Structelem" Type="Fixed" Inherit="Not-inherited" Condition="Has-value">
+				<Emit-string SP-Before="Yes">width=&quot;</Emit-string>
+				<Proc-pixels/>
+				<Emit-string>&quot;</Emit-string>
+			</Proc-var>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string SP-Before="Yes">height=&quot;</Emit-string>
+			<Proc-pixels/>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="auto"/>
+			</Proc-enum>
+			<Emit-string SP-After="Yes">&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="No-value">
+			<Proc-var Pdf-var="Height" Owner="Structelem" Type="Fixed" Inherit="Not-inherited" Condition="Has-value">
+				<Emit-string SP-Before="Yes">height=&quot;</Emit-string>
+				<Proc-pixels/>
+				<Emit-string>&quot;</Emit-string>
+			</Proc-var>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Form-attributes">
+		<Proc-var Pdf-var="TextAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Emit-string SP-Before="Yes">align=&quot;</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="Center" Value-out="center"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="justify"/>
+			</Proc-enum>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Width" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string SP-Before="Yes">width=&quot;</Emit-string>
+			<Proc-pixels/>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="auto"/>
+			</Proc-enum>
+			<Emit-string SP-After="Yes">&quot;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="Height" Owner="Layout" Type="Fixed" Inherit="Not-inherited" Condition="Has-value">
+			<Emit-string SP-Before="Yes">height=&quot;</Emit-string>
+			<Proc-pixels/>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Auto" Value-out="auto"/>
+			</Proc-enum>
+			<Emit-string SP-After="Yes">&quot;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Formula-attributes">
+		<Proc-var Pdf-var="TextAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Emit-string SP-Before="Yes">align=&quot;</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="Center" Value-out="center"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="justify"/>
+			</Proc-enum>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Code-attributes">
+		<Proc-var Pdf-var="TextAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Emit-string SP-Before="Yes">align=&quot;</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="Center" Value-out="center"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="justify"/>
+			</Proc-enum>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Note-attributes">
+		<Proc-var Pdf-var="TextAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+			<Emit-string SP-Before="Yes">align=&quot;</Emit-string>
+			<Proc-enum>
+				<Proc-enum-choice Value-in="Start" Value-out="left"/>
+				<Proc-enum-choice Value-in="Center" Value-out="center"/>
+				<Proc-enum-choice Value-in="End" Value-out="right"/>
+				<Proc-enum-choice Value-in="Justify" Value-out="justify"/>
+			</Proc-enum>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<!--To do: What about ActualText ?-->
+	<!--Alt and Lang are not allowed on Spans in HTML 3.20-->
+	<!--The following attributes are not applicable to HTML-3.20: 
+      SpaceAfter, SpaceBefore, EndIndent, StartIndent, TextIndent, WritingMode, Placement, BBox, 
+      Font, FontFamily, FontSize, FontStretch, FontVariant, LineHeight, BaselineShift,
+      TextDecoraltion, Lang, Expansion -->
+	<!--@ wrappers-->
+	<Define-proc-list Name="Span-entry-wrappers">
+		<Proc-var Pdf-var="TextDecorationType" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Underline">
+			<Emit-string>&lt;U&gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="TextDecorationType" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="LineThrough">
+			<Emit-string>&lt;Strike&gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="BaselineShift" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="Less-than-value" Compare="0">
+			<Emit-string>&lt;Sub&gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="BaselineShift" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="More-than-value" Compare="0">
+			<Emit-string>&lt;Sup&gt;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Span-exit-wrappers">
+		<Proc-var Pdf-var="BaselineShift" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="More-than-value" Compare="0">
+			<Emit-string>&lt;/Sup&gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="BaselineShift" Owner="Layout" Type="Fixed" Inherit="Inheritable" Condition="Less-than-value" Compare="0">
+			<Emit-string>&lt;/Sub&gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="TextDecorationType" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="LineThrough">
+			<Emit-string>&lt;/Strike&gt;</Emit-string>
+		</Proc-var>
+		<Proc-var Pdf-var="TextDecorationType" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Underline">
+			<Emit-string>&lt;/U&gt;</Emit-string>
+		</Proc-var>
+	</Define-proc-list>
+	<Define-proc-list Name="Mcc-entry-wrappers">
+		<Conditional-prefix>&lt;FONT</Conditional-prefix>
+		<Proc-var Pdf-var="FontSize" Owner="AutoTextStyle" Type="Fixed" Inherit="Inheritable" Condition="Diff-from-predecessor">
+			<Proc-var Pdf-var="FontSize" Owner="AutoTextStyle" Type="Fixed" Inherit="Inheritable" Condition="Less-than-value" Compare="16">
+				<Emit-string SP-Before="Yes">size=&quot;+1&quot;</Emit-string>
+			</Proc-var>
+			<Proc-var Pdf-var="FontSize" Owner="AutoTextStyle" Type="Fixed" Inherit="Inheritable" Condition="More-equal-value" Compare="16">
+				<Proc-var Pdf-var="FontSize" Owner="AutoTextStyle" Type="Fixed" Inherit="Inheritable" Condition="Less-than-value" Compare="20">
+					<Emit-string SP-Before="Yes">size=&quot;+2&quot;</Emit-string>
+				</Proc-var>
+				<Proc-var Pdf-var="FontSize" Owner="AutoTextStyle" Type="Fixed" Inherit="Inheritable" Condition="More-equal-value" Compare="20">
+					<Emit-string SP-Before="Yes">size=&quot;+3&quot;</Emit-string>
+				</Proc-var>
+			</Proc-var>
+		</Proc-var>
+		<Proc-var Pdf-var="Color" Owner="AutoTextStyle" Type="Color" Inherit="Inheritable" Condition="Diff-from-predecessor">
+			<Emit-string SP-Before="Yes">color=&quot;#</Emit-string>
+			<Proc-color OutputHex="Yes"/>
+			<Emit-string>&quot;</Emit-string>
+		</Proc-var>
+		<Conditional-suffix>&gt;</Conditional-suffix>
+		<Proc-var Pdf-var="FontWeight" Owner="AutoTextStyle" Type="Int32" Inherit="Inheritable" Condition="Diff-from-predecessor">
+			<Proc-var Pdf-var="FontWeight" Owner="AutoTextStyle" Type="Int32" Inherit="Inheritable" Condition="Less-than-value" Compare="550">
+				<Emit-string>&lt;/B&gt;</Emit-string>
+			</Proc-var>
+			<Proc-var Pdf-var="FontWeight" Owner="AutoTextStyle" Type="Int32" Inherit="Inheritable" Condition="More-equal-value" Compare="550">
+				<Emit-string>&lt;B&gt;</Emit-string>
+			</Proc-var>
+		</Proc-var>
+		<Proc-var Pdf-var="FontStyle" Owner="AutoTextStyle" Type="Atom" Inherit="Inheritable" Condition="Diff-from-predecessor">
+			<Proc-var Pdf-var="FontStyle" Owner="AutoTextStyle" Type="Atom" Inherit="Inheritable" Condition="Diff-from-value" Compare="Italic">
+				<Emit-string>&lt;/I&gt;</Emit-string>
+			</Proc-var>
+			<Proc-var Pdf-var="FontStyle" Owner="AutoTextStyle" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Italic">
+				<Emit-string>&lt;I&gt;</Emit-string>
+			</Proc-var>
+		</Proc-var>
+	</Define-proc-list>
+	<!--===== Defined Event-lists =====-->
+	<Define-event-list Name="bookmark-elements">
+		<Event Inf-type="Bookmark" Name-type="Structure-role" Node-name="BMWrap" Node-content="Bookmark" Event-class="Enter">
+			<Emit-string NL-After="Yes">&lt;HR&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Bookmark" Name-type="Structure-role" Node-name="BMWrap" Node-content="Bookmark" Event-class="Exit">
+			<Emit-string NL-After="Yes">&lt;/HR&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Bookmark" Name-type="Structure-role" Node-name="BMList" Node-content="Bookmark" Event-class="Enter">
+			<Emit-string NL-After="Yes">&lt;UL&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Bookmark" Name-type="Structure-role" Node-name="BMList" Node-content="Bookmark" Event-class="Exit">
+			<Emit-string NL-After="Yes">&lt;/UL&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Bookmark" Name-type="Structure-role" Node-name="BMListItem" Node-content="Bookmark" Event-class="Enter">
+			<Emit-string NL-After="Yes">&lt;LI&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Bookmark" Name-type="Structure-role" Node-name="BMListItem" Node-content="Bookmark" Event-class="Exit">
+			<Emit-string NL-After="Yes">&lt;/LI&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Bookmark" Name-type="Structure-role" Node-name="BMAnchor" Node-content="Bookmark" Event-class="Enter">
+			<Emit-string>&lt;A href=&quot;#</Emit-string>
+			<Proc-var Pdf-var="HRef" Owner="Link" Type="String" Inherit="Not-inherited" Condition="Always">
+				<Proc-string/>
+			</Proc-var>
+			<Emit-string>&quot;&gt;</Emit-string>
+			<Proc-var Pdf-var="Title" Owner="Link" Type="String" Inherit="Not-inherited" Condition="Always">
+				<Proc-string/>
+			</Proc-var>
+			<Emit-string NL-After="Yes">&lt;/A&gt;</Emit-string>
+		</Event>
+	</Define-event-list>
+	<Define-event-list Name="dictionary-list-elements">
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Enter">
+			<Comment>No tag issued for LI within a DL for HTML-3.20</Comment>
+			<Walk-children Use-event-list="dictionary-list-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Exit">
+			<Comment>No tag issued for /LI within a DL for HTML-3.20</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Lbl" Alternate-name="Label" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;DT</Emit-string>
+			<Call-proc-list Name="List-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Lbl" Alternate-name="Label" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DT</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LBody" Alternate-name="ListBody" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;DD</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LBody" Alternate-name="ListBody" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DD</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Call-event-list Name="content-elements"/>
+	</Define-event-list>
+	<Define-event-list Name="numbered-list-elements">
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;LI</Emit-string>
+			<Call-proc-list Name="List-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="numbered-list-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/LI</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Lbl" Alternate-name="Label" Node-content="Has-kids" Event-class="Enter">
+			<Comment>Lbl and its content is discarded in numbered/unnumbered lists for HTML-3.20</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Lbl" Alternate-name="Label" Node-content="Has-kids" Event-class="Exit">
+			<Comment>Lbl and its content is discarded in numbered/unnumbered lists for HTML-3.20</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LBody" Alternate-name="ListBody" Node-content="Has-kids" Event-class="Enter">
+			<Comment>No wrapper tag is issued for LBody in numbered/unnumbered lists for HTML-3.20</Comment>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LBody" Alternate-name="ListBody" Node-content="Has-kids" Event-class="Exit">
+			<Comment>No wrapper tag is issued for LBody in numbered/unnumbered lists for HTML-3.20</Comment>
+		</Event>
+		<Call-event-list Name="content-elements"/>
+	</Define-event-list>
+	<Define-event-list Name="unnumbered-list-elements">
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;LI</Emit-string>
+			<Call-proc-list Name="List-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="unnumbered-list-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/LI</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Lbl" Alternate-name="Label" Node-content="Has-kids" Event-class="Enter">
+			<Comment>Lbl and its content is discarded in numbered/unnumbered lists for HTML-3.20</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Lbl" Alternate-name="Label" Node-content="Has-kids" Event-class="Exit">
+			<Comment>Lbl and its content is discarded in numbered/unnumbered lists for HTML-3.20</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LBody" Alternate-name="ListBody" Node-content="Has-kids" Event-class="Enter">
+			<Comment>No wrapper tag is issued for LBody in numbered/unnumbered lists for HTML-3.20</Comment>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LBody" Alternate-name="ListBody" Node-content="Has-kids" Event-class="Exit">
+			<Comment>No wrapper tag is issued for LBody in numbered/unnumbered lists for HTML-3.20</Comment>
+		</Event>
+		<Call-event-list Name="content-elements"/>
+	</Define-event-list>
+	<Define-event-list Name="table-contents">
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Caption" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;CAPTION </Emit-string>
+			<Proc-var Pdf-var="CaptionAlign" Owner="Layout" Type="Atom" Inherit="Inheritable" Condition="Has-value">
+				<Emit-string SP-Before="Yes">align=&quot;</Emit-string>
+				<Proc-enum>
+					<Proc-enum-choice Value-in="Before" Value-out="top"/>
+					<Proc-enum-choice Value-in="After" Value-out="bottom"/>
+					<Proc-enum-choice Value-in="Start" Value-out="left"/>
+					<Proc-enum-choice Value-in="End" Value-out="right"/>
+				</Proc-enum>
+				<Emit-string>&quot;</Emit-string>
+			</Proc-var>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Caption" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/CAPTION</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Comment>HTML-3.20 does not support Table Zones / Row groups (THead, TBody, and TFoot) rows</Comment>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="TBody" Alternate-name="TableBody" Node-content="Has-kids" Event-class="Enter">
+			<Walk-children Use-event-list="table-contents"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="THead" Alternate-name="TableHead" Node-content="Has-kids" Event-class="Enter">
+			<Walk-children Use-event-list="table-contents"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TableHeader" Node-content="Has-kids" Event-class="Enter">
+			<Walk-children Use-event-list="table-contents"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="TFoot" Alternate-name="TableFoot" Node-content="Has-kids" Event-class="Enter">
+			<Walk-children Use-event-list="table-contents"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TableFooter" Node-content="Has-kids" Event-class="Enter">
+			<Walk-children Use-event-list="table-contents"/>
+		</Event>
+		<Comment>rows</Comment>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TR" Alternate-name="TableRow" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-Before="No" SP-After="Yes" NL-Before="No" NL-After="Yes">&lt;TR </Emit-string>
+			<Call-proc-list Name="Table-row-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string SP-Before="No" SP-After="No" NL-Before="Yes" NL-After="No">&gt;</Emit-string>
+			<Walk-children Use-event-list="table-contents"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TR" Alternate-name="TableRow" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string SP-Before="No" SP-After="No" NL-Before="No" NL-After="No">&lt;/TR</Emit-string>
+			<Emit-string SP-Before="No" SP-After="No" NL-Before="Yes" NL-After="No">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTR" Alternate-name="-none-" Node-content="Has-kids" Event-class="Enter">
+			<Walk-children Use-event-list="table-contents"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTR" Alternate-name="-none-" Node-content="Has-kids" Event-class="Exit">
+			<Comment>No processing on exit from FTR (Table used solely for formatting)</Comment>
+		</Event>
+		<Comment>header cells</Comment>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TH" Alternate-name="TableHeaderCell" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-Before="No" SP-After="Yes" NL-Before="No" NL-After="Yes">&lt;TH</Emit-string>
+			<Call-proc-list Name="Table-cell-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string SP-Before="No" SP-After="No" NL-Before="Yes" NL-After="No">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TH" Alternate-name="TableHeaderCell" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string SP-Before="No" SP-After="No" NL-Before="No" NL-After="No">&lt;/TH</Emit-string>
+			<Emit-string SP-Before="No" SP-After="No" NL-Before="Yes" NL-After="No">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTH" Alternate-name="-none-" Node-content="Has-kids" Event-class="Enter">
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTH" Alternate-name="-none-" Node-content="Has-kids" Event-class="Exit">
+			<Comment>No processing on exit from FTH (Table used solely for formatting)</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TH" Alternate-name="TableHeaderCell" Node-content="Empty" Event-class="Enter">
+			<Emit-string SP-Before="No" SP-After="Yes" NL-Before="No" NL-After="Yes">&lt;TH</Emit-string>
+			<Call-proc-list Name="Table-cell-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string SP-Before="No" SP-After="No" NL-Before="Yes" NL-After="No">&gt;&lt;/TH&gt;</Emit-string>
+		</Event>
+		<Comment>data cells</Comment>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TD" Alternate-name="TableDataCell" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-Before="No" SP-After="Yes" NL-Before="No" NL-After="Yes">&lt;TD </Emit-string>
+			<Call-proc-list Name="Table-cell-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string SP-Before="No" SP-After="No" NL-Before="Yes" NL-After="No">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TD" Alternate-name="TableDataCell" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string SP-Before="No" SP-After="No" NL-Before="No" NL-After="No">&lt;/TD</Emit-string>
+			<Emit-string SP-Before="No" SP-After="No" NL-Before="Yes" NL-After="No">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTD" Alternate-name="-none-" Node-content="Has-kids" Event-class="Enter">
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTD" Alternate-name="-none-" Node-content="Has-kids" Event-class="Exit">
+			<Comment>No processing on exit from FTD (Table used solely for formatting)</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TD" Alternate-name="TableDataCell" Node-content="Empty" Event-class="Enter">
+			<Emit-string SP-Before="No" SP-After="Yes" NL-Before="No" NL-After="Yes">&lt;TD </Emit-string>
+			<Call-proc-list Name="Table-cell-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string SP-Before="No" SP-After="No" NL-Before="Yes" NL-After="No">&gt;&lt;/TD&gt;</Emit-string>
+		</Event>
+		<Comment>catch all</Comment>
+		<Event Inf-type="Struct-elem" Name-type="Any" Node-content="Has-kids" Event-class="Enter">
+			<Walk-children Use-event-list="table-contents"/>
+		</Event>
+	</Define-event-list>
+	<Define-event-list Name="content-elements">
+		<!--Marked content elements-->
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Has-text-only" Event-class="Enter">
+			<Call-proc-list Name="Mcc-entry-wrappers"/>
+			<Proc-doc-text do-br-substitution="do-br-substitution"/>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Image" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+			<Emit-string>&quot;&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Pds-mc" Name-type="Any" Node-content="Graphic" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+			<Emit-string>&quot;&gt;</Emit-string>
+		</Event>
+		<!--Grouping elements-->
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Group" Node-content="Has-kids" Event-class="Enter">
+			<Comment>Group: No tags applied</Comment>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Group" Node-content="Has-kids" Event-class="Exit">
+			<Comment>Group: No tags applied</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Document" Alternate-name="Doc" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;DIV class=&quot;Document&quot;</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Document" Alternate-name="Doc" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Art" Alternate-name="Article" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;DIV class=&quot;Article&quot;</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Art" Alternate-name="Article" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Part" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;DIV class=&quot;Part&quot;</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Part" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Sect" Alternate-name="Section" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;DIV class=&quot;Sect&quot;</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Sect" Alternate-name="Section" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Div" Alternate-name="Division" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;DIV</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Div" Alternate-name="Division" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Blockquote" Alternate-name="BQ" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string>&lt;BLOCKQUOTE</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Blockquote" Alternate-name="BQ" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/BLOCKQUOTE</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Index" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;DIV class=&quot;Index&quot;</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Index" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TOC" Alternate-name="TableOfContents" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;DIV class=&quot;TOC&quot;</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TOC" Alternate-name="TableOfContents" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TOCI" Alternate-name="ContentItem" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;DIV class=&quot;TOCI&quot;</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="TOCI" Alternate-name="ContentItem" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Caption" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;DIV class=&quot;unexpected-caption&quot;</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Caption" Alternate-name="-none-" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Private" Node-content="Has-kids" Event-class="Enter">
+			<Comment>Private nodes and thier children are discarded</Comment>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Private" Node-content="Has-kids" Event-class="Exit">
+			<Comment>Private nodes and thier children are discarded</Comment>
+		</Event>
+		<!--Paragraph elements-->
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H" Alternate-name="Heading" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;H1</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Call-proc-list Name="Span-entry-wrappers"/>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H" Alternate-name="Heading" Node-content="Has-kids" Event-class="Exit">
+			<Call-proc-list Name="Span-exit-wrappers"/>
+			<Emit-string>&lt;/H1</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H1" Alternate-name="Heading1" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;H1</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Call-proc-list Name="Span-entry-wrappers"/>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H1" Alternate-name="Heading1" Node-content="Has-kids" Event-class="Exit">
+			<Call-proc-list Name="Span-exit-wrappers"/>
+			<Emit-string>&lt;/H1</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H2" Alternate-name="Heading2" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;H2</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Call-proc-list Name="Span-entry-wrappers"/>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H2" Alternate-name="Heading2" Node-content="Has-kids" Event-class="Exit">
+			<Call-proc-list Name="Span-exit-wrappers"/>
+			<Emit-string>&lt;/H2</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H3" Alternate-name="Heading3" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;H3</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Call-proc-list Name="Span-entry-wrappers"/>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H3" Alternate-name="Heading3" Node-content="Has-kids" Event-class="Exit">
+			<Call-proc-list Name="Span-exit-wrappers"/>
+			<Emit-string>&lt;/H3</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H4" Alternate-name="Heading4" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;H4</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Call-proc-list Name="Span-entry-wrappers"/>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H4" Alternate-name="Heading4" Node-content="Has-kids" Event-class="Exit">
+			<Call-proc-list Name="Span-exit-wrappers"/>
+			<Emit-string>&lt;/H4</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H5" Alternate-name="Heading5" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;H5</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Call-proc-list Name="Span-entry-wrappers"/>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H5" Alternate-name="Heading5" Node-content="Has-kids" Event-class="Exit">
+			<Call-proc-list Name="Span-exit-wrappers"/>
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;/H5</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H6" Alternate-name="Heading6" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;H6</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Call-proc-list Name="Span-entry-wrappers"/>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="H6" Alternate-name="Heading6" Node-content="Has-kids" Event-class="Exit">
+			<Call-proc-list Name="Span-exit-wrappers"/>
+			<Emit-string>&lt;/H6</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="P" Alternate-name="Paragraph" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;P</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Call-proc-list Name="Span-entry-wrappers"/>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="P" Alternate-name="Paragraph" Node-content="Has-kids" Event-class="Exit">
+			<Call-proc-list Name="Span-exit-wrappers"/>
+			<Emit-string>&lt;/P</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<!--ILSEs-->
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="BibEntry" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;DIV class=&quot;BibEntry&quot;</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="BibEntry" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Span" Node-content="Has-kids" Event-class="Enter">
+			<Call-proc-list Name="Span-entry-wrappers"/>
+			<Evaluate-var Pdf-var="ActualText" Owner="Structelem" Type="String" Inherit="Not-inherited" Condition="Has-value">
+				<Call-proc-list Name="Mcc-entry-wrappers"/>
+				<Proc-var Pdf-var="ActualText" Owner="Structelem" Type="String" Inherit="Not-inherited" Condition="Always">
+					<Proc-string/>
+				</Proc-var>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ActualText" Owner="Structelem" Type="String" Inherit="Not-inherited" Condition="No-value">
+				<Walk-children Use-event-list="content-elements"/>
+			</Evaluate-var>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Span" Node-content="Has-kids" Event-class="Exit">
+			<Call-proc-list Name="Span-exit-wrappers"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Quote" Alternate-name="Q" Node-content="Has-kids" Event-class="Enter">
+			<Comment>Inline quote</Comment>
+			<Emit-string SP-After="Yes">&lt;Q</Emit-string>
+			<Call-proc-list Name="Span-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string>&gt;</Emit-string>
+			<Call-proc-list Name="Span-entry-wrappers"/>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Quote" Alternate-name="Q" Node-content="Has-kids" Event-class="Exit">
+			<Call-proc-list Name="Span-exit-wrappers"/>
+			<Emit-string>&lt;/Q&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Link" Alternate-name="A" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string>&lt;A</Emit-string>
+			<Proc-var Pdf-var="LinkDestination" Owner="Link" Type="String" Inherit="Not-inherited" Condition="Has-value">
+				<Emit-string SP-Before="Yes">href=&quot;#;</Emit-string>
+				<Proc-string/>
+				<Emit-string>&quot;</Emit-string>
+			</Proc-var>
+			<Call-proc-list Name="User-attributes"/>
+			<Call-proc-list Name="Span-attributes"/>
+			<Emit-string NL-After="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Link" Alternate-name="A" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string NL-After="Yes">&lt;/A&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Code" Node-content="Has-kids" Event-class="Enter">
+			<Comment>Inline code fragment</Comment>
+			<Emit-string SP-After="Yes">&lt;CODE</Emit-string>
+			<Call-proc-list Name="Span-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string>&gt;</Emit-string>
+			<Call-proc-list Name="Span-entry-wrappers"/>
+			<Proc-doc-text do-br-substitution="do-br-substitution"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Code" Node-content="Has-kids" Event-class="Exit">
+			<Call-proc-list Name="Span-exit-wrappers"/>
+			<Emit-string>&lt;/CODE&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Note" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;DIV class=&quot;Note&quot;</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Note" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DIV</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Reference" Node-content="Has-kids" Event-class="Enter">
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="NonStruct" Node-content="Has-kids" Event-class="Enter">
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<!--List elements-->
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="UL" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;UL</Emit-string>
+			<Call-proc-list Name="List-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="unnumbered-list-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="UL" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/UL</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="OL" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;OL</Emit-string>
+			<Call-proc-list Name="List-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="numbered-list-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="OL" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/OL</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="DL" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;DL</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="dictionary-list-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="DL" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/DL</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="L" Alternate-name="List" Node-content="Has-kids" Event-class="Enter">
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="No-value">
+				<Emit-string SP-After="Yes" NL-After="Yes">&lt;DL</Emit-string>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="dictionary-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="None">
+				<Emit-string SP-After="Yes" NL-After="Yes">&lt;DL</Emit-string>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="dictionary-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Disc">
+				<Emit-string SP-After="Yes" NL-After="Yes">&lt;UL</Emit-string>
+				<Call-proc-list Name="List-attributes"/>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Emit-string SP-After="No" NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="unnumbered-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Circle">
+				<Emit-string SP-After="Yes" NL-After="Yes">&lt;UL</Emit-string>
+				<Call-proc-list Name="List-attributes"/>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="unnumbered-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Square">
+				<Emit-string SP-After="Yes" NL-After="Yes">&lt;UL</Emit-string>
+				<Call-proc-list Name="List-attributes"/>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="unnumbered-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Decimal">
+				<Emit-string SP-After="Yes" NL-After="Yes">&lt;OL</Emit-string>
+				<Call-proc-list Name="List-attributes"/>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="numbered-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="LowerRoman">
+				<Emit-string SP-After="Yes" NL-After="Yes">&lt;OL</Emit-string>
+				<Call-proc-list Name="List-attributes"/>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="numbered-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="UpperRoman">
+				<Emit-string SP-After="Yes" NL-After="Yes">&lt;OL</Emit-string>
+				<Call-proc-list Name="List-attributes"/>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="numbered-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="LowerAlpha">
+				<Emit-string SP-After="Yes" NL-After="Yes">&lt;OL</Emit-string>
+				<Call-proc-list Name="List-attributes"/>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="numbered-list-elements"/>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="UpperAlpha">
+				<Emit-string SP-After="Yes" NL-After="Yes">&lt;OL</Emit-string>
+				<Call-proc-list Name="List-attributes"/>
+				<Call-proc-list Name="Element-attributes"/>
+				<Call-proc-list Name="User-attributes"/>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+				<Walk-children Use-event-list="numbered-list-elements"/>
+			</Evaluate-var>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="L" Alternate-name="List" Node-content="Has-kids" Event-class="Exit">
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="No-value" Compare="-none-">
+				<Emit-string>&lt;/DL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="None">
+				<Emit-string>&lt;/DL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Disc">
+				<Emit-string>&lt;/UL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Circle">
+				<Emit-string>&lt;/UL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Square">
+				<Emit-string>&lt;/UL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="Decimal">
+				<Emit-string>&lt;/OL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="LowerRoman">
+				<Emit-string>&lt;/OL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="UpperRoman">
+				<Emit-string>&lt;/OL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="LowerAlpha">
+				<Emit-string>&lt;/OL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+			<Evaluate-var Pdf-var="ListNumbering" Owner="List" Type="Atom" Inherit="Inheritable" Condition="Matches-value" Compare="UpperAlpha">
+				<Emit-string>&lt;/OL</Emit-string>
+				<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			</Evaluate-var>
+		</Event>
+		<!--Unexpected List elements not properly nested-->
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;P class=&quot;Unexpected-LI&quot;</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LI" Alternate-name="ListItem" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/P</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Lbl" Alternate-name="Label" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;P class=&quot;Unexpected-Lbl&quot;</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Lbl" Alternate-name="Label" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/P</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LBody" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;P class=&quot;Unexpected-LBody&quot;</Emit-string>
+			<Call-proc-list Name="Para-attributes"/>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="content-elements"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="LBody" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/P</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<!--Table-->
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Table" Alternate-name="Tbl" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string SP-After="Yes" NL-After="Yes">&lt;TABLE</Emit-string>
+			<Call-proc-list Name="Table-attributes"/>
+			<Comment>To doP: check this --> No corresponding PDF-state info - need to synthesize border thickness, cell-spacing, and cell-padding.</Comment>
+			<Emit-string SP-Before="Yes">border=0 cellspacing=0 cellpadding=2</Emit-string>
+			<Call-proc-list Name="Table-element-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+			<Walk-children Use-event-list="table-contents"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Table" Alternate-name="Tbl" Node-content="Has-kids" Event-class="Exit">
+			<Emit-string>&lt;/TABLE</Emit-string>
+			<Emit-string NL-Before="Yes">&gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTable" Node-content="Has-kids" Event-class="Enter">
+			<Walk-children Use-event-list="table-contents"/>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-user-label" Node-name="FTable" Node-content="Has-kids" Event-class="Exit">
+			<Comment>No processing on exit from FTable (Table used solely for formatting)</Comment>
+		</Event>
+		<!--@ Illustration elements-->
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Figure" Alternate-name="Img" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+			<Emit-string>&quot; &gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Form" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+			<Emit-string>&quot; &gt;</Emit-string>
+		</Event>
+		<Event Inf-type="Struct-elem" Name-type="Structure-role" Node-name="Formula" Node-content="Has-kids" Event-class="Enter">
+			<Emit-string>&lt;IMG</Emit-string>
+			<Call-proc-list Name="Element-attributes"/>
+			<Call-proc-list Name="Figure-attributes"/>
+			<Call-proc-list Name="User-attributes"/>
+			<Emit-string SP-Before="Yes" NL-Before="Yes">src=&quot;</Emit-string>
+			<Proc-image-content/>
+			<Emit-string>&quot; &gt;</Emit-string>
+		</Event>
+	</Define-event-list>
+	<!--===== File Output instructions =====-->
+	<Set-encoding>
+		<Enum-encoding Type="Utf-8-out" Suppress="No" Emit-BOM="No"/>
+		<Enum-encoding Type="Utf-16-out" Suppress="No" Emit-BOM="Yes"/>
+		<Enum-encoding Type="Ucs-4-out" Suppress="No" Emit-BOM="Yes"/>
+		<Enum-encoding Type="Iso-latin-1-out" Suppress="No" Emit-BOM="No"/>
+		<Enum-encoding Type="Html-ascii-out" Suppress="No" Emit-BOM="No"/>
+	</Set-encoding>
+	<Begin-encoding/>
+	<Emit-string NL-After="Yes">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final//EN&quot;&gt;</Emit-string>
+	<Emit-string NL-After="Yes">&lt;!-- Created from PDF via Acrobat SaveAsXML --&gt;</Emit-string>
+	<Emit-string NL-After="Yes">&lt;!-- Mapping table version: 28-February-2003 --&gt;</Emit-string>
+	<Emit-string NL-After="Yes">&lt;HTML&gt;</Emit-string>
+	<Emit-string NL-After="Yes">&lt;HEAD&gt;</Emit-string>
+	<Walk-doc-metadata Use-proc-list="basic-metadata"/>
+	<Emit-string NL-After="Yes">&lt;/HEAD&gt;</Emit-string>
+	<Emit-string NL-After="Yes">&lt;BODY bgcolor=white text=black link=blue vlink=purple alink=fushia &gt;</Emit-string>
+	<Walk-bookmarks Use-event-list="bookmark-elements"/>
+	<Walk-structure Use-event-list="content-elements"/>
+	<Emit-string NL-After="Yes">&lt;/BODY&gt;</Emit-string>
+	<Emit-string NL-After="Yes">&lt;/HTML&gt;</Emit-string>
+</Root>

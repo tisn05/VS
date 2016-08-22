@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8D5A88D3-0EEE-42EA-A7AB-B234D69FB155}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>Zhangyue.iReader.EBK3</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>Zhangyue.iReader.EBK3</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\BookItems.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\BookInfo.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\ByteToStructEbk3.cs" />
+    <Compile Include="StructLib\DeCompress.cs" />
+    <Compile Include="Zhangyue\iReader\EBK2\BookItems.cs" />
+    <Compile Include="Zhangyue\iReader\EBK2\BookInfo.cs" />
+    <Compile Include="Zhangyue\iReader\EBK2\BytesToStruct.cs" />
+    <Compile Include="Zhangyue\iReader\EBK2\Ebk2Open.cs" />
+    <Compile Include="Zhangyue\iReader\EBK2\Model.cs" />
+    <Compile Include="Zhangyue\iReader\EBK2\TextStruct.cs" />
+    <Compile Include="Zhangyue\iReader\EBK2\ChapterStruct.cs" />
+    <Compile Include="Zhangyue\iReader\EBK2\ChapterCompress.cs" />
+    <Compile Include="Zhangyue\iReader\EBK2\CATHYEBK_MEDIA_DATA_T.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\Ebk3Make.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\Ebk3Open.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\m_compressList.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\byteinfo.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\chapterlist.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\blockfileStruct.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\blockfilelistStruct.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\blockStruct.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\blockinfoModel.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\blockinfobyteModel.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\blockinfoArray.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\PicHeadModel.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\PicModel.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\PicByteModel.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\Pic.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\ChapterHeadModelStruct.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\ChapterListModel.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\ChapterListStruct.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\ChapterListByteModel.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\GetChapterListArray.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\Model.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\EBK3HeadInfoModel.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\EBK3HeadByteModel.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\GetEbk3HeadArray.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\EBK3HeadStruct.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\DynDataStruct.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\Ebk3Update.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\Ebk3_Data.cs" />
+    <Compile Include="Zhangyue\iReader\EBK3\GetData.cs" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+</Project>

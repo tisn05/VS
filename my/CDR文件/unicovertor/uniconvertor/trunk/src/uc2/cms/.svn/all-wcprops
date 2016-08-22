@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/379/trunk/src/uc2/cms
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/379/trunk/src/uc2/cms/__init__.py
+END
+srgb_profile_rc.py
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/303/trunk/src/uc2/cms/srgb_profile_rc.py
+END
+lab_profile_rc.py
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/303/trunk/src/uc2/cms/lab_profile_rc.py
+END
+gray_profile_rc.py
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/303/trunk/src/uc2/cms/gray_profile_rc.py
+END
+cmyk_profile_rc.py
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/303/trunk/src/uc2/cms/cmyk_profile_rc.py
+END
+libcms.py
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/342/trunk/src/uc2/cms/libcms.py
+END
+display_profile_rc.py
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/303/trunk/src/uc2/cms/display_profile_rc.py
+END
+_cms.c
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/342/trunk/src/uc2/cms/_cms.c
+END
+_cms2.c
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/342/trunk/src/uc2/cms/_cms2.c
+END

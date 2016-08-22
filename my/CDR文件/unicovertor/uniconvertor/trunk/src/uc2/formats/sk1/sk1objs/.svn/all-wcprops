@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/309/trunk/src/uc2/formats/sk1/sk1objs
+END
+skfm.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/skfm.c
+END
+curvefunc.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/curvefunc.c
+END
+skrect.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/skrect.h
+END
+curvemisc.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/curvemisc.c
+END
+skaux.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/skaux.h
+END
+skfm.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/skfm.h
+END
+curvemisc.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/curvemisc.h
+END
+curvefunc.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/curvefunc.h
+END
+curvelow.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/curvelow.c
+END
+sktrafo.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/sktrafo.c
+END
+curveobject.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/curveobject.c
+END
+curvelow.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/curvelow.h
+END
+skcolor.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/skcolor.c
+END
+sktrafo.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/sktrafo.h
+END
+ImPlatform.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/ImPlatform.h
+END
+Imaging.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/Imaging.h
+END
+curveobject.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/curveobject.h
+END
+skimage.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/skimage.c
+END
+skcolor.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/skcolor.h
+END
+skimage.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/skimage.h
+END
+_sketchmodule.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/_sketchmodule.c
+END
+skpoint.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/skpoint.c
+END
+skrect.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/skrect.c
+END
+_sketchmodule.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/_sketchmodule.h
+END
+skaux.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/skaux.c
+END
+skpoint.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/131/trunk/src/uc2/formats/sk1/sk1objs/skpoint.h
+END

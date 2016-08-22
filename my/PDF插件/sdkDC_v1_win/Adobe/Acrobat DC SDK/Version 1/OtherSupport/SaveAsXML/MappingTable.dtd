@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is the DTD for SaveAsXML, last modified 28-February-2003 -->
+<!--
+	ADOBE SYSTEMS INCORPORATED
+	Copyright 2003 Adobe Systems Incorporated
+	All Rights Reserved
+	
+	NOTICE:  This Notice only applies to this file or any portion thereof.
+	Adobe permits you to use, modify, and distribute this file in accordance
+	with the terms and conditions of the Adobe license agreement accompanying
+	it ("Agreement").  Additionally, Adobe grants you a nonexclusive,
+	nontransferable, royalty-free license to use, modify and distribute
+	all or any portion of this file.  Where the terms of this Notice
+	and the terms of the Agreement differ, the terms of this Notice
+	shall control.  All other terms and conditions of the Agreement
+	remain unchanged and have full force and effect.  If you have received
+	this file from a source other than Adobe, then your use, modification,
+	or distribution of it requires the prior written permission of Adobe.
+-->
+<!ELEMENT Root ((Comment | Emit-string | Define-event-list | Define-proc-list | Walk-doc-metadata | Emit-doc-metadata | Walk-cached-property-sets | Walk-structure | Walk-bookmarks | Set-encoding | Emit-encoding | Begin-encoding)+)>
+<!ATTLIST Root
+	File-format CDATA #REQUIRED
+	Menu-name CDATA #REQUIRED
+	Mac-creator CDATA #REQUIRED
+	Mac-type CDATA #REQUIRED
+	Win-suffix CDATA #REQUIRED
+	Encode-out (Ucs-2-out | Ucs-4-out | Utf-8-out | Utf-16-out | Iso-latin-1-out | Html-ascii-out | Host-code-out) #REQUIRED
+>
+<!ELEMENT Walk-doc-metadata (Void?)>
+<!ATTLIST Walk-doc-metadata
+	Use-proc-list CDATA #REQUIRED
+>
+<!ELEMENT Emit-doc-metadata (Void?)>
+<!ATTLIST Emit-doc-metadata
+	SP-Before (Yes | No) #IMPLIED
+	SP-After (Yes | No) #IMPLIED
+	NL-Before (Yes | No) #IMPLIED
+	NL-After (Yes | No) #IMPLIED
+>
+<!ELEMENT Emit-metadata (Void?)>
+<!ATTLIST Emit-metadata
+	SP-Before (Yes | No) #IMPLIED
+	SP-After (Yes | No) #IMPLIED
+	NL-Before (Yes | No) #IMPLIED
+	NL-After (Yes | No) #IMPLIED
+>
+<!ELEMENT Walk-structure (Void?)>
+<!ATTLIST Walk-structure
+	Use-event-list CDATA #REQUIRED
+>
+<!ELEMENT Walk-cached-property-sets (Void?)>
+<!ATTLIST Walk-cached-property-sets
+	Use-event-list CDATA #REQUIRED
+>
+<!ELEMENT Walk-children (Void?)>
+<!ATTLIST Walk-children
+	Use-event-list CDATA #REQUIRED
+>
+<!ELEMENT Walk-bookmarks (Void?)>
+<!ATTLIST Walk-bookmarks
+	Use-event-list CDATA #REQUIRED
+>
+<!ELEMENT Define-event-list ((Comment | Event | Call-event-list)+)>
+<!ATTLIST Define-event-list
+	Name CDATA #REQUIRED
+>
+<!ELEMENT Call-event-list (Void?)>
+<!ATTLIST Call-event-list
+	Name CDATA #REQUIRED
+>
+<!ELEMENT Event ((Comment | Emit-string | Conditional-prefix | Conditional-delimeter | Element-name | Evaluate-var | Proc-var | Walk-proplist | Call-proc-list | Conditional-suffix | Proc-graphic-content | Proc-image-content | Proc-doc-text | Walk-children | Emit-metadata)+)>
+<!ATTLIST Event
+	Inf-type (Root | Struct-elem | Pds-mc | Obj-ref | Bookmark) #REQUIRED
+	Name-type (Any | Structure-role | Structure-user-label) #REQUIRED
+	Node-name CDATA "-none-"
+	Alternate-name CDATA "-none-"
+	Node-content (Empty | Has-text-only | Has-kids | Graphic | Image | Bookmark | Other) #REQUIRED
+	Event-class (Enter | Enter-from-parent | Enter-from-peer | Exit | Exit-to-parent | Exit-to-peer | Begin-children | End-children) #REQUIRED
+>
+<!ELEMENT Define-proc-list ((Comment | Evaluate-var | Proc-var | Walk-proplist | Call-proc-list | Conditional-prefix | Conditional-suffix | Proc-property)+)>
+<!ATTLIST Define-proc-list
+	Name CDATA #REQUIRED
+>
+<!ELEMENT Call-proc-list (Void?)>
+<!ATTLIST Call-proc-list
+	Name CDATA #REQUIRED
+>
+<!ELEMENT Proc-var ((Comment | Emit-string | Conditional-prefix | Conditional-delimeter | Element-name | Proc-string | Proc-integer | Proc-hex | Proc-fixed | Proc-length | Proc-pixels | Proc-color | Proc-enum | Evaluate-var | Proc-var | Walk-proplist | Call-proc-list | Proc-graphic-content | Proc-image-content | Proc-bookmark-target | Proc-doc-text | Walk-children | Walk-cached-property-sets | Walk-structure | Conditional-suffix | Walk-doc-metadata)+)>
+<!ATTLIST Proc-var
+	Pdf-var CDATA #REQUIRED
+	Owner (Metadata | Structelem | Layout | Link | List | Table | AutoTextStyle | Inline-markup) #REQUIRED
+	Type (Fixed | Int32 | Atom | String | Color) #REQUIRED
+	Has-enum (Enum | No-enum) #IMPLIED
+	Inherit (Inheritable | Not-inherited) #REQUIRED
+	Default CDATA #IMPLIED
+	Condition (Always | Has-value | No-value | Diff-from-default-for-event | Diff-from-default-or-parent | Diff-from-parent | Diff-from-predecessor | Diff-from-value | Matches-value | Less-than-value | More-than-value | Less-equal-value | More-equal-value | Is-bookmark-target) #REQUIRED
+	Compare CDATA "-none-"
+>
+<!ELEMENT Evaluate-var ((Comment | Emit-string | Conditional-prefix | Conditional-delimeter | Element-name | Proc-string | Proc-integer | Proc-hex | Proc-fixed | Proc-length | Proc-pixels | Proc-color | Proc-enum | Evaluate-var | Proc-var | Walk-proplist | Call-proc-list | Proc-graphic-content | Proc-image-content | Proc-bookmark-target | Proc-doc-text | Walk-children | Walk-cached-property-sets | Walk-structure | Conditional-suffix | Walk-doc-metadata)+)>
+<!ATTLIST Evaluate-var
+	Pdf-var CDATA #REQUIRED
+	Owner (Metadata | Structelem | Layout | Link | List | Table | AutoTextStyle | Inline-markup | Style-cache) #REQUIRED
+	Type (Fixed | Int32 | Atom | String | Color | Constant) #REQUIRED
+	Has-enum (Enum | No-enum) #IMPLIED
+	Inherit (Inheritable | Not-inherited) #REQUIRED
+	Default CDATA #IMPLIED
+	Condition (Always | Has-value | No-value | Diff-from-default-for-event | Diff-from-default-or-parent | Diff-from-parent | Diff-from-predecessor | Diff-from-value | Matches-value | Less-than-value | More-than-value | Less-equal-value | More-equal-value | Is-bookmark-target) #REQUIRED
+	Compare CDATA "-none-"
+>
+<!ELEMENT Walk-proplist (Void?)>
+<!ATTLIST Walk-proplist
+	Owner (XML-1.00 | HTML-3.20 | HTML-4.01 | OEB-1.00 | RTF-1.05 | CSS-1.00 | CSS-2.00 | XHTML-1.00) #REQUIRED
+	Use-proclist CDATA #REQUIRED
+>
+<!ELEMENT Proc-property ((Comment | Conditional-delimeter | Emit-string | Property-name | Property-type)+)>
+<!ELEMENT Property-type ((Comment | Conditional-delimeter | Emit-string | Proc-string | Proc-integer | Proc-hex | Proc-fixed | Proc-length | Proc-pixels | Proc-enum | Proc-doc-text | Proc-graphic-content | Proc-image-content)+)>
+<!ATTLIST Property-type
+	Type (Fixed | Int32 | Atom | String) #REQUIRED
+>
+<!ELEMENT Property-name (Void?)>
+<!ELEMENT Element-name (Void?)>
+<!ATTLIST Element-name
+	Name-type (Any | Structure-role | Structure-user-label) #REQUIRED
+>
+<!ELEMENT Conditional-delimeter (#PCDATA)>
+<!ATTLIST Conditional-delimeter
+	SP-Before (Yes | No) #IMPLIED
+	SP-After (Yes | No) #IMPLIED
+	NL-Before (Yes | No) #IMPLIED
+	NL-After (Yes | No) #IMPLIED
+>
+<!ELEMENT Conditional-prefix (#PCDATA)>
+<!ATTLIST Conditional-prefix
+	SP-Before (Yes | No) #IMPLIED
+	SP-After (Yes | No) #IMPLIED
+	NL-Before (Yes | No) #IMPLIED
+	NL-After (Yes | No) #IMPLIED
+>
+<!ELEMENT Conditional-suffix (#PCDATA)>
+<!ATTLIST Conditional-suffix
+	SP-Before (Yes | No) #IMPLIED
+	SP-After (Yes | No) #IMPLIED
+	NL-Before (Yes | No) #IMPLIED
+	NL-After (Yes | No) #IMPLIED
+>
+<!ELEMENT Comment (#PCDATA)>
+<!ELEMENT Emit-string (#PCDATA)>
+<!ATTLIST Emit-string
+	SP-Before (Yes | No) #IMPLIED
+	SP-After (Yes | No) #IMPLIED
+	NL-Before (Yes | No) #IMPLIED
+	NL-After (Yes | No) #IMPLIED
+	Expand-entities (Expand-entities | No-entities) "No-entities"
+>
+<!ELEMENT Proc-doc-text (Void?)>
+<!ATTLIST Proc-doc-text
+	do-br-substitution (do-br-substitution | do-xml-br-substitution | no-substitution) #REQUIRED
+	Expand-entities (Expand-entities | No-entities) "No-entities"
+	ToEscape CDATA #IMPLIED
+	EscapeWith CDATA #IMPLIED
+>
+<!ELEMENT Proc-string (Void?)>
+<!ATTLIST Proc-string
+	Expand-entities (Expand-entities | No-entities) "No-entities"
+>
+<!ELEMENT Proc-integer (Void?)>
+<!ATTLIST Proc-integer
+	Mul CDATA "1"
+	Add CDATA "0"
+	Div CDATA "1"
+>
+<!ELEMENT Proc-hex (Void?)>
+<!ATTLIST Proc-hex
+	Mul CDATA "1"
+	Add CDATA "0"
+	Div CDATA "1"
+	Num-digits CDATA "1"
+>
+<!ELEMENT Proc-fixed (Void?)>
+<!ATTLIST Proc-fixed
+	Mul CDATA "1"
+	Add CDATA "0"
+	Div CDATA "1"
+	Frac-len CDATA "2"
+	Frac-dlm CDATA "."
+>
+<!ELEMENT Proc-length (Void?)>
+<!ATTLIST Proc-length
+	Mul CDATA "72"
+	Add CDATA "0"
+	Div CDATA "72"
+	Frac-len CDATA "2"
+	Frac-dlm CDATA "."
+>
+<!ELEMENT Proc-pixels (Void?)>
+<!ATTLIST Proc-pixels
+	Mul CDATA "96"
+	Add CDATA "36"
+	Div CDATA "72"
+	Frac-len CDATA "0"
+	Frac-dlm CDATA "."
+>
+<!ELEMENT Proc-color (Void?)>
+<!ATTLIST Proc-color
+	OutputHex (Yes | No) #REQUIRED
+	Uppercase (Yes | No) #IMPLIED
+>
+<!ELEMENT Proc-enum (Proc-enum-choice+)>
+<!ELEMENT Proc-enum-choice (Void?)>
+<!ATTLIST Proc-enum-choice
+	Value-in CDATA #REQUIRED
+	Value-out CDATA #REQUIRED
+>
+<!ELEMENT Proc-graphic-content (Void?)>
+<!ELEMENT Proc-image-content (Void?)>
+<!ELEMENT Proc-bookmark-target (Void?)>
+<!ELEMENT Set-encoding (Enum-encoding+)>
+<!ELEMENT Enum-encoding (Void?)>
+<!ATTLIST Enum-encoding
+	Type CDATA #REQUIRED
+	Suppress (Yes | No) #IMPLIED
+	Emit-BOM (Yes | No) #IMPLIED
+>
+<!ELEMENT Emit-encoding (Proc-enum?)>
+<!ELEMENT Begin-encoding (Void?)>
+<!--Void: The "Void" node is used to avoid the <empty/> syntax.-->
+<!ELEMENT Void EMPTY>

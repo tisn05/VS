@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/283/trunk/debian
+END
+postinst
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/266/trunk/debian/postinst
+END
+postrm
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/266/trunk/debian/postrm
+END

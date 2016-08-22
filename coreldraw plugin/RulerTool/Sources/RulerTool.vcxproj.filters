@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{3049af57-147e-4046-b605-1bba749876ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_PluginSDK">
+      <UniqueIdentifier>{0714c72a-ed8f-436c-8be5-3b650292f858}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RulerToolState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_PluginSDK\ApplicationEventSink.h">
+      <Filter>_PluginSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="_PluginSDK\AppPlugin.h">
+      <Filter>_PluginSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="_PluginSDK\DocumentEventSink.h">
+      <Filter>_PluginSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="_PluginSDK\HostDispatchImpl.h">
+      <Filter>_PluginSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="_PluginSDK\ToolState.h">
+      <Filter>_PluginSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="_PluginSDK\ToolStateBase.h">
+      <Filter>_PluginSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="RulerToolDataSource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_PluginSDK\DataSourceFactory.h">
+      <Filter>_PluginSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="_PluginSDK\DataSource.h">
+      <Filter>_PluginSDK</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RulerTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RulerToolState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_PluginSDK\ApplicationEventSink.cpp">
+      <Filter>_PluginSDK</Filter>
+    </ClCompile>
+    <ClCompile Include="_PluginSDK\AppPlugin.cpp">
+      <Filter>_PluginSDK</Filter>
+    </ClCompile>
+    <ClCompile Include="_PluginSDK\DocumentEventSink.cpp">
+      <Filter>_PluginSDK</Filter>
+    </ClCompile>
+    <ClCompile Include="_PluginSDK\ToolStateBase.cpp">
+      <Filter>_PluginSDK</Filter>
+    </ClCompile>
+    <ClCompile Include="RulerToolDataSource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_PluginSDK\DataSourceFactory.cpp">
+      <Filter>_PluginSDK</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RulerTool.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="UI\coreldrw.addon">
+      <Filter>UI</Filter>
+    </None>
+    <None Include="UI\designer.addon">
+      <Filter>UI</Filter>
+    </None>
+    <None Include="UI\drawessentials.addon">
+      <Filter>UI</Filter>
+    </None>
+    <None Include="UI\drawhome.addon">
+      <Filter>UI</Filter>
+    </None>
+    <None Include="_PluginSDK\LICENSE">
+      <Filter>_PluginSDK</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="RulerTool.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RulerTool.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="UI\AppUI.xslt">
+      <Filter>UI</Filter>
+    </Xml>
+    <Xml Include="UI\config.xml">
+      <Filter>UI</Filter>
+    </Xml>
+    <Xml Include="UI\UserUI.xslt">
+      <Filter>UI</Filter>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="RulerTool.idl">
+      <Filter>Source Files</Filter>
+    </Midl>
+  </ItemGroup>
+</Project>

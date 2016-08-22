@@ -1,0 +1,4 @@
+LIBRARY	SamplePI.api
+HEAPSIZE  	1024
+EXPORTS
+			PlugInMain

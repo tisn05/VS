@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/379/trunk/src/uc2
+END
+uc2const.py
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/348/trunk/src/uc2/uc2const.py
+END
+application.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/377/trunk/src/uc2/application.py
+END
+events.py
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/55/trunk/src/uc2/events.py
+END
+uc_conf.py
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/378/trunk/src/uc2/uc_conf.py
+END
+msgconst.py
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/55/trunk/src/uc2/msgconst.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/315/trunk/src/uc2/__init__.py
+END
